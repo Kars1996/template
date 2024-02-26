@@ -9,7 +9,7 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquieries
 */
 
-import Console from "@/components/console";
+import Console from "../modules/Console/Console";
 import { newMeta } from "@/modules/meta";
 
 const inter = Inter({ subsets: ["latin"] });

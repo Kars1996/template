@@ -15,7 +15,7 @@ export default function() {
             console.log(
                 "🎇 The site you are viewing has been made by Kars :D. Check me out @ https://kars.bio"
             );
-        }, 5 * 1000);
+        }, 2 * 1000);
     }, []);
     return <></>
 };
