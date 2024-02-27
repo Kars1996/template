@@ -13,10 +13,9 @@ This is a [Next.js](https://nextjs.org/) template created for super-powering Kar
 -   Prisma ready to launch! (Just create the .env vars)
 -   Prebuilt I18N support (With @vercel/edge, via headers and context (kars-i18n))
 
-## Quickstarting using create-napp
+## Quickstarting using create-kapp
 
 ```bash
-# First install the create-napp package globally
 npm i create-kapp@latest -g
 ```
 
