@@ -30,7 +30,7 @@ You'll be promoted with this:
 ```bash
 ? Setup the project in...? »
 # Use "." or "./" for the local folder.
-# Use a foldername to setup the project in that folder. (It will be created if it doesn't exist
+# Use a foldername to setup the project in that folder. (It will be created if it doesn't exist)
 ```
 
 ## Cloning
@@ -40,20 +40,20 @@ To initialise this template, choose one of the following options:
 ### Option 1: Folder already exists
 
 ```bash
-gh repo clone kars1996/karsNextTemplate .
+gh repo clone kars1996/Template .
 ```
 
 ### Option 2: Folder does not exist
 
 ```bash
-gh repo clone kars1996/karsNextTemplate <folder-name>
+gh repo clone kars1996/Template <folder-name>
 # the folder name is optional
 ```
 
 ### Option 3: Forking
 
 ```bash
-gh repo fork kars1996/karsNextTemplate
+gh repo fork kars1996/Template
 ```
 
 ## Getting Started
