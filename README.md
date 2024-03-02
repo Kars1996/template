@@ -1,5 +1,7 @@
 ## Now stable! 💖
 
+Kars Template v1.2 (Shoutout Nitlix for the help/inspiration 💛)
+
 This is a [Next.js](https://nextjs.org/) template created for super-powering Kars Apps quickly. It includes:
 
 -   Inter - A google font.
