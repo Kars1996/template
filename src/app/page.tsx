@@ -27,6 +27,7 @@ export default function () {
                 </SocialLink>
 
                 <p className="opacity-75 text-xl">A NextJS Template</p>
+                <p className="opacity-75 text-xl">Edit this in <span className='font-bold text-white'>page.tsx</span></p>
             </div>
         </div>
     );
