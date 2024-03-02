@@ -27,15 +27,15 @@
 
 
 body {
-    @apply text-black bg-white grid place-items-center;
+    // @apply text-black bg-white grid place-items-center;
 
     //If you're not using Locomotive Scroll, remove the line below.
-    @apply lg:overflow-hidden;
+    // @apply lg:overflow-hidden;
 }
 
-body[data-theme="dark"] {
-    @apply bg-black text-white;
-}
+// body[data-theme="dark"] {
+//     // @apply bg-black text-white;
+// }
 
 
 
