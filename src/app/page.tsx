@@ -35,7 +35,7 @@ export default function () {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                         >
-                            <g clip-path="url(#clip0_1_2)">
+                            <g clipPath="url(#clip0_1_2)">
                                 <path
                                     d="M0 5C0 2.23858 2.23858 0 5 0H204C206.761 0 209 2.23858 209 5V35C209 37.7614 206.761 40 204 40H5C2.23858 40 0 37.7614 0 35V5Z"
                                     fill="black"
