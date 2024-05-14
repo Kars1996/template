@@ -5,18 +5,9 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquieries
 */
 
-interface ResponseProp {
-    response: any,
-    status?: number
-}
-
-const Data: ResponseProp = {
-    response: "Hello",
-    status: 200
-}
-
 export async function GET(): Promise<Response> {
-    return new Response(JSON.stringify(Data), {
+    return new Response("Example", {
+        status: 200,
         headers: {
             "Content-Type": "application/json",
         },

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
-import Body from "@/modules/Body/body";
+import Body from "@/modules/Body/Body";
 
 /*
 Copyright © 2024 Kars (github.com/kars1996)
