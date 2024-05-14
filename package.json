@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "boxicons": "^2.1.4",
+    "gsap": "^3.12.5",
+    "lenis": "^1.0.45",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
