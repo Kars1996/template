@@ -7,7 +7,7 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquieries
 */
 
-import "@/modules/Aos/aos.css";
+import "./aos.css";
 import Aos from "locomotive-aos";
 import { useEffect } from "react";
 
