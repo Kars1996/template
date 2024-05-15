@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "aos": "^2.3.4",
+    "@prisma/client": "^5.14.0",
     "boxicons": "^2.1.4",
     "gsap": "^3.12.5",
     "lenis": "^1.0.45",
+    "locomotive-aos": "^1.0.7",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",

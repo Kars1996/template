@@ -8,7 +8,7 @@ Contact Kars for any enquieries
 */
 
 import "@/modules/Aos/aos.css";
-import Aos from "aos";
+import Aos from "locomotive-aos";
 import { useEffect } from "react";
 
 export default function () {
@@ -16,7 +16,7 @@ export default function () {
         Aos.init({
             duration: 500,
             easing: "ease-in-out",
-            once: true,
+            // once: true,
         });
     }, []);
     return <></>;

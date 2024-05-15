@@ -12,7 +12,7 @@ Contact Kars for any enquieries
 
 import Console from "../modules/Console/Console";
 import { newMeta } from "@/modules/meta";
-import AOS from "@/modules/Aos/aos";
+import AOS from "@/lib/Aos/aos";
 
 const inter = Inter({ subsets: ["latin"] });
 
