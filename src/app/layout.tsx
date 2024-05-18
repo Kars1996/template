@@ -34,7 +34,6 @@ export default function RootLayout({
                     rel="stylesheet"
                 />
             </head>
-            {/*  For now AOS and Smooth Scroll don't work together, If you want one comment the other out */}
             <Body className={`${inter.className} __kars`}>
                 <main className="_kars">
                     <AOS />
