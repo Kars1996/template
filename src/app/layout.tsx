@@ -26,13 +26,6 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    // const meta = {
-    //     title: "Kars Templte",
-    //     description: ":D",
-    // };
-
-    // newMeta(meta);
-
     return (
         <html lang="en">
             <head>
