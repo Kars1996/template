@@ -73,10 +73,6 @@ function SocialLink(props: { children: string; href: string }) {
             href={props.href}
             className="space-x-3 bg-[#d2e4ff] px-3 py-1.5 text-black inline-flex items-center change-transform rounded-full transform transition-all hover:scale-95 duration-500"
         >
-            {/* <i
-                className="bx bx-envelope inline text-black"
-                style={{ height: 26, width: 26 }}
-            /> */}
             <span>{props.children}</span>
         </a>
     );
