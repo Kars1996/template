@@ -18,7 +18,36 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Kars Template",
-    description: ":D",
+    description: "Default text for all apps powered by create-kapp.",
+    // keywords: [],
+    openGraph: {
+        url: "https://kars.bio/",
+        type: "website",
+        title: "Kars",
+        siteName: "kars.bio",
+        description: "Default text for all apps powered by create-kapp.",
+        images: [
+            {
+                url: "https://cdn3.kars.bio/assets/banner.png",
+                width: 800,
+                height: 800,
+                alt: "Banner",
+            },
+        ],
+    },
+    robots: {
+        index: true,
+        follow: true,
+        nocache: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            noimageindex: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
 };
 
 export default function RootLayout({
@@ -32,7 +61,7 @@ export default function RootLayout({
                 dangerouslySetInnerHTML={{
                     __html: "<!-- Made by Kars 💘 -->",
                 }}
-             />
+            />
             <head>
                 <link
                     href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
