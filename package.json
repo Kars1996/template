@@ -10,13 +10,14 @@
   },
   "dependencies": {
     "@prisma/client": "latest",
-    "boxicons": "latest",
+    "framer-motion": "latest",
     "gsap": "latest",
     "lenis": "latest",
     "locomotive-aos": "latest",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-icons": "latest",
     "sass": "latest"
   },
   "devDependencies": {
