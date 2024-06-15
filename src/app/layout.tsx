@@ -28,6 +28,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head
+                dangerouslySetInnerHTML={{
+                    __html: "<!-- Made by Kars 💘 -->",
+                }}
+             />
             <head>
                 <link
                     href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
