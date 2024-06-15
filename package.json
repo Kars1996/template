@@ -10,15 +10,18 @@
   },
   "dependencies": {
     "@prisma/client": "latest",
+    "clsx": "latest",
     "framer-motion": "latest",
     "gsap": "latest",
     "lenis": "latest",
     "locomotive-aos": "latest",
     "next": "latest",
+    "prisma": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "latest",
-    "sass": "latest"
+    "sass": "latest",
+    "tailwind-merge": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",
