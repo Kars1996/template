@@ -1,39 +1,38 @@
 {
-  "name": "kars-web-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "postinstall": "npx prisma generate"
-  },
-  "prisma": {
-    "schema": "src/prisma/schema.prisma"
-  },
-  "dependencies": {
-    "@prisma/client": "latest",
-    "clsx": "latest",
-    "framer-motion": "latest",
-    "gsap": "latest",
-    "lenis": "latest",
-    "locomotive-aos": "latest",
-    "next": "latest",
-    "prisma": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-icons": "latest",
-    "sass": "latest",
-    "tailwind-merge": "latest"
-  },
-  "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "autoprefixer": "latest",
-    "postcss": "latest",
-    "tailwindcss": "latest",
-    "typescript": "latest"
-  }
+    "name": "kars-web-app",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "prisma": {
+        "schema": "src/prisma/schema.prisma"
+    },
+    "dependencies": {
+        "@prisma/client": "latest",
+        "clsx": "latest",
+        "framer-motion": "latest",
+        "gsap": "latest",
+        "lenis": "latest",
+        "locomotive-aos": "latest",
+        "next": "latest",
+        "prisma": "latest",
+        "react": "latest",
+        "react-dom": "latest",
+        "react-icons": "latest",
+        "sass": "latest",
+        "tailwind-merge": "latest"
+    },
+    "devDependencies": {
+        "@types/node": "latest",
+        "@types/react": "latest",
+        "@types/react-dom": "latest",
+        "autoprefixer": "latest",
+        "postcss": "latest",
+        "tailwindcss": "latest",
+        "typescript": "latest"
+    }
 }

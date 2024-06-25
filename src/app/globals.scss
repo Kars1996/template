@@ -22,6 +22,14 @@
     }
 }
 
+::-moz-selection { 
+    background: #FF5E693d;
+  }
+  
+  ::selection {
+    background: #FF5E693d;
+  }
+
 ::-webkit-scrollbar {
   width: 8px;
   background-color: #0c0d0d;
