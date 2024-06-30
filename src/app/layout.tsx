@@ -62,12 +62,6 @@ export default function RootLayout({
                     __html: "<!-- Made by Kars 💘 -->",
                 }}
             />
-            <head>
-                <link
-                    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-                    rel="stylesheet"
-                />
-            </head>
             <Body className={`${inter.className} __kars`}>
                 <main className="_kars">
                     <AOS />
