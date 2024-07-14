@@ -56,12 +56,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <head
+        <html lang="en" made-by="kars">
+{/*             <head
                 dangerouslySetInnerHTML={{
                     __html: "<!-- Made by Kars 💘 -->",
                 }}
-            />
+            /> */}
             <Body className={`${inter.className} __kars`}>
                 <main className="_kars">
                     <AOS />
