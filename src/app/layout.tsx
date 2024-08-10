@@ -50,6 +50,11 @@ export const metadata: Metadata = {
     },
 };
 
+let check: boolean = false;
+if (process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA) {
+    check = true;
+}
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -57,17 +62,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" made-by="kars">
-{/*             <head
-                dangerouslySetInnerHTML={{
-                    __html: "<!-- Made by Kars 💘 -->",
-                }}
-            /> */}
             <Body className={`${inter.className} __kars`}>
                 <main className="_kars">
                     <AOS />
                     {children}
                 </main>
-                <Console />
+                <Console check={check} />
             </Body>
         </html>
     );
