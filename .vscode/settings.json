@@ -1,3 +1,6 @@
 {
-  "css.customData": [".vscode/tailwind.json"]
+    "css.customData": [".vscode/tailwind.json"],
+    "workbench.editor.customLabels.patterns": {
+        "**/app/**/page.tsx": "${dirname}/page.tsx"
+    }
 }
