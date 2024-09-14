@@ -2,5 +2,41 @@
     "css.customData": [".vscode/tailwind.json"],
     "workbench.editor.customLabels.patterns": {
         "**/app/**/page.tsx": "${dirname}/page.tsx"
-    }
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "html",
+        "markdown",
+        "json",
+        "jsonc",
+        "yaml",
+        "toml",
+        "xml",
+        "gql",
+        "graphql",
+        "astro",
+        "css",
+        "less",
+        "scss",
+        "pcss",
+        "postcss",
+        "github-actions-workflow"
+    ],
+    "editor.codeActionsOnSave": [
+        "source.addMissingImports",
+        "source.fixAll.eslint"
+    ],
+    "search.exclude": {
+        "package-lock.json": true
+    },
+    "typescript.preferences.autoImportFileExcludePatterns": [
+        "next/router.d.ts",
+        "next/dist/client/router.d.ts",
+        "lucide-react"
+    ],
+    "typescript.preferences.preferTypeOnlyAutoImports": true
 }
