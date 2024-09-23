@@ -8,7 +8,7 @@ Contact Kars for any enquieries
 export default function () {
     return (
         <div
-            className="h-screen w-screen text-black flex items-center justify-center"
+            className="flex h-screen w-screen items-center justify-center text-black"
             style={{
                 backgroundImage:
                     "url('https://source.unsplash.com/ZK1HZiMZ2EM/1920x1080')",
@@ -16,8 +16,8 @@ export default function () {
                 backgroundPosition: "center",
             }}
         >
-            <div className="space-y-6 text-center max-w-xl px-20 py-14 border-2 border-white/10 bg-black/50 rounded-xl backdrop-filter backdrop-blur-lg">
-                <h1 className="text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-tr from-[#B16CEA] via-[#FF5E69] to-[#FFA84B]">
+            <div className="max-w-xl space-y-6 rounded-xl border-2 border-white/10 bg-black/50 px-20 py-14 text-center backdrop-blur-lg backdrop-filter">
+                <h1 className="bg-gradient-to-tr from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] bg-clip-text text-9xl font-bold text-transparent">
                     Kars
                 </h1>
 
@@ -25,7 +25,7 @@ export default function () {
                     Template Link
                 </SocialLink>
 
-                <p className="opacity-75 text-xl">A NextJS Template</p>
+                <p className="text-xl opacity-75">A NextJS Template</p>
                 <div className="flex justify-center">
                     <a href="https://kars.bio" target="_blank">
                         <svg
@@ -54,7 +54,7 @@ function SocialLink(props: { children: string; href: string }) {
     return (
         <a
             href={props.href}
-            className="space-x-3 bg-[#d2e4ff] px-3 py-1.5 text-black inline-flex items-center change-transform rounded-full transform transition-all hover:scale-95 duration-500"
+            className="change-transform inline-flex transform items-center space-x-3 rounded-full bg-[#d2e4ff] px-3 py-1.5 text-black transition-all duration-500 hover:scale-95"
         >
             <span>{props.children}</span>
         </a>
