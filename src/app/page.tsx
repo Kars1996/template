@@ -5,7 +5,7 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquieries
 */
 
-export default function () {
+export default function IndexPage() {
     return (
         <div
             className="flex h-screen w-screen items-center justify-center text-black"
