@@ -6,3 +6,8 @@ Contact Kars for any enquieries
 */
 
 // ? Put your types here :D
+
+export type ResponseProp = {
+    response: any;
+    status?: number;
+}
