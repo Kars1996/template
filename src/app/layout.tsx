@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.scss";
 import Body from "@/modules/Body/Body";
+import Console from "@/modules/Console/Console";
+import AOS from "@/lib/Aos/aos";
 
 /*
 Copyright © 2024 Kars (github.com/kars1996)
@@ -10,11 +12,13 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquieries
 */
 
-import Console from "@/modules/Console/Console";
-import { newMeta } from "@/modules/meta";
-import AOS from "@/lib/Aos/aos";
-
 const inter = Inter({ subsets: ["latin"] });
+// ? Optional Font (You can add more if you want)
+const poppins = Poppins({
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+    subsets: ["latin"],
+    display: "swap",
+});
 
 export const metadata: Metadata = {
     title: "Kars Template",
@@ -50,9 +54,10 @@ export const metadata: Metadata = {
     },
 };
 
+// ? This check assums you're hosting on vercel. If you're doing something else you will need another check
 let check: boolean = false;
 if (process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA) {
-    check = true;
+    check = true; // ? On production
 }
 
 export default function RootLayout({
