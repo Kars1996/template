@@ -14,13 +14,16 @@ export default function ({ check }: { check: boolean }) {
             setInterval(() => {
                 console.log("%cImportant!", "color: red; font-size: x-large");
                 console.log(
-                    "🎇 The site you are viewing has been made by Kars :D. Check me out @ https://kars.bio"
+                    "🎇 The site you are viewing has been made by Kars :D. Check me out @ https://kars.bio",
                 );
             }, 2 * 1000);
         }, []);
     } else {
         useEffect(() => {
-            console.log("🛡 Development build of site, logging below", "color: red");
+            console.log(
+                "🛡 Development build of site, logging below",
+                "color: red",
+            );
         }, []);
     }
     return <></>;
