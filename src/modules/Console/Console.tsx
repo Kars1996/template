@@ -4,7 +4,7 @@ import { useEffect } from "react";
 /*
 Copyright © 2024 Kars (github.com/kars1996)
 
-Not to be shared, replicated or used without prior consent.
+Not to be shared, enquiries or used without prior consent.
 Contact Kars for any enquieries
 */
 
@@ -22,7 +22,6 @@ export default function ({ check }: { check: boolean }) {
         useEffect(() => {
             console.log(
                 "🛡 Development build of site, logging below",
-                "color: red",
             );
         }, []);
     }

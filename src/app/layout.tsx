@@ -9,7 +9,7 @@ import AOS from "@/lib/Aos/aos";
 Copyright © 2024 Kars (github.com/kars1996)
 
 Not to be shared, replicated or used without prior consent.
-Contact Kars for any enquieries
+Contact Kars for any enquiries
 */
 
 const inter = Inter({ subsets: ["latin"] });
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     },
 };
 
-// ? This check assums you're hosting on vercel. If you're doing something else you will need another check
+// ? This check assumes you're hosting on vercel. If you're doing something else you will need another check
 let check: boolean = false;
 if (process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA) {
     check = true; // ? On production

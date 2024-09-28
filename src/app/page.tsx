@@ -2,7 +2,7 @@
 Copyright © 2024 Kars (github.com/kars1996)
 
 Not to be shared, replicated or used without prior consent.
-Contact Kars for any enquieries
+Contact Kars for any enquiries
 */
 
 export default function IndexPage() {
@@ -21,9 +21,12 @@ export default function IndexPage() {
                     Kars
                 </h1>
 
-                <SocialLink href="https://github.com/kars1996/Template">
+                <a
+                    href="https://github.com/kars1996/Template"
+                    className="change-transform inline-flex transform items-center space-x-3 rounded-full bg-[#d2e4ff] px-3 py-1.5 text-black transition-all duration-500 hover:scale-95"
+                >
                     Template Link
-                </SocialLink>
+                </a>
 
                 <p className="text-xl opacity-75">A NextJS Template</p>
                 <div className="flex justify-center">
@@ -47,16 +50,5 @@ export default function IndexPage() {
                 </div>
             </div>
         </div>
-    );
-}
-
-function SocialLink(props: { children: string; href: string }) {
-    return (
-        <a
-            href={props.href}
-            className="change-transform inline-flex transform items-center space-x-3 rounded-full bg-[#d2e4ff] px-3 py-1.5 text-black transition-all duration-500 hover:scale-95"
-        >
-            <span>{props.children}</span>
-        </a>
     );
 }
