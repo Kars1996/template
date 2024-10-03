@@ -32,7 +32,7 @@
         "@types/react-dom": "latest",
         "autoprefixer": "latest",
         "postcss": "latest",
-        "prettier": "^3.3.3",
+        "prettier": "latest",
         "prettier-plugin-tailwindcss": "^0.6.6",
         "tailwindcss": "latest",
         "typescript": "latest"
