@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     },
 };
 
-// ? This check assumes you're hosting on vercel. If you're doing something else you will need another check
+// ? This check assumes you're hosting on vercel. If you're self-hosting you will need another check
 let check: boolean = false;
 if (process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA) {
     check = true; // ? On production
@@ -71,6 +71,7 @@ export default function RootLayout({
                 <main className="_kars">
                     <AOS />
                     {children}
+                    <p>Made By Kars ツ</p>
                 </main>
                 <Console check={check} />
             </Body>
