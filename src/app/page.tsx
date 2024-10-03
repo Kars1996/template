@@ -5,6 +5,8 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
 
+import Link from "next/link";
+
 export default function IndexPage() {
     return (
         <div
@@ -21,12 +23,12 @@ export default function IndexPage() {
                     Kars
                 </h1>
 
-                <a
-                    href="https://github.com/kars1996/Template"
+                <Link
+                    href="https://github.com/kars1996/template"
                     className="change-transform inline-flex transform items-center space-x-3 rounded-full bg-[#d2e4ff] px-3 py-1.5 text-black transition-all duration-500 hover:scale-95"
                 >
                     Template Link
-                </a>
+                </Link>
 
                 <p className="text-xl opacity-75">A NextJS Template</p>
                 <div className="flex justify-center">

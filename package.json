@@ -19,6 +19,7 @@
         "lenis": "latest",
         "locomotive-aos": "latest",
         "next": "latest",
+        "next-nprogress-bar": "latest",
         "prisma": "latest",
         "react": "latest",
         "react-dom": "latest",

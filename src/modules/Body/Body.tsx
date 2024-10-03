@@ -2,6 +2,7 @@
 import Lenis from "lenis";
 import "./Body.scss";
 import { useEffect, useState, createContext } from "react";
+import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
 /*
 Copyright © 2024 Kars (github.com/kars1996)
@@ -102,6 +103,16 @@ export default function ({ children, className = "" }: BaseProp) {
                 }}
             >
                 {children}
+                <ProgressBar
+                    height="2px"
+                    color="#ff6666"
+                    options={{
+                        showSpinner: false,
+                        easing: "easeInOut",
+                        speed: 500,
+                    }}
+                    stopDelay={1000}
+                />
             </SPContext.Provider>
         </body>
     );
