@@ -28,7 +28,7 @@ type BaseProp = {
     className?: string;
 };
 
-export default function ({ children, className = "" }: BaseProp) {
+export default function Body({ children, className = "" }: BaseProp) {
     const [scroll, setScroll] = useState<Lenis | null>(null);
     const [SPController, setSPController] = useState<SPController>("ALLOWINIT");
     function onResize() {
