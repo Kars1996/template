@@ -10,7 +10,7 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
 
-export default function () {
+export default function AOS() {
     useEffect(() => {
         Aos.init({
             duration: 500,

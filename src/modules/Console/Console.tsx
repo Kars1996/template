@@ -8,7 +8,7 @@ Not to be shared, enquiries or used without prior consent.
 Contact Kars for any enquieries
 */
 
-export default function ({ check }: { check: boolean }) {
+export default function Console({ check }: { check: boolean }) {
     if (check) {
         useEffect(() => {
             setInterval(() => {

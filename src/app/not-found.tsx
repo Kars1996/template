@@ -7,7 +7,7 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
 
-export default function () {
+export default function _404Redirect() {
     // ? This function automatically redirects users
     // ? If you wanted, you could make your own 404 page!
     // ? Personally I prefer it as a standalone "404" url instead

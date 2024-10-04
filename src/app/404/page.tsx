@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         "This page does not exist. Please verify the URL is correct and try again.",
 };
 
-export default function PageNotFound() {
+export default function _404Page() {
     return (
         <>
             <Head>
