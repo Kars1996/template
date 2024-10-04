@@ -108,10 +108,12 @@ export default function Body({ children, className = "" }: BaseProp) {
                     color="#ff6666"
                     options={{
                         showSpinner: false,
-                        easing: "easeInOut",
-                        speed: 500,
+                        easing: "ease",
+                        speed: 200,
+                        trickle: false,
+                        minimum: 0.1,
                     }}
-                    stopDelay={1000}
+                    stopDelay={100}
                 />
             </SPContext.Provider>
         </body>
