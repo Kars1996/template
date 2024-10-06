@@ -3,7 +3,19 @@
     "ignorePaths": [],
     "dictionaryDefinitions": [],
     "dictionaries": [],
-    "words": ["kars", "maraquee", "tailwindcss", "quickstart"],
+    "words": [
+        "ALLOWINIT",
+        "clsx",
+        "kars",
+        "lerp",
+        "maraquee",
+        "nocache",
+        "noimageindex",
+        "nprogress",
+        "quickstart",
+        "reinit",
+        "tailwindcss"
+    ],
     "ignoreWords": [],
     "import": []
 }
