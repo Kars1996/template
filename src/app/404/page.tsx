@@ -33,7 +33,7 @@ export default function _404Page() {
                         <img
                             src="favicon.ico"
                             alt="Logo"
-                            className="h-10 w-10"
+                            className="h-10 w-10 pointer-events-none select-none"
                             draggable={false}
                         />
                     </div>
