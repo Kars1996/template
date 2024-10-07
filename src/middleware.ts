@@ -21,8 +21,8 @@ export function middleware(request: NextRequest) {
         return Response.redirect(
             new URL(
                 `/login?redirect=${encodeURI(request.nextUrl.pathname)}`,
-                request.url
-            )
+                request.url,
+            ),
         );
     }
 }
