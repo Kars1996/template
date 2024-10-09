@@ -1,19 +1,21 @@
-## Now stable! 💖
+## NextJS Quickstart 👑
+v1.4
 
-Kars Template v1.2 (Shoutout Nitlix for the help/inspiration 💛)
-
+---
 This is a [Next.js](https://nextjs.org/) template created for super-powering Kars Apps quickly. It includes:
 
 -   Inter - A google font.
--   Client theme provider, first rendered by the server (kars-themes)
--   The theme provider includes Locomotive Scroll, AOS built specifically for Loco. (locomotive-aos)
--   metaGen() - A function that generates meta tags for the page. (kars-metagen)
+-   The theme provider includes Locomotive Scroll, AOS built specifically for Lenis. (locomotive-aos)
 -   Quickstart global.scss and animations.scss
 -   SASS already installed.
 -   Tailwind ready to fly.
--   4 Fonts to start with: Neue Montreal, Neutral Grotesk, Inter and Strretch Sans.
 -   Prisma ready to launch! (Just create the .env vars)
--   Prebuilt I18N support (With @vercel/edge, via headers and context (kars-i18n))
+-   Custom UI/Libs for easy customization.
+-   Middleware setup for auth
+-   Custom 404 and API quickstart
+-   Much more coming soon!
+
+---
 
 ## Quickstarting using create-kapp
 
@@ -27,13 +29,7 @@ then run the create-kapp command to initialise this template.
 create-kapp
 ```
 
-You'll be promoted with this:
-
-```bash
-? Setup the project in...? »
-# Use "." or "./" for the local folder.
-# Use a foldername to setup the project in that folder. (It will be created if it doesn't exist)
-```
+Follow the prompts for an instant setup!
 
 ## Cloning
 
@@ -49,13 +45,6 @@ gh repo clone kars1996/Template .
 
 ```bash
 gh repo clone kars1996/Template <folder-name>
-# the folder name is optional
-```
-
-### Option 3: Forking
-
-```bash
-gh repo fork kars1996/Template
 ```
 
 ## Getting Started
