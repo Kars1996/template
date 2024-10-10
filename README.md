@@ -17,13 +17,13 @@ This is a [Next.js](https://nextjs.org/) template created for super-powering Kar
 
 ---
 
-## Quickstarting using create-kapp
+## Quickstart using create-kapp
 
 ```bash
 npm i create-kapp@latest -g
 ```
 
-then run the create-kapp command to initialise this template.
+then run the create-kapp command to initialize this template.
 
 ```bash
 create-kapp
@@ -33,7 +33,7 @@ Follow the prompts for an instant setup!
 
 ## Cloning
 
-To initialise this template, choose one of the following options:
+To initialize this template, choose one of the following options:
 
 ### Option 1: Folder already exists
 
