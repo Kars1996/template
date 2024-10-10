@@ -15,7 +15,8 @@
         "nprogress",
         "quickstart",
         "reinit",
-        "tailwindcss"
+        "tailwindcss",
+        "gsap"
     ],
     "ignoreWords": [],
     "import": []
