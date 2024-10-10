@@ -15,10 +15,10 @@
     "dependencies": {
         "@prisma/client": "latest",
         "clsx": "latest",
-        "framer-motion": "latest",
         "gsap": "latest",
         "lenis": "latest",
         "locomotive-aos": "latest",
+        "motion": "latest",
         "next": "latest",
         "next-nprogress-bar": "latest",
         "prisma": "latest",
