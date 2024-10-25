@@ -21,7 +21,7 @@ export default function _404Page() {
             <Head>
                 <link
                     rel="preload"
-                    href="fonts/GT-Walsheim-Regular-subset.woff2"
+                    href="fonts/Walsheim.woff2"
                     as="font"
                     type="font/woff2"
                     crossOrigin="anonymous"
