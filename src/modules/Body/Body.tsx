@@ -1,6 +1,6 @@
 "use client";
 import Lenis from "lenis";
-import "./Body.scss";
+import "./Body.css";
 import { useEffect, useState, createContext } from "react";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 

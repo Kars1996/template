@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
-import "./globals.scss";
+import "./globals.css";
 import Body from "@/modules/Body/Body";
 import Console from "@/modules/Console/Console";
 import AOS from "@/lib/Aos/aos";

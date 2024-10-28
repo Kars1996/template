@@ -26,7 +26,6 @@
         "react": "latest",
         "react-dom": "latest",
         "react-icons": "latest",
-        "sass": "latest",
         "server-only": "latest",
         "tailwind-merge": "latest",
         "tailwindcss-animate": "latest"

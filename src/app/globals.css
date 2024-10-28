@@ -21,7 +21,7 @@
         @apply grid place-items-center bg-black text-white;
     }
 
-    // Typography
+    /* Typography */
     h1,
     h2,
     h3,
@@ -94,7 +94,7 @@
 }
 
 @layer utilities {
-    // Selection styles
+    /* Selection styles */
     ::selection {
         @apply bg-[#FF5E693d];
     }
@@ -103,7 +103,7 @@
         @apply bg-[#FF5E693d];
     }
 
-    // Scrollbar styles
+    /* Scrollbar styles */
     ::-webkit-scrollbar {
         @apply w-2 bg-[#0c0d0d];
     }

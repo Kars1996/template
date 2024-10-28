@@ -2,7 +2,7 @@
     <img src="https://files.catbox.moe/2xyn5h.png" align="center" />
 </a>
 
-<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v2.0)</i></h1>
+<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v2.1)</i></h1>
 
 <p align="center">Consider giving this a ⭐ to show your support! <3</p>
 
@@ -13,7 +13,6 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 - **🎨 Fonts** – 5 variable fonts & 2 Google fonts pre-installed
 - **🔄 Smooth Scroll** – Scroll hijacking with [Lenis](https://lenis.darkroom.engineering/)
 - **🎉 Animations** – Animated with **AOS** and **GSAP**
-- **💅 Styling** – Built-in **SCSS** support (*optional*)
 - **✨ Next.js Conventions** – Following best practices and conventions
 - **🌈 Tailwind CSS** – Tailwind support right out of the box
 - **🔐 Middleware** – Pre-configured for speedy authentication
