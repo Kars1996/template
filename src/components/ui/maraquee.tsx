@@ -1,4 +1,4 @@
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
 /*
 Copyright © 2024 Kars (github.com/kars1996)
