@@ -1,74 +1,118 @@
-## NextJS Quickstart 👑
-v1.4
+<a href="https://kars.bio" align="center">
+    <img src="https://files.catbox.moe/2xyn5h.png" align="center" />
+</a>
 
----
-This is a [Next.js](https://nextjs.org/) template created for super-powering Kars Apps quickly. It includes:
+<h1 align="center">🚀 NextJS Quickstart 👑 *(v2.0)*</h1>
 
--   Inter - A google font.
--   The theme provider includes Locomotive Scroll, AOS built specifically for Lenis. (locomotive-aos)
--   Quickstart global.scss and animations.scss
--   SASS already installed.
--   Tailwind ready to fly.
--   Prisma ready to launch! (Just create the .env vars)
--   Custom UI/Libs for easy customization.
--   Middleware setup for auth
--   Custom 404 and API quickstart
--   Much more coming soon!
+<p align="center">Consider giving this a ⭐ to show your support! <3</p>
 
 ---
 
-## Quickstart using create-kapp
+Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template supercharges your Next.js projects with all the essentials to get you started right away. Here’s what you’ll find inside:
+
+- **🎨 Fonts** – 5 variable fonts & 2 Google fonts pre-installed
+- **🔄 Smooth Scroll** – Scroll hijacking with [Lenis](https://lenis.darkroom.engineering/)
+- **🎉 Animations** – Animated with **AOS** and **GSAP**
+- **💅 Styling** – Built-in **SCSS** support (*optional*)
+- **✨ Next.js Conventions** – Following best practices and conventions
+- **🌈 Tailwind CSS** – Tailwind support right out of the box
+- **🔐 Middleware** – Pre-configured for speedy authentication
+- **📂 Routes** – Custom 404 and API routes ready to go
+- **🔗 Prisma** – Set up for seamless database integration
+- **🧩 UI Library** – Integrates [ShadCN](https://ui.shadcn.com)
+- **🚀 Transitions** – Clean page loading transitions
+
+**Created with ❤️ by [Create-Kapp](https://github.com/kars1996/create-kapp)!**
+
+---
+
+## 🚀 Getting Started
+
+1. **Install Dependencies**: Let’s get those packages installed! Run one of the following:
+
+   ```bash
+   npm i
+   # or
+   yarn
+   # or
+   pnpm i
+   ```
+
+2. **Run the Development Server**: Start up the server with:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) to see your app in action!
+
+---
+
+## ⚡ Quickstart Using `create-kapp`
+
+Get started with **create-kapp** for an instant setup:
 
 ```bash
 npm i create-kapp@latest -g
 ```
 
-then run the create-kapp command to initialize this template.
+Then initialize this template with the command:
 
 ```bash
 create-kapp
 ```
 
-Follow the prompts for an instant setup!
+You’ll see a prompt like this:
 
-## Cloning
+```bash
+o   --------------------------------------------+
+|                                               |
+|   Welcome to KAPP. Let's make your project!   |
+|                                               |
+o   --------------------------------------------+
+|
+?   Which Template Category would you like to use? » - Use arrow-keys. Return to submit.
+>   Next.js
+    Discord.js
+    General
+```
 
-To initialize this template, choose one of the following options:
+Just follow the prompts to set up your project in no time! 🚀
 
-### Option 1: Folder already exists
+---
+
+## 💻 Cloning This Repository
+
+Choose one of the following options to clone the template:
+
+### Option 1: Existing Folder
+
+If you’re cloning into an already existing folder, run:
 
 ```bash
 gh repo clone kars1996/Template .
 ```
 
-### Option 2: Folder does not exist
+### Option 2: New Folder
+
+To clone into a new folder, use:
 
 ```bash
 gh repo clone kars1996/Template <folder-name>
 ```
 
-## Getting Started
+Once cloned, open [http://localhost:3000](http://localhost:3000) to view your app.
 
-Firstly install the dependencies:
+---
 
-```bash
-npm i
-# or
-yarn
-# or
-pnpm i
-```
+## 🛠️ Start Customizing!
 
-Then, run the development server:
+Edit `app/page.tsx` to get started. The page auto-updates as you edit, so you can see changes instantly.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Thanks for checking out this quickstart template! Feel free to reach out with suggestions or improvements. Happy coding! 🎉
