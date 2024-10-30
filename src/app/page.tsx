@@ -21,7 +21,6 @@ export default function IndexPage() {
                 <h1 className="bg-gradient-to-tr from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] bg-clip-text text-9xl font-bold text-transparent">
                     Kars
                 </h1>
-
                 <Link
                     href="404"
                     className="change-transform inline-flex transform items-center space-x-3 rounded-full bg-[#d2e4ff] px-3 py-1.5 text-black transition-all duration-500 hover:scale-95"
