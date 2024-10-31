@@ -4,6 +4,7 @@ import "./globals.css";
 import Body from "@/modules/Body/Body";
 import Console from "@/modules/Console/Console";
 import AOS from "@/lib/Aos/aos";
+import localFont from "next/font/local";
 
 /*
 Copyright © 2024 Kars (github.com/kars1996)
@@ -18,6 +19,28 @@ const poppins = Poppins({
     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
     subsets: ["latin"],
     display: "swap",
+});
+
+// ? Local Fonts
+const Satoshi = localFont({
+    src: "../../public/fonts/Satoshi.ttf",
+    weight: "300 900",
+});
+const GeistVF = localFont({
+    src: "../../public/fonts/GeistVF.woff",
+    weight: "100 900",
+});
+const GeistMonoVF = localFont({
+    src: "../../public/fonts/GeistMonoVF.woff",
+    weight: "300 900",
+});
+const GeneralSans = localFont({
+    src: "../../public/fonts/GeneralSans.ttf",
+    weight: "200 700",
+});
+const Raleway = localFont({
+    src: "../../public/fonts/Raleway.ttf",
+    weight: "100 900",
 });
 
 export const metadata: Metadata = {
