@@ -14,7 +14,10 @@ interface PageMeta {
     description?: string;
 }
 
-export const newMeta = (meta: PageMeta) => {
+/**
+ * @deprecated this component is deprecated. use default NextJS metadata instead.
+ */
+export default function Meta(meta: PageMeta) {
     useEffect(() => {
         document.title = meta.title;
     }, [meta.title]);
@@ -27,4 +30,4 @@ export const newMeta = (meta: PageMeta) => {
             )}
         </Head>
     );
-};
+}

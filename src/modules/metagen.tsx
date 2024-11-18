@@ -27,7 +27,10 @@ interface MetaData {
     };
 }
 
-export const metaGen = (metadata: MetaData) => {
+/**
+ * @deprecated this component is deprecated. use default NextJS metadata instead.
+ */
+export default function MetaGen(metadata: MetaData) {
     useEffect(() => {
         const updateMetaTags = () => {
             const metaTags = [
@@ -109,4 +112,4 @@ export const metaGen = (metadata: MetaData) => {
             )}
         </Head>
     );
-};
+}
