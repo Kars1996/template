@@ -8,8 +8,8 @@ Not to be shared, enquiries or used without prior consent.
 Contact Kars for any enquiries
 */
 
-export default function Console({ check }: { check: boolean }) {
-    if (check) {
+export default function Console({ isProd }: { isProd: boolean }) {
+    if (isProd) {
         useEffect(() => {
             setInterval(() => {
                 console.log("%cImportant!", "color: red; font-size: x-large");
