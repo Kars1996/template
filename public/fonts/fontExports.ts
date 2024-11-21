@@ -31,3 +31,13 @@ export const Raleway = localFont({
     src: "../Raleway.ttf",
     weight: "100 900",
 });
+
+export const Neon = localFont({
+    src: "../Neon.ttf",
+    weight: "200 800",
+});
+
+export const Argon = localFont({
+    src: "../Argon.ttf",
+    weight: "200 800",
+});
