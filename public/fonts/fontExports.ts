@@ -23,21 +23,21 @@ export const GeistMonoVF = localFont({
 });
 
 export const GeneralSans = localFont({
-    src: "../../public/fonts/GeneralSans.ttf",
+    src: "./GeneralSans.ttf",
     weight: "200 700",
 });
 
 export const Raleway = localFont({
-    src: "../Raleway.ttf",
+    src: "./Raleway.ttf",
     weight: "100 900",
 });
 
 export const Neon = localFont({
-    src: "../Neon.ttf",
+    src: "./Neon.ttf",
     weight: "200 800",
 });
 
 export const Argon = localFont({
-    src: "../Argon.ttf",
+    src: "./Argon.ttf",
     weight: "200 800",
 });
