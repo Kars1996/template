@@ -152,4 +152,12 @@
         visibility: visible;
         opacity: 1;
     }
+
+    /* Disable ShadCN Animations */
+    [data-state="open"],
+    [data-state="closed"] {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
 }
