@@ -6,11 +6,12 @@ Contact Kars for any enquiries
 */
 
 // ? Put your types here :D
+// ? If doing JSX. props use React.ComponentProps<typeof YourComponent>
 
 export type ResponseProp = {
     response: any;
     status?: number;
-}
+};
 
 // ? Typesafety for process.env
 declare namespace NodeJS {
