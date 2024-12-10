@@ -5,12 +5,16 @@ import { useContext } from "react";
 
 // Thanks to nitlix for this code
 
+type LinkProp = {
+    href: string;
+} & Omit<React.ComponentProps<"a">, "href">;
+
 export default function RouterLink({
     children,
     href,
     className = "",
     ...props
-}: JSX.IntrinsicElements["a"] & { href: string }) {
+}: LinkProp) {
     const lenisContext = useContext(SPContext);
 
     const { scroll } = lenisContext;
