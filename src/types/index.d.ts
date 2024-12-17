@@ -14,8 +14,10 @@ export type ResponseProp = {
 };
 
 // ? Typesafety for process.env
-declare namespace NodeJS {
-    interface ProcessEnv {
-        NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: string | undefined;
+declare global {
+    namespace NodeJS {
+        interface ProcessEnv {
+            NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: string | undefined;
+        }
     }
 }
