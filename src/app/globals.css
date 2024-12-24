@@ -160,4 +160,9 @@
         transition: none !important;
         transform: none !important;
     }
+
+    /* Image Close Disable */
+    button.rmiz-close {
+      display: none !important;
+    }
 }
