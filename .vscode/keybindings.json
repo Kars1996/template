@@ -4,7 +4,7 @@
       "command": "type",
       "when": "editorTextFocus && editorLangId == 'typescriptreact'",
       "args": {
-        "text": "/*\nCopyright © 2024 Kars (github.com/kars1996)\n\nNot to be shared, replicated or used without prior consent.\nContact Kars for any enquiries\n*/\n\nexport default function() {\n    return(\n        <>\n        </>\n    )\n}"
+        "text": "/*\nCopyright © 2025 Kars (github.com/kars1996)\n\nNot to be shared, replicated or used without prior consent.\nContact Kars for any enquiries\n*/\n\nexport default function() {\n    return(\n        <>\n        </>\n    )\n}"
       }
     }
   ]
