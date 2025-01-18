@@ -161,6 +161,11 @@
         transform: none !important;
     }
 
+    [data-radix-popper-content-wrapper] {
+        animation: none !important;
+        transition: none !important;
+    }
+
     /* Image Close Disable */
     button.rmiz-close {
       display: none !important;
