@@ -38,7 +38,7 @@
         "postcss": "latest",
         "prettier": "latest",
         "prettier-plugin-tailwindcss": "latest",
-        "tailwindcss": "latest",
+        "tailwindcss": "13.4.17",
         "typescript": "latest"
     }
 }
