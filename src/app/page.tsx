@@ -18,7 +18,7 @@ export default function IndexPage() {
             }}
         >
             <div className="max-w-xl space-y-6 rounded-xl border-2 border-white/10 bg-black/50 px-20 py-14 text-center backdrop-blur-lg backdrop-filter">
-                <h1 className="bg-gradient-to-tr from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] bg-clip-text text-9xl font-bold text-transparent">
+                <h1 className="bg-linear-to-tr from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] bg-clip-text text-9xl font-bold text-transparent">
                     Kars
                 </h1>
                 <Link

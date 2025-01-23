@@ -1,12 +1,150 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
+@theme {
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+
+  --color-primary: #fff;
+  --color-primary-dark: #fff;
+  --color-primary-light: #000;
+
+  --color-secondary: FFFFFFb2;
+  --color-secondary-dark: #ffffffb2;
+  --color-secondary-light: #000000b2;
+
+  --color-bg-dark: #121212;
+  --color-bg-light: #f0f0f0;
+
+  --animate-marquee: marquee var(--duration) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility _kars {
+  @apply relative z-0 flex w-full flex-col items-center justify-center overflow-hidden;
+
+  > * {
+    padding-left: var(--spacing);
+    padding-right: var(--spacing);
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility touch-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+@utility tooltip {
+  /* ToolTip */
+  position: relative;
+  display: inline-block;
+
+  & .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    position: absolute;
+    z-index: 1;
+    white-space: nowrap;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.75s;
+  }
+
+  &:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@utility tooltiptext {
+  .tooltip & {
+    visibility: hidden;
+    width: auto;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    position: absolute;
+    z-index: 1;
+    white-space: nowrap;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.75s;
+  }
+
+  .tooltip:hover & {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@utility rmiz-close {
+  /* Image Close Disable */
+  &button {
+    display: none !important;
+  }
+}
+
+@layer utilities {
+  :root {
     --spacing: 5rem;
     --letter-spacing-multiplier: -0.025;
     --transition: 0.5s ease-in-out;
-    --primary: theme("colors.blue.500");
+    --primary: var(--color-blue-500);
+  }
 }
 
 @layer base {
@@ -72,24 +210,13 @@
     }
 
     button {
-        @apply cursor-pointer border-0 outline-none;
+        @apply cursor-pointer border-0 outline-hidden;
         font-family: inherit;
     }
 
     input {
-        @apply outline-none;
+        @apply outline-hidden;
         font-family: inherit;
-    }
-}
-
-@layer components {
-    ._kars {
-        @apply relative z-0 flex w-full flex-col items-center justify-center overflow-hidden;
-
-        > * {
-            padding-left: var(--spacing);
-            padding-right: var(--spacing);
-        }
     }
 }
 
@@ -109,48 +236,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        @apply rounded bg-[#0d1117];
-    }
-
-    .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-
-    .touch-scroll {
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* ToolTip */
-    .tooltip {
-        position: relative;
-        display: inline-block;
-    }
-
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        width: auto;
-        color: #fff;
-        text-align: center;
-        padding: 5px 10px;
-        border-radius: 999px;
-        position: absolute;
-        z-index: 1;
-        white-space: nowrap;
-        bottom: 125%;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: all 0.75s;
-    }
-
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-        opacity: 1;
+        @apply rounded-sm bg-[#0d1117];
     }
 
     /* Disable ShadCN Animations */
@@ -164,10 +250,5 @@
     [data-radix-popper-content-wrapper] {
         animation: none !important;
         transition: none !important;
-    }
-
-    /* Image Close Disable */
-    button.rmiz-close {
-      display: none !important;
     }
 }
