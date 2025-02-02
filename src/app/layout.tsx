@@ -69,7 +69,7 @@ export default function RootLayout({
     return (
         <html lang="en" made-by="kars">
             <Body className={`${inter.className} __kars`}>
-                <main className="_kars">
+                <main className="relative flex min-h-screen w-full flex-col">
                     <AOS />
                     {children}
                     <p>Made By Kars ツ</p>
