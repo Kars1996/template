@@ -2,7 +2,7 @@
     <img src="https://files.catbox.moe/2xyn5h.png" align="center" />
 </a>
 
-<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v2.2)</i></h1>
+<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v2.3)</i></h1>
 
 <p align="center">Consider giving this a ⭐ to show your support! <3</p>
 
@@ -20,6 +20,7 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 - **🔗 Prisma** – Set up for seamless database integration
 - **🧩 UI Library** – Integrates [ShadCN](https://ui.shadcn.com)
 - **🚀 Transitions** – Clean page loading transitions
+- **🌐 API** - Custom [Axios](https://axios-http.com/docs/intro) wrapper for easy API requests
 
 **Created with ❤️ by [Create-Kapp](https://github.com/kars1996/create-kapp)!**
 
