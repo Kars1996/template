@@ -18,6 +18,8 @@ declare global {
     namespace NodeJS {
         interface ProcessEnv {
             NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: string | undefined;
+            NEXT_PUBLIC_APP_URL: string | undefined;
+            DB_PRISMA_URL: string | undefined;
         }
     }
 }
