@@ -21,7 +21,7 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 - **🧩 UI Library** – Integrates [ShadCN](https://ui.shadcn.com)
 - **🚀 Transitions** – Clean page loading transitions
 - **🌐 API** - Custom [Axios](https://axios-http.com/docs/intro) wrapper for easy API requests
-- **🔌Turbopack** - Supporting [Turbopack](https://turbo.build/repo) for blazing fast builds
+- **🔌 Turbopack** - Supporting [Turbopack](https://turbo.build/repo) for blazing fast builds
 
 **Created with ❤️ by [Create-Kapp](https://github.com/kars1996/create-kapp)!**
 
