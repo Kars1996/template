@@ -8,7 +8,7 @@ Contact Kars for any enquiries
 */
 
 export const metadata: Metadata = {
-    title: "Kars - ",
+    title: "",
 };
 
 export default function() {
