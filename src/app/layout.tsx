@@ -22,7 +22,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-    title: {template: "%s • kars.bio", default: "Kars Quickstart"},
+    title: { template: "%s • kars.bio", default: "Kars Quickstart" },
     description: "Default text for all apps powered by create-kapp.",
     // keywords: [],
     openGraph: {
