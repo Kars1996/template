@@ -22,7 +22,6 @@
         "locomotive-aos": "latest",
         "motion": "latest",
         "next": "latest",
-        "next-nprogress-bar": "latest",
         "prisma": "latest",
         "react": "latest",
         "react-dom": "latest",

@@ -2,7 +2,6 @@
 import Lenis from "lenis";
 import "./lenis.css";
 import { useEffect, useState, createContext } from "react";
-import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
