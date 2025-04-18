@@ -2,6 +2,7 @@
 import Lenis from "lenis";
 import "./lenis.css";
 import { useEffect, useState, createContext } from "react";
+import NextTopLoader from "nextjs-toploader";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -92,6 +93,8 @@ export default function Body({ children, className = "" }: BaseProp) {
         window.addEventListener("resize", onResize);
     }, []);
 
+    const progressColor = "#ff6666"
+
     return (
         <body className={className}>
             <SPContext.Provider
@@ -102,17 +105,18 @@ export default function Body({ children, className = "" }: BaseProp) {
                 }}
             >
                 {children}
-                <ProgressBar
-                    height="2px"
-                    color="#ff6666"
-                    options={{
-                        showSpinner: false,
-                        easing: "ease",
-                        speed: 200,
-                        trickle: false,
-                        minimum: 0.1,
-                    }}
-                    stopDelay={100}
+                <NextTopLoader
+                    color={progressColor}
+                    initialPosition={0.08}
+                    crawlSpeed={200}
+                    height={2}
+                    crawl
+                    showSpinner={false}
+                    easing="ease"
+                    speed={200}
+                    shadow={`0 0 10px ${progressColor}, 0 0 5px ${progressColor}`}
+                    zIndex={1600}
+                    showAtBottom={false}
                 />
             </SPContext.Provider>
         </body>

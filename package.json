@@ -22,6 +22,7 @@
         "locomotive-aos": "latest",
         "motion": "latest",
         "next": "latest",
+        "nextjs-toploader": "latest",
         "prisma": "latest",
         "react": "latest",
         "react-dom": "latest",
