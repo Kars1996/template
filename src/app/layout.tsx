@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Body from "@/modules/Body/Body";
@@ -54,6 +54,10 @@ export const metadata: Metadata = {
         },
     },
 };
+
+export const viewport: Viewport = {
+    themeColor: "#ff6666"
+}
 
 // ? This check assumes you're hosting on vercel. If you're self-hosting you will need another check
 let isProd: boolean = false;
