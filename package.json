@@ -20,6 +20,7 @@
         "gsap": "latest",
         "lenis": "latest",
         "locomotive-aos": "latest",
+        "lucide-react": "latest",
         "motion": "latest",
         "next": "latest",
         "nextjs-toploader": "latest",
