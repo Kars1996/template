@@ -111,7 +111,7 @@ export default function Body({ children, className = "" }: BaseProp) {
                     color={progressColor}
                     initialPosition={0.08}
                     crawlSpeed={200}
-                    height={2}
+                    height={2} // px
                     showSpinner={false}
                     crawl
                     easing="ease"
