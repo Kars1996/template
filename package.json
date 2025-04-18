@@ -29,6 +29,7 @@
         "react-dom": "latest",
         "react-icons": "latest",
         "server-only": "latest",
+        "sonner": "latest",
         "tailwind-merge": "latest",
         "tailwindcss-animate": "latest"
     },

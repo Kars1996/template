@@ -3,6 +3,7 @@ import Lenis from "lenis";
 import "./lenis.css";
 import { useEffect, useState, createContext } from "react";
 import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "sonner"
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -105,6 +106,7 @@ export default function Body({ children, className = "" }: BaseProp) {
                 }}
             >
                 {children}
+                <Toaster />
                 <NextTopLoader
                     color={progressColor}
                     initialPosition={0.08}
