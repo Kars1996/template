@@ -2,7 +2,7 @@
     <img src="https://files.catbox.moe/2xyn5h.png" align="center" />
 </a>
 
-<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v2.3)</i></h1>
+<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v3.1)</i></h1>
 
 <p align="center">Consider giving this a ⭐ to show your support! <3</p>
 
@@ -22,6 +22,7 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 - **🚀 Transitions** – Clean page loading transitions
 - **🌐 API** - Custom [Axios](https://axios-http.com/docs/intro) wrapper for easy API requests
 - **🔌 Turbopack** - Supporting [Turbopack](https://turbo.build/repo) for blazing fast builds
+- **📝 Credit Manager** - Automatically update copyright notices in your codebase
 
 **Created with ❤️ by [Create-Kapp](https://github.com/kars1996/create-kapp)!**
 
