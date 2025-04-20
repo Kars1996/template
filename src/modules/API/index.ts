@@ -1,6 +1,13 @@
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from "axios";
 import { cookies } from "next/headers";
 
+/*
+Copyright © 2025 Kars (github.com/kars1996)
+
+Not to be shared, replicated, or used without prior consent.
+Contact me for any enquiries
+*/
+
 interface ApiResponse<T = unknown> {
     status: number;
     data: T;
