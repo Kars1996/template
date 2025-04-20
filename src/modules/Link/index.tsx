@@ -42,3 +42,5 @@ export default function RouterLink({
         </Link>
     );
 }
+
+// credit-ignore
