@@ -13,6 +13,9 @@ export type ResponseProp = {
     status?: number;
 };
 
+// https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamic
+export type Runtime = 'auto' | 'force-dynamic' | 'error' | 'force-static' 
+
 // ? Typesafety for process.env
 declare global {
     namespace NodeJS {
