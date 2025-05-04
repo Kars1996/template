@@ -38,5 +38,9 @@
         "next/dist/client/router.d.ts",
         "lucide-react"
     ],
-    "typescript.preferences.preferTypeOnlyAutoImports": true
+    "typescript.preferences.preferTypeOnlyAutoImports": true,
+
+    // ! Only toggle if a repo is private
+    "vscord.app.privacyMode.enable": false,
+    "vscord.ignore.workspacesText": "In a secret workspace 🤫"
 }
