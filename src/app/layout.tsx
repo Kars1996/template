@@ -59,9 +59,8 @@ export const viewport: Viewport = {
     themeColor: "#ff6666"
 }
 
-// ? This check assumes you're hosting on vercel. If you're self-hosting you will need another check
 let isProd: boolean = false;
-if (process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA) {
+if (process.env.NODE_ENV === "production") {
     isProd = true;
 }
 
