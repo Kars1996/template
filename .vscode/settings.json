@@ -3,6 +3,7 @@
     "workbench.editor.customLabels.patterns": {
         "**/app/**/page.tsx": "${dirname}/page.tsx"
     },
+
     "eslint.validate": [
         "javascript",
         "javascriptreact",
@@ -42,5 +43,10 @@
 
     // ! Only toggle if a repo is private
     "vscord.app.privacyMode.enable": false,
-    "vscord.ignore.workspacesText": "In a secret workspace 🤫"
+    "vscord.ignore.workspacesText": "In a secret workspace 🤫",
+
+    // ! Change to current workspace name
+    "vscord.ignore.workspaces": [
+        "slat.cc"
+    ]
 }
