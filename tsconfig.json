@@ -19,7 +19,8 @@
             }
         ],
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "@kars/utils": ["./src/lib/utils.ts"],
         }
     },
     "include": [
