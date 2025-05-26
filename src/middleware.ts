@@ -1,4 +1,5 @@
 import type { NextRequest } from "next/server";
+import { TOKEN_NAME } from "@constants";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -8,7 +9,7 @@ Contact Kars for any enquiries
 */
 
 export function middleware(request: NextRequest) {
-    const currentUser = request.cookies.get("currentUser")?.value;
+    const currentUser = request.cookies.get(TOKEN_NAME)?.value;
 
     if (
         (currentUser && request.nextUrl.pathname.startsWith("/login")) ||

@@ -21,6 +21,7 @@
         "paths": {
             "@/*": ["./src/*"],
             "@kars/utils": ["./src/lib/utils.ts"],
+            "@constants": ["./src/constants.ts"],
         }
     },
     "include": [
