@@ -7,13 +7,17 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-export async function getToken(request: Request) {
+export async function getToken(request?: Request) {
     // ! Untested. Might not work in all environments
     if (typeof window === "undefined") {
         const { cookies } = await import("next/headers");
         const cookieStore = await cookies();
         const token = cookieStore.get(TOKEN_NAME)?.value;
         return token || null;
+    }
+
+    if (!request) {
+        return null
     }
 
     const authHeader = request.headers.get("Authorization");
