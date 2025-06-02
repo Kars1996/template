@@ -1,10 +1,11 @@
-import type { Metadata, Viewport } from "next";
+import type { Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Body from "@/modules/Body/Body";
 import Console from "@/modules/Console/Console";
 import AOS from "@/lib/Aos/aos";
 import * as Fonts from "../../public/fonts/fontExports";
+import { constructMetadata } from "@/modules/Meta/Meta";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -21,39 +22,7 @@ const poppins = Poppins({
     display: "swap",
 });
 
-export const metadata: Metadata = {
-    title: { template: "%s • kars.bio", default: "Kars Quickstart" },
-    description: "Default text for all apps powered by create-kapp.",
-    // keywords: [],
-    openGraph: {
-        url: "https://kars.bio/",
-        type: "website",
-        title: "Kars",
-        siteName: "kars.bio",
-        description: "Default text for all apps powered by create-kapp.",
-        images: [
-            {
-                url: "https://cdn3.kars.bio/assets/banner.png",
-                width: 800,
-                height: 800,
-                alt: "Banner",
-            },
-        ],
-    },
-    robots: {
-        index: true,
-        follow: true,
-        nocache: true,
-        googleBot: {
-            index: true,
-            follow: true,
-            noimageindex: true,
-            "max-video-preview": -1,
-            "max-image-preview": "large",
-            "max-snippet": -1,
-        },
-    },
-};
+export const metadata = constructMetadata()
 
 export const viewport: Viewport = {
     themeColor: "#ff6666"

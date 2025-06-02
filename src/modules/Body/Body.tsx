@@ -3,7 +3,8 @@ import Lenis from "lenis";
 import "./lenis.css";
 import { useEffect, useState, createContext } from "react";
 import NextTopLoader from "nextjs-toploader";
-import { Toaster } from "sonner"
+import { Toaster } from "sonner";
+import { website } from "@constants";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -94,8 +95,6 @@ export default function Body({ children, className = "" }: BaseProp) {
         window.addEventListener("resize", onResize);
     }, []);
 
-    const progressColor = "#ff6666"
-
     return (
         <body className={className}>
             <SPContext.Provider
@@ -108,7 +107,7 @@ export default function Body({ children, className = "" }: BaseProp) {
                 {children}
                 <Toaster />
                 <NextTopLoader
-                    color={progressColor}
+                    color={website.accentColor}
                     initialPosition={0.08}
                     crawlSpeed={200}
                     height={2} // px
@@ -116,7 +115,7 @@ export default function Body({ children, className = "" }: BaseProp) {
                     crawl
                     easing="ease"
                     speed={200}
-                    shadow={`0 0 10px ${progressColor}, 0 0 5px ${progressColor}`}
+                    shadow={`0 0 10px ${website.accentColor}, 0 0 5px ${website.accentColor}`}
                     zIndex={1600}
                     showAtBottom={false}
                 />
