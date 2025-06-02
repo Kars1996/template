@@ -15,8 +15,6 @@ export const metadata = constructMetadata({
         "This page does not exist. Please verify the URL is correct and try again.",
 });
 
-console.log(JSON.stringify(metadata, null, 2));
-
 export default function _404Page() {
     return (
         <div className="font-walsheim flex min-h-screen w-full items-center justify-center bg-[#1b1b1b] text-white">
