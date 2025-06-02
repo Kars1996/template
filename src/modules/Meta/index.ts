@@ -40,7 +40,7 @@ export function constructMetadata({
         titleValue = fullTitle;
     } else {
         titleValue = {
-            default: title || "kars.bio",
+            default: title || templateTitle || "kars.bio",
             template: `%s • kars.bio`,
         };
     }
@@ -69,7 +69,7 @@ export function constructMetadata({
             }),
         },
         twitter: {
-            title,
+            title: title || templateTitle,
             description,
             ...(image && {
                 card: "summary_large_image",

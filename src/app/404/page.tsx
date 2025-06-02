@@ -10,7 +10,7 @@ Contact Kars for any enquiries
 */
 
 export const metadata = constructMetadata({
-    fullTitle: "Page not found",
+    title: "Page not found",
     description:
         "This page does not exist. Please verify the URL is correct and try again.",
 });
