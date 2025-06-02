@@ -12,7 +12,8 @@ export const metadata = constructMetadata({
     title: "Home",
 });
 
-export default function IndexPage() {
+export default async function IndexPage({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
+    const { name } = await searchParams;
     return (
         <div
             className="flex h-screen w-screen items-center justify-center text-black"
@@ -25,7 +26,7 @@ export default function IndexPage() {
         >
             <div className="max-w-xl space-y-6 rounded-xl border-2 border-white/10 bg-black/50 px-20 py-14 text-center backdrop-blur-lg backdrop-filter">
                 <h1 className="bg-gradient-to-tr from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] bg-clip-text text-9xl font-bold text-transparent">
-                    Kars
+                    {name || "Kars"}
                 </h1>
                 <Link
                     href="404"
