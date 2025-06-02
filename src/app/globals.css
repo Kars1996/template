@@ -68,7 +68,7 @@
     }
 
     a {
-        @apply text-[var(--primary)] no-underline;
+        @apply no-underline;
     }
 
     button {

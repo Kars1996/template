@@ -7,7 +7,6 @@ export function constructMetadata({
     title,
     fullTitle,
     templateTitle,
-    absoluteTitle = false,
     description = "Default text for all apps powered by create-kapp.",
     image = "https://cdn3.kars.bio/assets/banner.png",
     video,
@@ -27,7 +26,6 @@ export function constructMetadata({
     title?: string;
     fullTitle?: string;
     templateTitle?: string;
-    absoluteTitle?: boolean;
     description?: string;
     image?: string | null;
     video?: string | null;
@@ -37,13 +35,18 @@ export function constructMetadata({
     noIndex?: boolean;
     manifest?: string | URL | null;
 } = {}): Metadata {
-    return {
-        title: fullTitle || {
-            ...(absoluteTitle
-                ? { absolute: title || templateTitle || `kars.bio` }
-                : { default: title || templateTitle || `kars.bio` }),
+    let titleValue: string | { default: string; template: string };
+    if (fullTitle) {
+        titleValue = fullTitle;
+    } else {
+        titleValue = {
+            default: title || "kars.bio",
             template: `%s • kars.bio`,
-        },
+        };
+    }
+
+    return {
+        title: titleValue,
         description,
         openGraph: {
             title,
@@ -52,12 +55,14 @@ export function constructMetadata({
             type: "website",
             siteName: "kars.bio",
             ...(image && {
-                images: [{
-                    url: image,
-                    width: 800,
-                    height: 800,
-                    alt: "Banner"
-                }],
+                images: [
+                    {
+                        url: image,
+                        width: 800,
+                        height: 800,
+                        alt: "Banner",
+                    },
+                ],
             }),
             ...(video && {
                 videos: video,

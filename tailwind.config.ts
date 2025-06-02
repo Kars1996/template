@@ -7,6 +7,16 @@ const config: Config = {
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
+        fontFamily: {
+            satoshi: ["var(--font-satoshi)", "sans-serif"],
+            geistmono: ["var(--font-geist-mono)", "monospace"],
+            serif: ["var(--font-geist)", "serif"],
+            general: ["var(--font-general-sans)", "sans-serif"],
+            raleway: ["var(--font-raleway)", "sans-serif"],
+            neon: ["var(--font-neon)", "sans-serif"],
+            argon: ["var(--font-argon)", "sans-serif"],
+            walsheim: ["var(--font-walsheim)", "sans-serif"],
+        },
         extend: {
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

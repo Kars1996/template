@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { constructMetadata } from "@/modules/Meta";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -6,6 +7,11 @@ Copyright © 2025 Kars (github.com/kars1996)
 Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
+
+export const metadata = constructMetadata({
+    title: "Home",
+});
+
 export default function IndexPage() {
     return (
         <div
