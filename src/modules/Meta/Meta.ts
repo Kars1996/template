@@ -7,6 +7,7 @@ export function constructMetadata({
     title,
     fullTitle,
     templateTitle,
+    absoluteTitle = false,
     description = "Default text for all apps powered by create-kapp.",
     image = "https://cdn3.kars.bio/assets/banner.png",
     video,
@@ -26,6 +27,7 @@ export function constructMetadata({
     title?: string;
     fullTitle?: string;
     templateTitle?: string;
+    absoluteTitle?: boolean;
     description?: string;
     image?: string | null;
     video?: string | null;
@@ -37,7 +39,9 @@ export function constructMetadata({
 } = {}): Metadata {
     return {
         title: fullTitle || {
-            default: title || templateTitle || `kars.bio`,
+            ...(absoluteTitle
+                ? { absolute: title || templateTitle || `kars.bio` }
+                : { default: title || templateTitle || `kars.bio` }),
             template: `%s • kars.bio`,
         },
         description,
