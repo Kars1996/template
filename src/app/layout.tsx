@@ -6,6 +6,7 @@ import Console from "@/modules/Console/Console";
 import AOS from "@/lib/Aos/aos";
 import * as Fonts from "../../public/fonts/fontExports";
 import { constructMetadata } from "@/modules/Meta";
+import { website } from "@/constants";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -18,7 +19,7 @@ Contact Kars for any enquiries
 export const metadata = constructMetadata()
 
 export const viewport: Viewport = {
-    themeColor: "#ff6666"
+    themeColor: website.viewportColor || "#ffffff"
 }
 
 let isProd: boolean = false;
