@@ -19,7 +19,7 @@ Contact Kars for any enquiries
 export const metadata = constructMetadata()
 
 export const viewport: Viewport = {
-    themeColor: website.viewportColor || "#ffffff"
+    themeColor: website.accentColor || "#ffffff"
 }
 
 let isProd: boolean = false;

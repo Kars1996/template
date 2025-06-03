@@ -18,7 +18,7 @@ export function constructMetadata({
             url: "/favicon.ico",
         },
     ],
-    url = website.url,
+    url = website.baseUrl,
     canonicalUrl,
     noIndex = false,
     manifest,
