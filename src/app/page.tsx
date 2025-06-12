@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { constructMetadata } from "@/modules/Meta";
+import Marquee from "@/components/ui/maraquee";
 import {
     ArrowRight,
     Github,
@@ -11,7 +12,11 @@ import {
     Code,
     Rocket,
     Globe,
+    Heart,
+    Target,
+    Award,
 } from "lucide-react";
+import { Tooltip } from "@/components/ui/tooltip";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -24,50 +29,6 @@ export const metadata = constructMetadata({
     title: "NextJS Quickstart Template",
 });
 
-const features = [
-    {
-        icon: Palette,
-        title: "Beautiful Design",
-        description:
-            "5 variable fonts, 2 Google fonts, and Tailwind CSS ready to go",
-    },
-    {
-        icon: Sparkles,
-        title: "Smooth Animations",
-        description: "AOS, GSAP, and Lenis for buttery smooth interactions",
-    },
-    {
-        icon: Database,
-        title: "Database Ready",
-        description: "Prisma integration for seamless database operations",
-    },
-    {
-        icon: Shield,
-        title: "Authentication",
-        description: "Pre-configured middleware for speedy auth implementation",
-    },
-    {
-        icon: Code,
-        title: "ShadCN UI",
-        description: "Beautiful, accessible components built with Radix UI",
-    },
-    {
-        icon: Zap,
-        title: "Turbopack",
-        description: "Blazing fast builds with Next.js Turbopack support",
-    },
-    {
-        icon: Globe,
-        title: "API Ready",
-        description: "Custom Axios wrapper and API routes ready to use",
-    },
-    {
-        icon: Rocket,
-        title: "Production Ready",
-        description: "Best practices, conventions, and optimizations included",
-    },
-];
-
 export default async function IndexPage({
     searchParams,
 }: {
@@ -75,14 +36,107 @@ export default async function IndexPage({
 }) {
     const { name } = await searchParams;
 
+    const features = [
+        {
+            icon: Palette,
+            title: "Beautiful Design",
+            description:
+                "5 variable fonts, 2 Google fonts, and Tailwind CSS ready to go",
+        },
+        {
+            icon: Sparkles,
+            title: "Smooth Animations",
+            description: "AOS, GSAP, and Lenis for buttery smooth interactions",
+        },
+        {
+            icon: Database,
+            title: "Database Ready",
+            description: "Prisma integration for seamless database operations",
+        },
+        {
+            icon: Shield,
+            title: "Authentication",
+            description: "Pre-configured middleware for speedy auth implementation",
+        },
+        {
+            icon: Code,
+            title: "ShadCN UI",
+            description: "Beautiful, accessible components built with Radix UI",
+        },
+        {
+            icon: Zap,
+            title: "Turbopack",
+            description: "Blazing fast builds with Next.js Turbopack support",
+        },
+        {
+            icon: Globe,
+            title: "API Ready",
+            description: "Custom Axios wrapper and API routes ready to use",
+        },
+        {
+            icon: Rocket,
+            title: "Production Ready",
+            description: "Best practices, conventions, and optimizations included",
+        },
+    ];
+
+    const marqueeItems = [
+        {
+            icon: Zap,
+            label: "Fast",
+            color: "text-[#FFA84B]",
+        },
+        {
+            icon: Palette,
+            label: "Beautiful",
+            color: "text-[#B16CEA]",
+        },
+        {
+            icon: Shield,
+            label: "Secure",
+            color: "text-[#FF5E69]",
+        },
+        {
+            icon: Code,
+            label: "DX First",
+            color: "text-[#FFA84B]",
+        },
+        {
+            icon: Rocket,
+            label: "Scalable",
+            color: "text-[#B16CEA]",
+        },
+        {
+            icon: Heart,
+            label: "Open Source",
+            color: "text-[#FF5E69]",
+        },
+        {
+            icon: Target,
+            label: "TypeScript",
+            color: "text-[#FFA84B]",
+        },
+        {
+            icon: Award,
+            label: "Quality",
+            color: "text-[#B16CEA]",
+        },
+    ];
+
     return (
         <div className="min-h-screen bg-black text-white">
             <section className="relative flex min-h-screen items-center justify-center px-4">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#B16CEA]/10 via-transparent to-[#FFA84B]/10" />
                 <div className="relative z-10 mx-auto max-w-4xl text-center">
-                    <div className="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm">
-                        <Sparkles className="mr-2 h-4 w-4 text-[#B16CEA]" />
-                        NextJS Quickstart Template v3.1
+                    <div className="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm relative overflow-hidden group">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] p-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <div className="absolute inset-[1px] rounded-full bg-black/90 backdrop-blur-sm" />
+                        </div>
+                        <div className="relative z-10 flex items-center">
+                            <Sparkles className="mr-2 h-4 w-4 text-[#B16CEA] group-hover:animate-pulse" />
+                            NextJS Quickstart Template v4
+                        </div>
                     </div>
 
                     <h1 className="mb-6 text-5xl font-bold leading-tight md:text-7xl">
@@ -103,21 +157,33 @@ export default async function IndexPage({
                     </p>
 
                     <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                        <Link
-                            href="https://github.com/kars1996/Template"
-                            className="group inline-flex items-center rounded-full bg-gradient-to-r from-[#B16CEA] to-[#FF5E69] px-8 py-4 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#B16CEA]/25"
+                        <Tooltip
+                            content="Start building your next project"
+                            position="top"
+                            className="group-hover:-translate-y-8"
                         >
-                            Get Started
-                            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                        </Link>
+                            <Link
+                                href="https://github.com/kars1996/Template"
+                                className="group inline-flex items-center rounded-full bg-gradient-to-r from-[#B16CEA] to-[#FF5E69] px-8 py-4 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#B16CEA]/25"
+                            >
+                                Get Started
+                                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                            </Link>
+                        </Tooltip>
 
-                        <Link
-                            href="https://github.com/kars1996/Template"
-                            className="group inline-flex items-center rounded-full border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+                        <Tooltip
+                            content="Explore the source code"
+                            position="top"
+                            className="group-hover:-translate-y-8"
                         >
-                            <Github className="mr-2 h-5 w-5" />
-                            View on GitHub
-                        </Link>
+                            <Link
+                                href="https://github.com/kars1996/Template"
+                                className="group inline-flex items-center rounded-full border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+                            >
+                                <Github className="mr-2 h-5 w-5" />
+                                View on GitHub
+                            </Link>
+                        </Tooltip>
                     </div>
                 </div>
             </section>
@@ -141,10 +207,10 @@ export default async function IndexPage({
                         {features.map((feature, index) => (
                             <div
                                 key={index}
-                                className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
+                                className="group cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-105 hover:border-white/20 hover:bg-white/10"
                             >
-                                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-[#B16CEA]/20 to-[#FFA84B]/20">
-                                    <feature.icon className="h-6 w-6 text-[#B16CEA]" />
+                                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-[#B16CEA]/20 to-[#FFA84B]/20 transition-all group-hover:from-[#B16CEA]/30 group-hover:to-[#FFA84B]/30">
+                                    <feature.icon className="h-6 w-6 text-[#B16CEA] transition-transform group-hover:scale-110" />
                                 </div>
                                 <h3 className="mb-2 text-lg font-semibold">
                                     {feature.title}
@@ -155,8 +221,27 @@ export default async function IndexPage({
                             </div>
                         ))}
                     </div>
+                    <div className="relative overflow-hidden hidden md:block">
+                        <div className="absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-black to-transparent pointer-events-none" />
+                        <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-black to-transparent pointer-events-none" />
+                        
+                        <Marquee className="py-8" pauseOnHover>
+                            {marqueeItems.map((item, index) => (
+                                <div 
+                                    key={index}
+                                    className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm hover:bg-white/10 transition-colors cursor-pointer whitespace-nowrap mx-2"
+                                >
+                                    <item.icon className={`h-4 w-4 ${item.color}`} />
+                                    <span className="text-sm font-medium">
+                                        {item.label}
+                                    </span>
+                                </div>
+                            ))}
+                        </Marquee>
+                    </div>
                 </div>
             </section>
+
 
             <section className="relative px-4 py-32">
                 <div className="mx-auto max-w-5xl">
@@ -174,7 +259,6 @@ export default async function IndexPage({
                     </div>
 
                     <div className="mb-12 grid gap-8 md:grid-cols-2">
-                        {/* Method 1: create-kapp */}
                         <div className="group relative">
                             <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#B16CEA]/20 to-[#FF5E69]/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
                             <div className="relative rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 group-hover:border-white/20 group-hover:bg-white/10">
@@ -220,7 +304,6 @@ export default async function IndexPage({
                             </div>
                         </div>
 
-                        {/* Method 2: GitHub Clone */}
                         <div className="group relative">
                             <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#FF5E69]/20 to-[#FFA84B]/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
                             <div className="relative rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 group-hover:border-white/20 group-hover:bg-white/10">
