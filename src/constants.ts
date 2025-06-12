@@ -21,5 +21,4 @@ export const website: Website = {
     url: APP_URL,
     accentColor: "#ff6666",
     baseUrl: "https://kars.bio",
-
 } as const;
