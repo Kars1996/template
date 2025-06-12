@@ -2,7 +2,7 @@
     <img src="https://files.catbox.moe/2xyn5h.png" align="center" />
 </a>
 
-<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v4)</i></h1>
+<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v4.2)</i></h1>
 
 <p align="center">Consider giving this a ⭐ to show your support! <3</p>
 
@@ -30,7 +30,7 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 
 ## 🆕 Latest Update
 
-**Configuration Overhaul & Enhanced Landing Page** - I've completely revamped the configuration system for better developer experience and created a stunning new landing page that showcases the template's capabilities.
+**Auth + Design Overhaul** - Improved the way that the API functions to keep it more standardized. Improved the landing page and the 404 page. A whole bunch of stuff has been improved!
 
 ---
 

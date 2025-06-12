@@ -135,7 +135,7 @@ export default async function IndexPage({
                         </div>
                         <div className="relative z-10 flex items-center">
                             <Sparkles className="mr-2 h-4 w-4 text-[#B16CEA] group-hover:animate-pulse" />
-                            NextJS Quickstart Template v4
+                            NextJS Quickstart Template v4.2
                         </div>
                     </div>
 
