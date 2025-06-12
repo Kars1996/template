@@ -2,7 +2,7 @@
     <img src="https://files.catbox.moe/2xyn5h.png" align="center" />
 </a>
 
-<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v4.2)</i></h1>
+<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v4.3)</i></h1>
 
 <p align="center">Consider giving this a ⭐ to show your support! <3</p>
 
@@ -17,6 +17,8 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 - **🌈 Tailwind CSS** – Tailwind support right out of the box
 - **🔐 Middleware** – Pre-configured for speedy authentication
 - **📂 Routes** – Custom 404 and API routes ready to go
+- **🛡️ Rate Limiting** - Built-in Redis/Memory rate limiting for API protection
+- **⚙️ Config** - Site-wide configuration system for easy customization
 - **🔗 Prisma** – Set up for seamless database integration
 - **🧩 UI Library** – Integrates [ShadCN](https://ui.shadcn.com)
 - **🚀 Transitions** – Clean page loading transitions
