@@ -120,24 +120,35 @@ interface ResponseOptions<T = unknown> {
     message: string;
     status?: number;
     data?: T;
+    rateLimitResponse?: NextResponse;
+}
+
+function copyRateLimitHeaders(source: NextResponse, target: NextResponse): void {
+    source.headers.forEach((value, key) => {
+        if (key.toLowerCase().startsWith('x-ratelimit')) {
+            target.headers.set(key, value);
+        }
+    });
 }
 
 export function successResponse<Body = unknown>({
     message,
     status = 200,
     data,
-    headers,
-}: ResponseOptions<Body> & {
-    headers?: Record<string, string>;
-}): NextResponse {
-    return NextResponse.json(
+    rateLimitResponse,
+}: ResponseOptions<Body>): NextResponse {
+    const response = NextResponse.json(
         {
             success: true,
             message,
-
             data,
-            headers,
         },
-        { status, headers },
+        { status }
     );
+
+    if (rateLimitResponse) {
+        copyRateLimitHeaders(rateLimitResponse, response);
+    }
+
+    return response;
 }
