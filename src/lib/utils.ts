@@ -1,4 +1,3 @@
-// credit-ignore
 import { ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { TOKEN_NAME } from "@constants";
@@ -41,3 +40,5 @@ export async function getToken(request?: Request) {
     }
     return token;
 }
+
+// credit-ignore

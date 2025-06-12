@@ -18,8 +18,6 @@ export default async function IndexPage({ searchParams }: { searchParams: Promis
         <div
             className="flex h-screen w-screen items-center justify-center text-black"
             style={{
-                backgroundImage:
-                    "url('https://source.unsplash.com/ZK1HZiMZ2EM/1920x1080')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
