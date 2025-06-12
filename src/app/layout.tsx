@@ -38,7 +38,7 @@ export default function RootLayout({
                 <main className="relative flex min-h-screen w-full flex-col">
                     <AOS />
                     {children}
-                    <p>Made By Kars ツ</p>
+                    <p className="text-center text-sm text-transparent selection:text-white">Made By Kars ツ</p>
                 </main>
                 <Console isProd={isProd} />
             </Body>
