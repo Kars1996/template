@@ -2,7 +2,7 @@
     <img src="https://files.catbox.moe/2xyn5h.png" align="center" />
 </a>
 
-<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v3.1)</i></h1>
+<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v4)</i></h1>
 
 <p align="center">Consider giving this a ⭐ to show your support! <3</p>
 
@@ -25,6 +25,12 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 - **📝 Credit Manager** - Automatically update copyright notices in your codebase
 
 **Created with ❤️ by [Create-Kapp](https://github.com/kars1996/create-kapp)!**
+
+---
+
+## 🆕 Latest Update
+
+**Configuration Overhaul & Enhanced Landing Page** - I've completely revamped the configuration system for better developer experience and created a stunning new landing page that showcases the template's capabilities.
 
 ---
 
