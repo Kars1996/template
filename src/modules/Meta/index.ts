@@ -1,5 +1,5 @@
 // credit-ignore
-// ? Thanks to maria for inspiration
+// ? Credits to Maria for inspiration
 import { website } from "@constants";
 import { Metadata } from "next";
 
