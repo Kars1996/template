@@ -1,5 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import type { IconType } from "react-icons/lib";
+import type { RateLimitConfig } from '@/modules/API/rateLimit.middleware';
+import redis from '@/lib/redis';
 
 export const APP_URL = process.env.NODE_ENV === 'production' ? 'https://slat.cc' : 'http://localhost:3000';
 
@@ -22,3 +24,24 @@ export const website: Website = {
     accentColor: "#ff6666",
     baseUrl: "https://kars.bio",
 } as const;
+
+export const defaultRateLimitConfig: RateLimitConfig = {
+    type: redis ? 'redis' : 'memory',
+    options: {
+        // windowMs: 15 * 60 * 1000, // 15 minutes
+        windowMs: 60 * 1000,
+        // maxRequests: 100,
+        maxRequests: 5,
+        keyPrefix: 'rate-limit:',
+    },
+    redisClient: redis,
+};
+
+export const strictRateLimitConfig: RateLimitConfig = {
+    ...defaultRateLimitConfig,
+    options: {
+        ...defaultRateLimitConfig.options,
+        windowMs: 60 * 1000, // 1 minute
+        maxRequests: 5,
+    },
+};

@@ -14,10 +14,12 @@
     },
     "dependencies": {
         "@prisma/client": "latest",
+        "@types/ioredis": "latest",
         "axios": "latest",
         "class-variance-authority": "latest",
         "clsx": "latest",
         "gsap": "latest",
+        "ioredis": "latest",
         "lenis": "latest",
         "locomotive-aos": "latest",
         "lucide-react": "latest",

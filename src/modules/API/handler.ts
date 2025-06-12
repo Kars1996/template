@@ -15,16 +15,17 @@ export enum ErrorCode {
 }
 
 export type ErrorCodeType = // TODO: Find a better way to do this
-    | ErrorCode
-    | "bad_request"
-    | "not_found"
-    | "internal_server_error"
-    | "unauthorized"
-    | "forbidden"
-    | "rate_limit_exceeded"
-    | "exceeded_limit"
-    | "conflict"
-    | "unprocessable_entity";
+
+        | ErrorCode
+        | "bad_request"
+        | "not_found"
+        | "internal_server_error"
+        | "unauthorized"
+        | "forbidden"
+        | "rate_limit_exceeded"
+        | "exceeded_limit"
+        | "conflict"
+        | "unprocessable_entity";
 
 const errorCodeToHttpStatus: Record<string, number> = {
     bad_request: 400,
@@ -110,8 +111,9 @@ export function handleAndReturnErrorResponse(
     const { error, status } = handleApiError(err);
 
     return NextResponse.json<{
+        success: false;
         message: string;
-    }>({ message: error.message }, { headers, status });
+    }>({ success: false, message: error.message }, { headers, status });
 }
 
 interface ResponseOptions<T = unknown> {
@@ -130,7 +132,9 @@ export function successResponse<Body = unknown>({
 }): NextResponse {
     return NextResponse.json(
         {
+            success: true,
             message,
+
             data,
             headers,
         },
