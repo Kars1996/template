@@ -1,3 +1,5 @@
+import { successResponse } from "@/modules/API";
+
 /*
 Copyright © 2025 Kars (github.com/kars1996)
 
@@ -6,10 +8,8 @@ Contact Kars for any enquiries
 */
 
 export async function GET(): Promise<Response> {
-    return new Response("Example", {
+    return successResponse({
+        message: "Hello",
         status: 200,
-        headers: {
-            "Content-Type": "application/json",
-        },
     });
 }
