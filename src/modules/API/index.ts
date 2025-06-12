@@ -1,3 +1,4 @@
+import { TOKEN_NAME } from "@/constants";
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from "axios";
 import { cookies } from "next/headers";
 
@@ -26,7 +27,7 @@ export default class api {
 
     private static async getAuthToken(): Promise<string | undefined> {
         const cookieStore = await cookies();
-        return cookieStore.get("token")?.value;
+        return cookieStore.get(TOKEN_NAME)?.value;
     }
 
     private static async getHeaders(): Promise<any> {
