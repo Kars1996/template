@@ -28,10 +28,8 @@ export const website: Website = {
 export const defaultRateLimitConfig: RateLimitConfig = {
     type: redis ? 'redis' : 'memory',
     options: {
-        // windowMs: 15 * 60 * 1000, // 15 minutes
-        windowMs: 60 * 1000,
-        // maxRequests: 100,
-        maxRequests: 5,
+        windowMs: 15 * 60 * 1000, // 15 minutes
+        maxRequests: 100,
         keyPrefix: 'rate-limit:',
     },
     redisClient: redis,
