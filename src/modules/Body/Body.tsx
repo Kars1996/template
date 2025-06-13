@@ -32,11 +32,13 @@ type BaseProp = {
 
 export default function Body({ children, className = "" }: BaseProp) {
     const [scroll, setScroll] = useState<Lenis | null>(null);
-    const [SPController, setSPController] = useState<SPController>("ALLOWINIT");
+    const [SPController, setSPController] = useState<SPController>(
+        website.enableLenis ? "ALLOWINIT" : "DISABLE",
+    );
     function onResize() {
         if (window.innerWidth < 1024) {
             setSPController("DISABLE");
-        } else {
+        } else if (website.enableLenis) {
             setSPController("ENABLE");
         }
     }

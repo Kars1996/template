@@ -11,6 +11,7 @@ interface Website {
     url: string;
     accentColor: string;
     baseUrl: string;
+    enableLenis?: boolean;
     socials?: Record<string, {
         url: string;
         icon: React.JSX.Element | LucideIcon | IconType;
@@ -22,6 +23,7 @@ export const website: Website = {
     url: APP_URL,
     accentColor: "#ff6666",
     baseUrl: "https://kars.bio",
+    enableLenis: false,
 } as const;
 
 export const getDefaultRateLimitConfig = async (): Promise<RateLimitConfig> => {
