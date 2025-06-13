@@ -53,21 +53,3 @@ export const getStrictRateLimitConfig = async (): Promise<RateLimitConfig> => {
         },
     };
 };
-
-export const defaultRateLimitConfigSync: Omit<RateLimitConfig, 'redisClient'> = {
-    type: 'memory',
-    options: {
-        windowMs: 15 * 60 * 1000, // 15 minutes
-        maxRequests: 100,
-        keyPrefix: 'rate-limit:',
-    },
-};
-
-export const strictRateLimitConfigSync: Omit<RateLimitConfig, 'redisClient'> = {
-    ...defaultRateLimitConfigSync,
-    options: {
-        ...defaultRateLimitConfigSync.options,
-        windowMs: 60 * 1000, // 1 minute
-        maxRequests: 5,
-    },
-};
