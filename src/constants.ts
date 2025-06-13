@@ -3,7 +3,7 @@ import type { IconType } from "react-icons/lib";
 import type { RateLimitConfig } from '@/modules/API/rateLimit.middleware';
 import redis from '@/lib/redis';
 
-export const APP_URL = process.env.NODE_ENV === 'production' ? 'https://slat.cc' : 'http://localhost:3000';
+export const APP_URL = process.env.NODE_ENV === 'production' ? 'https://kars.bio' : 'http://localhost:3000';
 
 export const TOKEN_NAME = "token" as const;
 
