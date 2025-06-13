@@ -22,10 +22,7 @@ export const viewport: Viewport = {
     themeColor: website.accentColor || "#ffffff"
 }
 
-let isProd: boolean = false;
-if (process.env.NODE_ENV === "production") {
-    isProd = true;
-}
+let isProd: boolean = process.env.NODE_ENV === "production";
 
 export default function RootLayout({
     children,

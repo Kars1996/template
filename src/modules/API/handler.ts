@@ -15,7 +15,6 @@ export enum ErrorCode {
 }
 
 export type ErrorCodeType = // TODO: Find a better way to do this
-
         | ErrorCode
         | "bad_request"
         | "not_found"
