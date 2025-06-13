@@ -1,10 +1,11 @@
 import { NextRequest } from 'next/server';
 import { rateLimitMiddleware } from '@/modules/API/rateLimit.middleware';
-import { defaultRateLimitConfig } from '@/constants';
+import { getDefaultRateLimitConfig } from '@/constants';
 import { successResponse } from '@/modules/API';
 
 export async function GET(req: NextRequest) {
-    const rateLimitResponse = await rateLimitMiddleware(req, defaultRateLimitConfig);
+    const defaultConfig = await getDefaultRateLimitConfig();
+    const rateLimitResponse = await rateLimitMiddleware(req, defaultConfig);
     if (rateLimitResponse?.status !== 200) {
         return rateLimitResponse;
     }
@@ -17,10 +18,11 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+    const defaultConfig = await getDefaultRateLimitConfig();
     const rateLimitResponse = await rateLimitMiddleware(req, {
-        ...defaultRateLimitConfig,
+        ...defaultConfig,
         options: {
-            ...defaultRateLimitConfig.options,
+            ...defaultConfig.options,
             maxRequests: 50,
         },
     });
