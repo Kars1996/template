@@ -2,6 +2,13 @@ import type { NextRequest, NextResponse } from "next/server";
 import { APIError, handleAndReturnErrorResponse } from "./handler";
 import { TOKEN_NAME } from "@constants";
 
+/*
+Copyright © 2025 Kars (github.com/kars1996)
+
+Not to be shared, replicated, or used without prior consent.
+Contact me for any enquiries
+*/
+
 export type RouteHandler<
     T extends Record<string, string> = Record<string, string>,
 > = (
@@ -21,7 +28,7 @@ export function withAuth<T extends Record<string, string>>(
         context: { params: Promise<T> },
     ): Promise<NextResponse> {
         try {
-            const token = req.cookies.get(TOKEN_NAME);
+            const token = req.cookies.get(TOKEN_NAME); // Change this to check if the token is valid or whatever makes sense.
 
             if (!token) {
                 throw new APIError({
