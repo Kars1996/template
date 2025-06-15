@@ -15,7 +15,6 @@
     },
     "dependencies": {
         "@prisma/client": "latest",
-        "@types/ioredis": "latest",
         "axios": "latest",
         "bcrypt": "latest",
         "class-variance-authority": "latest",
