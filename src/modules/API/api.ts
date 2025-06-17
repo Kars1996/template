@@ -35,7 +35,7 @@ export default class api {
 
     private static async getHeaders(): Promise<any> {
         const token = await this.getAuthToken();
-        const headers: any = {
+        const headers: Record<string, string> = {
             "Content-Type": "application/json",
         };
         if (token) {
@@ -65,7 +65,7 @@ export default class api {
 
     static async get<T = unknown, P = unknown>(
         url: string,
-        config?: Omit<AxiosRequestConfig<P>, "url" | "headers">,
+        config?: Omit<AxiosRequestConfig<P>, "url">,
     ): Promise<ApiResponse<T>> {
         const headers = await this.getHeaders();
         return this.handleRequest(
@@ -76,7 +76,7 @@ export default class api {
     static async post<T = unknown, D = unknown>(
         url: string,
         data?: D,
-        config?: Omit<AxiosRequestConfig<D>, "url" | "data" | "headers">,
+        config?: Omit<AxiosRequestConfig<D>, "url" | "data">,
     ): Promise<ApiResponse<T>> {
         const headers = await this.getHeaders();
         return this.handleRequest(
@@ -87,7 +87,7 @@ export default class api {
     static async put<T = unknown, D = unknown>(
         url: string,
         data?: D,
-        config?: Omit<AxiosRequestConfig<D>, "url" | "data" | "headers">,
+        config?: Omit<AxiosRequestConfig<D>, "url" | "data">,
     ): Promise<ApiResponse<T>> {
         const headers = await this.getHeaders();
         return this.handleRequest(
@@ -97,7 +97,7 @@ export default class api {
 
     static async delete<T = unknown>(
         url: string,
-        config?: Omit<AxiosRequestConfig, "url" | "headers">,
+        config?: Omit<AxiosRequestConfig, "url">,
     ): Promise<ApiResponse<T>> {
         const headers = await this.getHeaders();
         return this.handleRequest(
@@ -108,7 +108,7 @@ export default class api {
     static async patch<T = unknown, D = unknown>(
         url: string,
         data?: D,
-        config?: Omit<AxiosRequestConfig<D>, "url" | "data" | "headers">,
+        config?: Omit<AxiosRequestConfig<D>, "url" | "data">,
     ): Promise<ApiResponse<T>> {
         const headers = await this.getHeaders();
         return this.handleRequest(
