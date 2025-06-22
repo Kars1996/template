@@ -28,6 +28,7 @@
         "next": "latest",
         "nextjs-toploader": "latest",
         "prisma": "latest",
+        "radix-ui": "latest",
         "react": "latest",
         "react-dom": "latest",
         "react-icons": "latest",
