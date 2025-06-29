@@ -1,6 +1,5 @@
 import type { LucideIcon } from "lucide-react";
 import type { IconType } from "react-icons/lib";
-import type { RateLimitConfig } from '@/modules/API/rateLimit.middleware';
 
 export const APP_URL = process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_APP_URL : 'http://localhost:3000';
 
@@ -25,31 +24,3 @@ export const website: Website = {
     baseUrl: "https://kars.bio",
     enableLenis: false,
 } as const;
-
-export const getDefaultRateLimitConfig = async (): Promise<RateLimitConfig> => {
-    const redis = typeof window === 'undefined' && process.env.REDIS_URL 
-        ? (await import('@/lib/redis')).default 
-        : undefined;
-    
-    return {
-        type: redis ? 'redis' : 'memory',
-        options: {
-            windowMs: 15 * 60 * 1000, // 15 minutes
-            maxRequests: 100,
-            keyPrefix: 'rate-limit:',
-        },
-        redisClient: redis,
-    };
-};
-
-export const getStrictRateLimitConfig = async (): Promise<RateLimitConfig> => {
-    const defaultConfig = await getDefaultRateLimitConfig();
-    return {
-        ...defaultConfig,
-        options: {
-            ...defaultConfig.options,
-            windowMs: 60 * 1000, // 1 minute
-            maxRequests: 5,
-        },
-    };
-};

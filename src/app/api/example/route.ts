@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { rateLimitMiddleware } from '@/modules/API/rateLimit.middleware';
-import { getDefaultRateLimitConfig } from '@/constants';
+import { getDefaultRateLimitConfig } from '@/lib/rateLimit';
 import { successResponse } from '@/modules/API';
 
 export async function GET(req: NextRequest) {
