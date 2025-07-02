@@ -227,17 +227,24 @@ export default async function IndexPage({
                         {features.map((feature, index) => (
                             <div
                                 key={index}
-                                className="group cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-105 hover:border-white/20 hover:bg-white/10"
+                                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10 shadow-md shadow-black/20"
                             >
-                                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-[#B16CEA]/20 to-[#FFA84B]/20 transition-all group-hover:from-[#B16CEA]/30 group-hover:to-[#FFA84B]/30">
-                                    <feature.icon className="h-6 w-6 text-[#B16CEA] transition-transform group-hover:scale-110" />
+                                <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
+                                <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-[#B16CEA]/20 via-[#FF5E69]/10 to-[#FFA84B]/20"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                                <div className="relative z-10 flex h-full flex-col">
+                                    <div className="mb-4 flex items-center gap-3">
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-[#B16CEA]/20 to-[#FFA84B]/20 text-[#B16CEA] transition-all duration-300 group-hover:scale-110 group-hover:from-[#B16CEA]/30 group-hover:to-[#FFA84B]/30 shadow-sm shadow-[#B16CEA]/20">
+                                            <feature.icon className="h-6 w-6" />
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-white drop-shadow-sm">
+                                            {feature.title}
+                                        </h3>
+                                    </div>
+                                    <p className="text-sm text-zinc-300">
+                                        {feature.description}
+                                    </p>
                                 </div>
-                                <h3 className="mb-2 text-lg font-semibold">
-                                    {feature.title}
-                                </h3>
-                                <p className="text-sm text-gray-400">
-                                    {feature.description}
-                                </p>
                             </div>
                         ))}
                     </div>
@@ -264,7 +271,8 @@ export default async function IndexPage({
 
             <section className="relative z-10 mx-auto max-w-7xl py-16 px-4">
                 <h2 className="text-3xl font-bold mb-8 text-center">UI Components Showcase</h2>
-                <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-4 md:grid-cols-6 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 gap-4 md:gap-6 auto-rows-[minmax(200px,auto)]">
+                    {/* Large Button Showcase */}
                     <div className="group relative overflow-hidden rounded-3xl border border-blue-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/5 shadow-md shadow-black/20 md:col-span-4 md:row-span-2">
                         <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
                         <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-blue-500/20 via-blue-500/10 to-transparent"></div>
@@ -290,7 +298,8 @@ export default async function IndexPage({
                         </div>
                     </div>
 
-                    <div className="group relative overflow-hidden rounded-3xl border border-purple-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/40 hover:shadow-lg hover:shadow-purple-500/5 shadow-md shadow-black/20 md:col-span-2">
+                    {/* Color Picker */}
+                    <div className="group relative overflow-hidden rounded-3xl border border-purple-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/40 hover:shadow-lg hover:shadow-purple-500/5 shadow-md shadow-black/20 md:col-span-2 md:row-span-2">
                         <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
                         <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-purple-500/20 via-purple-500/10 to-transparent"></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
@@ -308,13 +317,47 @@ export default async function IndexPage({
                         </div>
                     </div>
 
-                    <div className="group relative overflow-hidden rounded-3xl border border-green-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-green-500/40 hover:shadow-lg hover:shadow-green-500/5 shadow-md shadow-black/20 md:col-span-3">
+                    {/* Toast Demonstrations */}
+                    <div className="group relative overflow-hidden rounded-3xl border border-green-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-green-500/40 hover:shadow-lg hover:shadow-green-500/5 shadow-md shadow-black/20 md:col-span-3 md:row-span-2">
                         <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
                         <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-green-500/20 via-green-500/10 to-transparent"></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                         <div className="relative z-10 flex h-full flex-col">
                             <div className="mb-4 flex items-center gap-3">
                                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/20 text-green-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-green-500/30 shadow-sm shadow-green-500/20">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+                                        <path d="M9 12l2 2 4-4"></path>
+                                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"></path>
+                                    </svg>
+                                </div>
+                                <h3 className="text-xl font-semibold text-white drop-shadow-sm">Toast Notifications</h3>
+                            </div>
+                            <p className="mb-6 text-zinc-300">Different toast styles for various notification types.</p>
+                            <div className="space-y-2 mt-auto">
+                                <Button variant="outline" size="sm" onClick={() => toast.success("Success! Operation completed.")} className="w-full">
+                                    Success Toast
+                                </Button>
+                                <Button variant="outline" size="sm" onClick={() => toast.error("Error! Something went wrong.")} className="w-full">
+                                    Error Toast
+                                </Button>
+                                <Button variant="outline" size="sm" onClick={() => toast.warning("Warning! Please check your input.")} className="w-full">
+                                    Warning Toast
+                                </Button>
+                                <Button variant="outline" size="sm" onClick={() => toast.info("Info: Here's some helpful information.")} className="w-full">
+                                    Info Toast
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Form Elements */}
+                    <div className="group relative overflow-hidden rounded-3xl border border-orange-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-orange-500/40 hover:shadow-lg hover:shadow-orange-500/5 shadow-md shadow-black/20 md:col-span-3">
+                        <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-orange-500/20 via-orange-500/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                        <div className="relative z-10 flex h-full flex-col">
+                            <div className="mb-4 flex items-center gap-3">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/20 text-orange-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-500/30 shadow-sm shadow-orange-500/20">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
                                         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                                         <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
@@ -331,13 +374,14 @@ export default async function IndexPage({
                         </div>
                     </div>
 
-                    <div className="group relative overflow-hidden rounded-3xl border border-orange-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-orange-500/40 hover:shadow-lg hover:shadow-orange-500/5 shadow-md shadow-black/20 md:col-span-3">
+                    {/* Dropdowns */}
+                    <div className="group relative overflow-hidden rounded-3xl border border-pink-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-pink-500/40 hover:shadow-lg hover:shadow-pink-500/5 shadow-md shadow-black/20 md:col-span-3">
                         <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-                        <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-orange-500/20 via-orange-500/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-pink-500/20 via-pink-500/10 to-transparent"></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                         <div className="relative z-10 flex h-full flex-col">
                             <div className="mb-4 flex items-center gap-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/20 text-orange-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-500/30 shadow-sm shadow-orange-500/20">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-500/20 text-pink-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-pink-500/30 shadow-sm shadow-pink-500/20">
                                     <ChevronDown className="h-6 w-6" />
                                 </div>
                                 <h3 className="text-xl font-semibold text-white drop-shadow-sm">Dropdowns</h3>
@@ -348,6 +392,7 @@ export default async function IndexPage({
                                     <DropdownItem onClick={() => toast.success("Option 1 selected!")}>Option 1</DropdownItem>
                                     <DropdownItem onClick={() => toast.info("Option 2 selected!")}>Option 2</DropdownItem>
                                     <DropdownItem onClick={() => toast.warning("Option 3 selected!")}>Option 3</DropdownItem>
+                                    <DropdownItem onClick={() => toast.error("Option 4 selected!")}>Option 4</DropdownItem>
                                 </Dropdown>
                                 <Select>
                                     <SelectTrigger>
@@ -363,13 +408,14 @@ export default async function IndexPage({
                         </div>
                     </div>
 
-                    <div className="group relative overflow-hidden rounded-3xl border border-pink-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-pink-500/40 hover:shadow-lg hover:shadow-pink-500/5 shadow-md shadow-black/20 md:col-span-2">
+                    {/* Interactive Elements */}
+                    <div className="group relative overflow-hidden rounded-3xl border border-cyan-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/5 shadow-md shadow-black/20 md:col-span-2">
                         <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-                        <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-pink-500/20 via-pink-500/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-cyan-500/20 via-cyan-500/10 to-transparent"></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                         <div className="relative z-10 flex h-full flex-col">
                             <div className="mb-4 flex items-center gap-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-500/20 text-pink-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-pink-500/30 shadow-sm shadow-pink-500/20">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-cyan-500/30 shadow-sm shadow-cyan-500/20">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
                                         <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
                                     </svg>
@@ -400,13 +446,14 @@ export default async function IndexPage({
                         </div>
                     </div>
 
-                    <div className="group relative overflow-hidden rounded-3xl border border-cyan-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/5 shadow-md shadow-black/20 md:col-span-2">
+                    {/* File Upload */}
+                    <div className="group relative overflow-hidden rounded-3xl border border-yellow-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-yellow-500/40 hover:shadow-lg hover:shadow-yellow-500/5 shadow-md shadow-black/20 md:col-span-2">
                         <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-                        <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-cyan-500/20 via-cyan-500/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-yellow-500/20 via-yellow-500/10 to-transparent"></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                         <div className="relative z-10 flex h-full flex-col">
                             <div className="mb-4 flex items-center gap-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-cyan-500/30 shadow-sm shadow-cyan-500/20">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500/20 text-yellow-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-yellow-500/30 shadow-sm shadow-yellow-500/20">
                                     <Upload className="h-6 w-6" />
                                 </div>
                                 <h3 className="text-xl font-semibold text-white drop-shadow-sm">File Upload</h3>
@@ -418,13 +465,14 @@ export default async function IndexPage({
                         </div>
                     </div>
 
-                    <div className="group relative overflow-hidden rounded-3xl border border-yellow-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-yellow-500/40 hover:shadow-lg hover:shadow-yellow-500/5 shadow-md shadow-black/20 md:col-span-2">
+                    {/* Loading States */}
+                    <div className="group relative overflow-hidden rounded-3xl border border-red-500/20 bg-black/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-500/40 hover:shadow-lg hover:shadow-red-500/5 shadow-md shadow-black/20 md:col-span-2">
                         <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-                        <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-yellow-500/20 via-yellow-500/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-100 from-red-500/20 via-red-500/10 to-transparent"></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                         <div className="relative z-10 flex h-full flex-col">
                             <div className="mb-4 flex items-center gap-3">
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500/20 text-yellow-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-yellow-500/30 shadow-sm shadow-yellow-500/20">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-500/20 text-red-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-red-500/30 shadow-sm shadow-red-500/20">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
                                         <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
                                     </svg>

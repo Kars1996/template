@@ -1,4 +1,4 @@
-export { Button } from "./button";
+export { Button, buttonVariants } from "./button";
 export { Input } from "./input";
 export { Tooltip } from "./tooltip";
 export { Skeleton } from "./skeleton";
@@ -27,5 +27,12 @@ export {
     SelectScrollDownButton,
 } from "./select";
 export { Marquee } from "./maraquee";
+export { FileUpload } from "./file-upload";
+export { Switch } from "./switch";
+export { ColorPicker } from "./color-picker";
+export { Popover, PopoverContent, PopoverTrigger } from "./popover";
+export { Dropdown, DropdownItem } from "./dropdown";
+export { Drawer, VaulDrawer } from "./drawer";
+export { toast, Toaster, sonnerToast } from "./toast";
 
 // credit-ignore

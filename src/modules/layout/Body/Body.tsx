@@ -3,7 +3,7 @@ import Lenis from "lenis";
 import "./lenis.css";
 import { useEffect, useState, createContext } from "react";
 import NextTopLoader from "nextjs-toploader";
-import { Toaster } from "sonner";
+import { Toaster } from "@/components/ui/toast";
 import { website } from "@/constants";
 
 /*

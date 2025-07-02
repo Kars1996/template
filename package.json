@@ -36,6 +36,7 @@
         "sonner": "latest",
         "tailwind-merge": "latest",
         "tailwindcss-animate": "latest",
+        "vaul": "latest",
         "zod": "latest"
     },
     "devDependencies": {

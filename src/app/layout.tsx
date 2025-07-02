@@ -6,6 +6,7 @@ import AOS from "@/lib/animations";
 import * as Fonts from "../../public/fonts/fontExports";
 import { Meta } from "@/modules/layout";
 import { website } from "@/constants";
+import { Toaster } from "@/components/ui";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -36,6 +37,7 @@ export default function RootLayout({
                     {children}
                     <p className="text-center text-sm text-transparent selection:text-white">Made By Kars ツ</p>
                 </main>
+                <Toaster />
                 <Console isProd={isProd} />
             </Body>
         </html>
