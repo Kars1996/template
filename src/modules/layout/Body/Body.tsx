@@ -4,7 +4,7 @@ import "./lenis.css";
 import { useEffect, useState, createContext } from "react";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "sonner";
-import { website } from "@constants";
+import { website } from "@/constants";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)

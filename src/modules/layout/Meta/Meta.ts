@@ -1,9 +1,9 @@
 // credit-ignore
 // ? Credits to Maria for inspiration
-import { website } from "@constants";
+import { website } from "@/constants";
 import { Metadata } from "next";
 
-export function constructMetadata({
+export default function constructMetadata({
     title,
     fullTitle,
     templateTitle,
