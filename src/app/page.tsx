@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Meta } from "@/modules/layout";
+import { use } from "react";
 import {
     ArrowRight,
     Github,
@@ -49,12 +50,13 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
 
-export default async function IndexPage({
+export default function IndexPage({
     searchParams,
 }: {
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-    const { name } = await searchParams;
+    const params = use(searchParams);
+    const { name } = params;
 
     const features = [
         {
