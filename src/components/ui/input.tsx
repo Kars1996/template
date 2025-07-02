@@ -21,7 +21,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 <input
                     type={inputType}
                     className={cn(
-                        "flex h-10 w-full rounded-lg border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm text-white placeholder:text-neutral-400 focus:border-neutral-400 focus:outline-none focus:ring-1 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50",
+                        "flex w-full h-10 rounded-lg border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm text-white placeholder:text-neutral-400 transition-all duration-200 outline-none",
+                        "focus:border-blue-500 focus:ring-2 focus:ring-blue-400/40 focus:shadow-[0_0_0_2px_rgba(59,130,246,0.2)]",
+                        "hover:border-blue-400 hover:shadow-[0_0_0_2px_rgba(59,130,246,0.12)]",
+                        "before:pointer-events-none before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-b before:from-white/10 before:to-transparent",
                         isPassword && showPasswordToggle && "pr-10",
                         className,
                     )}
@@ -32,7 +35,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-200 focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-200 focus:outline-none focus:ring-2 focus:ring-blue-400/60 focus:ring-offset-2"
                     >
                         {showPassword ? (
                             <EyeOff className="h-4 w-4" />
