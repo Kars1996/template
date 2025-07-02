@@ -2,7 +2,7 @@
     <img src="https://files.catbox.moe/2xyn5h.png" align="center" />
 </a>
 
-<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v4.3)</i></h1>
+<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v5.0)</i></h1>
 
 <p align="center">Consider giving this a ⭐ to show your support! <3</p>
 
@@ -25,6 +25,10 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 - **🌐 API** - Custom [Axios](https://axios-http.com/docs/intro) wrapper for easy API requests
 - **🔌 Turbopack** - Supporting [Turbopack](https://turbo.build/repo) for blazing fast builds
 - **📝 Credit Manager** - Automatically update copyright notices in your codebase
+- **🎯 Form Validation** - Built-in validation system with comprehensive error handling
+- **🗂️ Modular Architecture** - Reorganized codebase with better separation of concerns
+- **🎨 Enhanced UI Components** - New button, input, modal, select, and skeleton components
+- **📊 API Validation Demo** - Example endpoint showcasing validation patterns
 
 **Created with ❤️ by [Create-Kapp](https://github.com/kars1996/create-kapp)!**
 
@@ -32,7 +36,13 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 
 ## 🆕 Latest Update
 
-**Auth + Design Overhaul** - Improved the way that the API functions to keep it more standardized. Improved the landing page and the 404 page. A whole bunch of stuff has been improved!
+**Codebase Reorganization & Enhanced Features** - Major architectural improvements including:
+
+- **🗂️ Modular Structure** - Reorganized lib directory with dedicated folders for animations, cache, database, and validation
+- **🎨 New UI Components** - Added comprehensive set of reusable components (button, input, modal, select, skeleton)
+- **🎯 Validation System** - Built-in form validation with comprehensive error handling and API validation demo
+- **📦 Better Organization** - Improved module structure with dedicated layout and navigation components
+- **🔧 Enhanced Configuration** - Updated package.json and middleware for better performance and maintainability
 
 ---
 
