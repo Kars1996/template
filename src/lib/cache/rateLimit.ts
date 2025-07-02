@@ -2,7 +2,7 @@ import type { RateLimitConfig } from '@/modules/API/rateLimit.middleware';
 
 export const getDefaultRateLimitConfig = async (): Promise<RateLimitConfig> => {
     const redis = typeof window === 'undefined' && process.env.REDIS_URL 
-        ? (await import('@/lib/redis')).default 
+        ? (await import('@/lib/cache/redis')).default 
         : undefined;
     
     return {
