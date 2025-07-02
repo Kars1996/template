@@ -1,11 +1,10 @@
 import type { Viewport } from "next";
-import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import Body from "@/modules/Body/Body";
-import Console from "@/modules/Console/Console";
-import AOS from "@/lib/Aos/aos";
+import Body from "@/modules/layout/Body/Body";
+import Console from "@/modules/layout/Console/Console";
+import AOS from "@/lib/animations";
 import * as Fonts from "../../public/fonts/fontExports";
-import { constructMetadata } from "@/modules/Meta";
+import { Meta } from "@/modules/layout";
 import { website } from "@/constants";
 
 /*
@@ -16,7 +15,7 @@ Contact Kars for any enquiries
 */
 
 // const inter = Inter({ subsets: ["latin"] });
-export const metadata = constructMetadata()
+export const metadata = Meta()
 
 export const viewport: Viewport = {
     themeColor: website.accentColor || "#ffffff"

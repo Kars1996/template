@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { constructMetadata } from "@/modules/Meta";
-import Marquee from "@/components/ui/maraquee";
+import { Meta } from "@/modules/layout";
+import { Marquee } from "@/components/ui/maraquee";
 import {
     ArrowRight,
     Github,
@@ -15,8 +15,30 @@ import {
     Heart,
     Target,
     Award,
+    Eye,
+    EyeOff,
+    Search,
+    ChevronDown,
 } from "lucide-react";
 import { Tooltip } from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Skeleton } from "@/components/ui/skeleton";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/modal";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -25,7 +47,7 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
 
-export const metadata = constructMetadata({
+export const metadata = Meta({
     title: "NextJS Quickstart Template",
 });
 
@@ -238,6 +260,124 @@ export default async function IndexPage({
                                 </div>
                             ))}
                         </Marquee>
+                    </div>  
+                </div>
+            </section>
+
+            {/* UI Components Showcase */}
+            <section className="relative px-4 py-24">
+                <div className="mx-auto max-w-6xl">
+                    <div className="mb-16 text-center">
+                        <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                            Beautiful{" "}
+                            <span className="bg-gradient-to-r from-[#B16CEA] to-[#FFA84B] bg-clip-text text-transparent">
+                                UI Components
+                            </span>
+                        </h2>
+                        <p className="text-lg text-gray-400">
+                            Pre-built components that match your design system
+                        </p>
+                    </div>
+
+                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        <div className="group cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-105 hover:border-white/20 hover:bg-white/10">
+                            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-[#B16CEA]/20 to-[#FFA84B]/20 transition-all group-hover:from-[#B16CEA]/30 group-hover:to-[#FFA84B]/30">
+                                <Palette className="h-6 w-6 text-[#B16CEA] transition-transform group-hover:scale-110" />
+                            </div>
+                            <h3 className="mb-4 text-lg font-semibold">Buttons</h3>
+                            <div className="space-y-3">
+                                <Button variant="default" className="w-full">
+                                    Primary Button
+                                </Button>
+                                <Button variant="secondary" className="w-full">
+                                    Secondary Button
+                                </Button>
+                                <Button variant="outline" className="w-full">
+                                    Outline Button
+                                </Button>
+                            </div>
+                        </div>
+
+                        <div className="group cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-105 hover:border-white/20 hover:bg-white/10">
+                            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-[#FF5E69]/20 to-[#B16CEA]/20 transition-all group-hover:from-[#FF5E69]/30 group-hover:to-[#B16CEA]/30">
+                                <Code className="h-6 w-6 text-[#FF5E69] transition-transform group-hover:scale-110" />
+                            </div>
+                            <h3 className="mb-4 text-lg font-semibold">Inputs</h3>
+                            <div className="space-y-3">
+                                <Input placeholder="Regular input" />
+                                <Input type="password" placeholder="Password input" showPasswordToggle />
+                            </div>
+                        </div>
+
+                        <div className="group cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-105 hover:border-white/20 hover:bg-white/10">
+                            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-[#FFA84B]/20 to-[#FF5E69]/20 transition-all group-hover:from-[#FFA84B]/30 group-hover:to-[#FF5E69]/30">
+                                <ChevronDown className="h-6 w-6 text-[#FFA84B] transition-transform group-hover:scale-110" />
+                            </div>
+                            <h3 className="mb-4 text-lg font-semibold">Select</h3>
+                            <Select>
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Choose an option" />
+                                </SelectTrigger>
+                                <SelectContent searchable searchPlaceholder="Search options...">
+                                    <SelectItem value="option1">Option 1</SelectItem>
+                                    <SelectItem value="option2">Option 2</SelectItem>
+                                    <SelectItem value="option3">Option 3</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
+
+                        <div className="group cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-105 hover:border-white/20 hover:bg-white/10">
+                            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-[#B16CEA]/20 to-[#FF5E69]/20 transition-all group-hover:from-[#B16CEA]/30 group-hover:to-[#FF5E69]/30">
+                                <Shield className="h-6 w-6 text-[#B16CEA] transition-transform group-hover:scale-110" />
+                            </div>
+                            <h3 className="mb-4 text-lg font-semibold">Modal</h3>
+                            <Dialog>
+                                <DialogTrigger asChild>
+                                    <Button variant="outline" className="w-full">
+                                        Open Modal
+                                    </Button>
+                                </DialogTrigger>
+                                <DialogContent>
+                                    <DialogHeader>
+                                        <DialogTitle>Example Modal</DialogTitle>
+                                        <DialogDescription>
+                                            This is an example modal with blur backdrop.
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                    <div className="py-4">
+                                        <p className="text-sm text-gray-400">
+                                            The modal includes a beautiful blur effect and smooth animations.
+                                        </p>
+                                    </div>
+                                </DialogContent>
+                            </Dialog>
+                        </div>
+
+                        <div className="group cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-105 hover:border-white/20 hover:bg-white/10">
+                            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-[#FF5E69]/20 to-[#FFA84B]/20 transition-all group-hover:from-[#FF5E69]/30 group-hover:to-[#FFA84B]/30">
+                                <Sparkles className="h-6 w-6 text-[#FF5E69] transition-transform group-hover:scale-110" />
+                            </div>
+                            <h3 className="mb-4 text-lg font-semibold">Skeleton</h3>
+                            <div className="space-y-3">
+                                <Skeleton className="h-4 w-full" />
+                                <Skeleton className="h-4 w-3/4" />
+                                <Skeleton className="h-4 w-1/2" />
+                            </div>
+                        </div>
+
+                        <div className="group cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:scale-105 hover:border-white/20 hover:bg-white/10">
+                            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-[#FFA84B]/20 to-[#B16CEA]/20 transition-all group-hover:from-[#FFA84B]/30 group-hover:to-[#B16CEA]/30">
+                                <Target className="h-6 w-6 text-[#FFA84B] transition-transform group-hover:scale-110" />
+                            </div>
+                            <h3 className="mb-4 text-lg font-semibold">Tooltip</h3>
+                            <div className="flex justify-center">
+                                <Tooltip content="This is a beautiful tooltip!" position="top">
+                                    <Button variant="ghost" className="w-full">
+                                        Hover me
+                                    </Button>
+                                </Tooltip>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

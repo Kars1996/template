@@ -1,4 +1,6 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
+import { z } from "zod";
+import { ValidationResult } from "@/lib/validation/validate";
 
 // ? Credits to Maria for inspiration
 
@@ -12,6 +14,7 @@ export enum ErrorCode {
     EXCEEDED_LIMIT = "exceeded_limit",
     CONFLICT = "conflict",
     UNPROCESSABLE_ENTITY = "unprocessable_entity",
+    VALIDATION_ERROR = "validation_error",
 }
 
 export type ErrorCodeType = // TODO: Find a better way to do this
@@ -24,7 +27,8 @@ export type ErrorCodeType = // TODO: Find a better way to do this
         | "rate_limit_exceeded"
         | "exceeded_limit"
         | "conflict"
-        | "unprocessable_entity";
+        | "unprocessable_entity"
+        | "validation_error";
 
 const errorCodeToHttpStatus: Record<string, number> = {
     bad_request: 400,
@@ -34,6 +38,7 @@ const errorCodeToHttpStatus: Record<string, number> = {
     not_found: 404,
     conflict: 409,
     unprocessable_entity: 422,
+    validation_error: 422,
     rate_limit_exceeded: 429,
     internal_server_error: 500,
 };
@@ -61,13 +66,59 @@ interface ValidationError {
     message: string;
 }
 
+interface ZodValidationError {
+    field: string;
+    message: string;
+    code?: string;
+}
+
+export function formatZodError(zodError: z.ZodError): ZodValidationError[] {
+    return zodError.errors.map((error) => ({
+        field: error.path.join('.'),
+        message: error.message,
+        code: error.code,
+    }));
+}
+
 export function handleApiError(error: any): {
-    error: { code: string; message: string };
+    error: { code: string; message: string; details?: ZodValidationError[] };
     status: number;
 } {
     console.error("API error occurred", error.message);
     console.log(error);
 
+    // zod errors
+    if (error instanceof z.ZodError) {
+        const validationErrors = formatZodError(error);
+        return {
+            error: {
+                code: ErrorCode.VALIDATION_ERROR,
+                message: "Validation failed",
+                details: validationErrors,
+            },
+            status: errorCodeToHttpStatus[ErrorCode.VALIDATION_ERROR],
+        };
+    }
+
+    // ValidationResult errors (i think)
+    if (error && typeof error === 'object' && 'success' in error && error.success === false) {
+        const validationResult = error as ValidationResult<unknown>;
+        if ('errors' in validationResult) {
+            return {
+                error: {
+                    code: ErrorCode.VALIDATION_ERROR,
+                    message: "Validation failed",
+                    details: validationResult.errors.map((message: string, index: number) => ({
+                        field: `field_${index}`,
+                        message,
+                    })),
+                },
+                status: errorCodeToHttpStatus[ErrorCode.VALIDATION_ERROR],
+            };
+        }
+    }
+
+    // array errors
     if (
         Array.isArray(error) &&
         error.every((e) => "field" in e && "message" in e)
@@ -109,10 +160,20 @@ export function handleAndReturnErrorResponse(
 ): NextResponse {
     const { error, status } = handleApiError(err);
 
-    return NextResponse.json<{
+    const responseBody: {
         success: false;
         message: string;
-    }>({ success: false, message: error.message }, { headers, status });
+        details?: ZodValidationError[];
+    } = { 
+        success: false, 
+        message: error.message 
+    };
+
+    if (error.details) {
+        responseBody.details = error.details;
+    }
+
+    return NextResponse.json(responseBody, { headers, status });
 }
 
 interface ResponseOptions<T = unknown> {
@@ -150,4 +211,72 @@ export function successResponse<Body = unknown>({
     }
 
     return response;
+}
+
+export async function validateRequestBody<T>(
+    schema: z.ZodSchema<T>,
+    request: Request
+): Promise<T> {
+    try {
+        const body = await request.json();
+        return schema.parse(body);
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            throw error;
+        }
+        throw new APIError({
+            code: ErrorCode.BAD_REQUEST,
+            message: "Invalid request body",
+        });
+    }
+}
+
+export function validateQueryParams<T>(
+    schema: z.ZodSchema<T>,
+    url: URL
+): T {
+    try {
+        const params = Object.fromEntries(url.searchParams.entries());
+        return schema.parse(params);
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            throw error;
+        }
+        throw new APIError({
+            code: ErrorCode.BAD_REQUEST,
+            message: "Invalid query parameters",
+        });
+    }
+}
+
+export function validateFormData<T>(
+    schema: z.ZodSchema<T>,
+    formData: FormData
+): T {
+    try {
+        const data = Object.fromEntries(formData.entries());
+        return schema.parse(data);
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            throw error;
+        }
+        throw new APIError({
+            code: ErrorCode.BAD_REQUEST,
+            message: "Invalid form data",
+        });
+    }
+}
+
+export function withValidation<T>(
+    schema: z.ZodSchema<T>,
+    handler: (data: T, request: NextRequest) => Promise<NextResponse>
+) {
+    return async (request: NextRequest): Promise<NextResponse> => {
+        try {
+            const data = await validateRequestBody(schema, request);
+            return await handler(data, request);
+        } catch (error) {
+            return handleAndReturnErrorResponse(error);
+        }
+    };
 }

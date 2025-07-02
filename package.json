@@ -35,7 +35,8 @@
         "server-only": "latest",
         "sonner": "latest",
         "tailwind-merge": "latest",
-        "tailwindcss-animate": "latest"
+        "tailwindcss-animate": "latest",
+        "zod": "latest"
     },
     "devDependencies": {
         "@types/node": "latest",

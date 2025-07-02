@@ -1,27 +1,18 @@
 "use client";
+
 import * as React from "react";
-import { cn } from "@kars/utils";
+import { cn } from "@/lib/utils";
 
-/*
-Copyright © 2025 Kars (github.com/kars1996)
-
-Not to be shared, replicated or used without prior consent.
-Contact Kars for any enquiries
-*/
-
-export function Tooltip({
-    children,
-    content,
-    position = "top",
-    smallWidth = false,
-    className,
-}: {
+export interface TooltipProps {
     children: React.ReactNode;
     content: string;
     position?: "top" | "bottom" | "left" | "right";
     smallWidth?: boolean;
     className?: string;
-}) {
+}
+
+const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
+    ({ children, content, position = "top", smallWidth = false, className }, ref) => {
     return (
         <div className="group relative w-fit">
             {children}
@@ -40,4 +31,7 @@ export function Tooltip({
             </div>
         </div>
     );
-}
+});
+Tooltip.displayName = "Tooltip";
+
+export { Tooltip };

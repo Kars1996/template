@@ -1,7 +1,7 @@
-import { NextRequest } from 'next/server';
-import { rateLimitMiddleware } from '@/modules/API/rateLimit.middleware';
-import { getDefaultRateLimitConfig } from '@/lib/rateLimit';
-import { successResponse } from '@/modules/API';
+import { getDefaultRateLimitConfig } from "@/lib/cache";
+import { rateLimitMiddleware, successResponse, validateRequestBody, handleAndReturnErrorResponse } from "@/modules";
+import { contactFormSchema, loginSchema } from "@/lib/validation/validations";
+import type { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
     const defaultConfig = await getDefaultRateLimitConfig();
@@ -18,18 +18,59 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-    const defaultConfig = await getDefaultRateLimitConfig();
-    const rateLimitResponse = await rateLimitMiddleware(req, {
-        ...defaultConfig,
-        options: {
-            ...defaultConfig.options,
-            maxRequests: 50,
-        },
-    });
+    try {
+        const defaultConfig = await getDefaultRateLimitConfig();
+        const rateLimitResponse = await rateLimitMiddleware(req, {
+            ...defaultConfig,
+            options: {
+                ...defaultConfig.options,
+                maxRequests: 50,
+            },
+        });
 
-    return successResponse({
-        message: "Post created successfully!",
-        status: 200,
-        rateLimitResponse,
-    });
-} 
+        if (rateLimitResponse?.status !== 200) {
+            return rateLimitResponse;
+        }
+
+        // Example: Validate contact form data
+        const validatedData = await validateRequestBody(contactFormSchema, req);
+
+        return successResponse({
+            message: "Contact form submitted successfully!",
+            status: 200,
+            data: validatedData,
+            rateLimitResponse,
+        });
+    } catch (error) {
+        return handleAndReturnErrorResponse(error);
+    }
+}
+
+// Example of a login endpoint with validation
+export async function PUT(req: NextRequest) {
+    try {
+        const defaultConfig = await getDefaultRateLimitConfig();
+        const rateLimitResponse = await rateLimitMiddleware(req, defaultConfig);
+        
+        if (rateLimitResponse?.status !== 200) {
+            return rateLimitResponse;
+        }
+
+        // Validate login data
+        const loginData = await validateRequestBody(loginSchema, req);
+
+        // Simulate login logic
+        if (loginData.email === "test@example.com" && loginData.password === "password123") {
+            return successResponse({
+                message: "Login successful!",
+                status: 200,
+                data: { user: { email: loginData.email } },
+                rateLimitResponse,
+            });
+        } else {
+            throw new Error("Invalid credentials");
+        }
+    } catch (error) {
+        return handleAndReturnErrorResponse(error);
+    }
+}

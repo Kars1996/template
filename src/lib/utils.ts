@@ -1,6 +1,6 @@
 import { ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { TOKEN_NAME } from "@constants";
+import { TOKEN_NAME } from "@/constants";
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));

@@ -1,33 +1,19 @@
-import { cn } from "@kars/utils";
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
-/*
-Copyright © 2025 Kars (github.com/kars1996)
-
-Not to be shared, replicated or used without prior consent.
-Contact Kars for any enquiries
-*/
-
-interface MarqueeProps {
-    className?: string;
+export interface MarqueeProps extends React.HTMLAttributes<HTMLDivElement> {
     reverse?: boolean;
     pauseOnHover?: boolean;
     children?: React.ReactNode;
     vertical?: boolean;
     repeat?: number;
-    [key: string]: any;
 }
 
-export default function Marquee({
-    className,
-    reverse,
-    pauseOnHover = true,
-    children,
-    vertical = false,
-    repeat = 4,
-    ...props
-}: MarqueeProps) {
+const Marquee = React.forwardRef<HTMLDivElement, MarqueeProps>(
+    ({ className, reverse, pauseOnHover = true, children, vertical = false, repeat = 4, ...props }, ref) => {
     return (
         <div
+            ref={ref}
             {...props}
             className={cn(
                 "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
@@ -59,4 +45,7 @@ export default function Marquee({
                 ))}
         </div>
     );
-}
+});
+Marquee.displayName = "Marquee";
+
+export { Marquee };

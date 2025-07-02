@@ -1,5 +1,5 @@
 import type { NextRequest } from "next/server";
-import { TOKEN_NAME } from "@constants";
+import { TOKEN_NAME } from "@/constants";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)

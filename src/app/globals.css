@@ -5,13 +5,10 @@
 :root {
     --spacing: 5rem;
     --letter-spacing-multiplier: -0.025;
-    --transition: 0.5s ease-in-out;
-    --primary: theme("colors.blue.500");
 }
 
 @layer base {
     * {
-        transition: var(--transition);
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -153,8 +150,8 @@
         opacity: 1;
     }
 
-    /* Disable ShadCN Animations */
-    [data-state="open"],
+    /* Disable ShadCN Animations
+     [data-state="open"],
     [data-state="closed"] {
         animation: none !important;
         transition: none !important;
@@ -164,7 +161,7 @@
     [data-radix-popper-content-wrapper] {
         animation: none !important;
         transition: none !important;
-    }
+    } */
 
     /* Image Close Disable */
     button.rmiz-close {

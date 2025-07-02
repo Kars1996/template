@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { constructMetadata } from "@/modules/Meta";
+import { Meta } from "@/modules/layout";
 import { ArrowLeft } from "lucide-react";
 
 /*
@@ -9,7 +9,7 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
 
-export const metadata = constructMetadata({
+export const metadata = Meta({
     title: "Page not found",
     description:
         "This page does not exist. Please verify the URL is correct and try again.",
