@@ -15,6 +15,7 @@
     }
 
     body {
+        overscroll-behavior: none;
         @apply grid place-items-center bg-black text-white;
     }
 
@@ -58,10 +59,6 @@
 
     p {
         @apply text-base font-medium leading-[1.3] text-zinc-500;
-
-        &.big {
-            @apply text-lg font-semibold;
-        }
     }
 
     a {
@@ -71,6 +68,15 @@
     button {
         @apply cursor-pointer border-0 outline-none;
         font-family: inherit;
+    }
+
+    a:disabled {
+        @apply cursor-not-allowed opacity-50;
+    }
+
+    button:disabled {
+        @apply cursor-not-allowed opacity-50;
+        pointer-events: none;
     }
 
     input {
