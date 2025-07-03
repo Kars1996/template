@@ -116,6 +116,7 @@ interface ColorPickerCanvasProps {
 const ColorPickerCanvas: React.FC<ColorPickerCanvasProps> = ({ hue, saturation, lightness, onColorChange }) => {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const isDragging = React.useRef(false);
+  const animationFrameRef = React.useRef<number | null>(null);
 
   const drawCanvas = React.useCallback(() => {
     const canvas = canvasRef.current;
@@ -146,42 +147,62 @@ const ColorPickerCanvas: React.FC<ColorPickerCanvasProps> = ({ hue, saturation, 
     drawCanvas();
   }, [drawCanvas]);
 
-  const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
     isDragging.current = true;
-    handleMouseMove(e);
+    handlePointerMove(e);
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const handlePointerMove = (e: React.PointerEvent<HTMLCanvasElement>) => {
     if (!isDragging.current) return;
     
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    // Cancel any pending animation frame
+    if (animationFrameRef.current !== null) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
     
-    const rect = canvas.getBoundingClientRect();
-    const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-    const y = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
-    
-    const s = x * 100;
-    const l = (1 - y) * 100;
-    
-    onColorChange(hue, s, l);
+    // Use requestAnimationFrame for smooth updates
+    animationFrameRef.current = requestAnimationFrame(() => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      
+      const rect = canvas.getBoundingClientRect();
+      const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      const y = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+      
+      const s = x * 100;
+      const l = (1 - y) * 100;
+      
+      onColorChange(hue, s, l);
+    });
   };
 
-  const handleMouseUp = () => {
+  const handlePointerUp = () => {
     isDragging.current = false;
+    if (animationFrameRef.current !== null) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
   };
 
   React.useEffect(() => {
-    const handleGlobalMouseUp = () => {
+    const handleGlobalPointerUp = () => {
       isDragging.current = false;
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
     
-    document.addEventListener('mouseup', handleGlobalMouseUp);
-    return () => document.removeEventListener('mouseup', handleGlobalMouseUp);
+    document.addEventListener('pointerup', handleGlobalPointerUp);
+    return () => {
+      document.removeEventListener('pointerup', handleGlobalPointerUp);
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
   }, []);
 
-  const handleClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    handleMouseMove(e);
+  const handleClick = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    handlePointerMove(e);
   };
 
   const sPos = saturation / 100;
@@ -193,10 +214,11 @@ const ColorPickerCanvas: React.FC<ColorPickerCanvasProps> = ({ hue, saturation, 
         ref={canvasRef}
         width={200}
         height={200}
-        className="w-full h-48 rounded-lg cursor-crosshair border border-neutral-700"
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
+        className="w-full h-48 rounded-lg cursor-crosshair border border-neutral-700 select-none touch-none"
+        style={{ userSelect: 'none', touchAction: 'none' }}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
         onClick={handleClick}
       />
       <div
@@ -219,53 +241,76 @@ interface HueSliderProps {
 const HueSlider: React.FC<HueSliderProps> = ({ hue, onHueChange }) => {
   const sliderRef = React.useRef<HTMLDivElement>(null);
   const isDragging = React.useRef(false);
+  const animationFrameRef = React.useRef<number | null>(null);
 
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.preventDefault();
     isDragging.current = true;
-    handleMouseMove(e);
+    handlePointerMove(e);
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!isDragging.current) return;
     
-    const slider = sliderRef.current;
-    if (!slider) return;
+    // Cancel any pending animation frame
+    if (animationFrameRef.current !== null) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
     
-    const rect = slider.getBoundingClientRect();
-    const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-    const newHue = x * 360;
-    
-    onHueChange(newHue);
+    // Use requestAnimationFrame for smooth updates
+    animationFrameRef.current = requestAnimationFrame(() => {
+      const slider = sliderRef.current;
+      if (!slider) return;
+      
+      const rect = slider.getBoundingClientRect();
+      const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      const newHue = x * 360;
+      
+      onHueChange(newHue);
+    });
   };
 
-  const handleMouseUp = () => {
+  const handlePointerUp = () => {
     isDragging.current = false;
+    if (animationFrameRef.current !== null) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
   };
 
   React.useEffect(() => {
-    const handleGlobalMouseUp = () => {
+    const handleGlobalPointerUp = () => {
       isDragging.current = false;
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
     
-    document.addEventListener('mouseup', handleGlobalMouseUp);
-    return () => document.removeEventListener('mouseup', handleGlobalMouseUp);
+    document.addEventListener('pointerup', handleGlobalPointerUp);
+    return () => {
+      document.removeEventListener('pointerup', handleGlobalPointerUp);
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
   }, []);
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    handleMouseMove(e);
+  const handleClick = (e: React.PointerEvent<HTMLDivElement>) => {
+    handlePointerMove(e);
   };
 
   return (
     <div className="relative">
       <div
         ref={sliderRef}
-        className="h-4 rounded-lg cursor-pointer border border-neutral-700"
+        className="h-4 rounded-lg cursor-pointer border border-neutral-700 select-none touch-none"
         style={{
-          background: 'linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%)'
+          background: 'linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%)',
+          userSelect: 'none',
+          touchAction: 'none'
         }}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
         onClick={handleClick}
       />
       <div
