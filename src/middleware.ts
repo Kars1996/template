@@ -12,8 +12,9 @@ export function middleware(request: NextRequest) {
     const currentUser = request.cookies.get(TOKEN_NAME)?.value;
 
     if (
-        (currentUser && request.nextUrl.pathname.startsWith("/login")) ||
-        (currentUser && request.nextUrl.pathname.startsWith("/register"))
+        currentUser &&
+        (request.nextUrl.pathname.startsWith("/login") ||
+            request.nextUrl.pathname.startsWith("/register"))
     ) {
         return Response.redirect(new URL("/dash", request.url));
     }
