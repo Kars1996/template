@@ -15,8 +15,8 @@
     }
 
     body {
-        overscroll-behavior: none;
-        @apply grid place-items-center bg-black text-white;
+        /* overscroll-behavior: none; */
+        @apply grid place-items-center overscroll-none bg-black text-white;
     }
 
     /* Typography */
