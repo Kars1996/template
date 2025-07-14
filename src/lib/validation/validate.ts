@@ -23,7 +23,7 @@ export function validateSchema<T>(
         } else {
             return {
                 success: false,
-                errors: result.error.errors.map(err => err.message),
+                errors: result.error.issues.map(err => err.message),
             };
         }
     } catch (error) {

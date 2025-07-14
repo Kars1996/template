@@ -73,7 +73,7 @@ interface ZodValidationError {
 }
 
 export function formatZodError(zodError: z.ZodError): ZodValidationError[] {
-    return zodError.errors.map((error) => ({
+    return zodError.issues.map((error) => ({
         field: error.path.join('.'),
         message: error.message,
         code: error.code,
