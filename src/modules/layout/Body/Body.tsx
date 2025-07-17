@@ -5,6 +5,7 @@ import { useEffect, useState, createContext } from "react";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "@/components/ui/toast";
 import { website } from "@/constants";
+import { AnimatePresence } from "motion/react";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -99,29 +100,31 @@ export default function Body({ children, className = "" }: BaseProp) {
 
     return (
         <body className={className}>
-            <SPContext.Provider
-                value={{
-                    scroll,
-                    SPController,
-                    setSPController,
-                }}
-            >
-                {children}
-                <Toaster />
-                <NextTopLoader
-                    color={website.accentColor}
-                    initialPosition={0.08}
-                    crawlSpeed={200}
-                    height={2} // px
-                    showSpinner={false}
-                    crawl
-                    easing="ease"
-                    speed={200}
-                    shadow={`0 0 10px ${website.accentColor}, 0 0 5px ${website.accentColor}`}
-                    zIndex={1600}
-                    showAtBottom={false}
-                />
-            </SPContext.Provider>
+            <AnimatePresence>
+                <SPContext.Provider
+                    value={{
+                        scroll,
+                        SPController,
+                        setSPController,
+                    }}
+                >
+                    {children}
+                    <Toaster />
+                    <NextTopLoader
+                        color={website.accentColor}
+                        initialPosition={0.08}
+                        crawlSpeed={200}
+                        height={2} // px
+                        showSpinner={false}
+                        crawl
+                        easing="ease"
+                        speed={200}
+                        shadow={`0 0 10px ${website.accentColor}, 0 0 5px ${website.accentColor}`}
+                        zIndex={1600}
+                        showAtBottom={false}
+                    />
+                </SPContext.Provider>
+            </AnimatePresence>
         </body>
     );
 }
