@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { RateLimiter, RateLimiterOptions, createRateLimiter } from './rateLimiter';
+import { RateLimiter, RateLimiterOptions, createRateLimiter } from './rate-limiter';
 import { APIError, ErrorCode, handleAndReturnErrorResponse } from './handler';
 import type Redis from 'ioredis';
 

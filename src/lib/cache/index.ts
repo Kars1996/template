@@ -1,2 +1,2 @@
 export * from "./redis";
-export * from "./rateLimit"; 
+export * from "./rate-limit"; 
