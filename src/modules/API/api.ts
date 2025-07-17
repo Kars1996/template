@@ -1,4 +1,5 @@
 import { TOKEN_NAME } from "@/constants";
+import { getToken } from "@/lib/utils";
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from "axios";
 import { cookies } from "next/headers";
 
@@ -28,13 +29,8 @@ export default class api {
         },
     });
 
-    private static async getAuthToken(): Promise<string | undefined> {
-        const cookieStore = await cookies();
-        return cookieStore.get(TOKEN_NAME)?.value;
-    }
-
     private static async getHeaders(): Promise<any> {
-        const token = await this.getAuthToken();
+        const token = await getToken();
         const headers: Record<string, string> = {
             "Content-Type": "application/json",
         };
