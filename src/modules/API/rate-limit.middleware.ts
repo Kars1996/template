@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { RateLimiter, RateLimiterOptions, createRateLimiter } from './rate-limiter';
 import { APIError, ErrorCode, handleAndReturnErrorResponse } from './handler';
+import { getClientIP } from './utils';
 import type Redis from 'ioredis';
 
 /*
@@ -17,11 +18,6 @@ export interface RateLimitConfig {
     keyGenerator?: (req: NextRequest) => string;
 }
 
-const defaultKeyGenerator = (req: NextRequest): string => {
-    const forwardedFor = req.headers.get('x-forwarded-for');
-    const realIp = req.headers.get('x-real-ip');
-    return forwardedFor ? forwardedFor.split(',')[0].trim() : realIp || 'unknown';
-};
 
 let rateLimiter: RateLimiter;
 
@@ -38,7 +34,7 @@ export async function rateLimitMiddleware(
             initializeRateLimiter(config);
         }
 
-        const keyGenerator = config.keyGenerator || defaultKeyGenerator;
+        const keyGenerator = config.keyGenerator || getClientIP;
         const key = keyGenerator(req);
 
         const result = await rateLimiter.checkRateLimit(key);
