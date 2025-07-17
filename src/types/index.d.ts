@@ -14,7 +14,7 @@ export type Runtime = 'auto' | 'force-dynamic' | 'error' | 'force-static'
 declare global {
     namespace NodeJS {
         interface ProcessEnv {
-            NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: string | undefined;
+            NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: string | undefined; // On Coolify can use `SOURCE_COMMIT`
             NEXT_PUBLIC_APP_URL: string;
             DB_PRISMA_URL: string;
             REDIS_URL?: string;
