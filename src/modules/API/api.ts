@@ -1,7 +1,5 @@
-import { TOKEN_NAME } from "@/constants";
-import { getToken } from "@/lib/utils";
+import { getToken } from "../auth";
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from "axios";
-import { cookies } from "next/headers";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
