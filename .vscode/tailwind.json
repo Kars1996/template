@@ -1,5 +1,5 @@
 {
-    "version": 1.1,
+    "version": 1.2,
     "atDirectives": [
         {
             "name": "@tailwind",
@@ -48,6 +48,26 @@
                 {
                     "name": "Tailwind Documentation",
                     "url": "https://tailwindcss.com/docs/functions-and-directives#variants"
+                }
+            ]
+        },
+        {
+            "name": "@theme",
+            "description": "Use the `@theme` directive to define your project's custom design tokens, like `fonts`, `colors`, and `breakpoints`:",
+            "references": [
+                {
+                    "name": "Tailwind Documentation",
+                    "url": "https://tailwindcss.com/docs/functions-and-directives#theme"
+                }
+            ]
+        },
+        {
+            "name": "@utility",
+            "description": "Use the `@utility` directive to add custom utilities to your project that work with variants like `hover`, `focus` and `lg`:",
+            "references": [
+                {
+                    "name": "Tailwind Documentation",
+                    "url": "https://tailwindcss.com/docs/functions-and-directives#utility"
                 }
             ]
         }
