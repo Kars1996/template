@@ -54,15 +54,8 @@ export default function constructMetadata({
             url: url,
             type: "website",
             siteName: "kars.bio",
-            ...(image && {
-                images: [
-                    {
-                        url: image,
-                        width: 800,
-                        height: 800,
-                        alt: "Banner",
-                    },
-                ],
+                      ...(image && {
+                images: image,
             }),
             ...(video && {
                 videos: video,
@@ -71,6 +64,7 @@ export default function constructMetadata({
         twitter: {
             title: title || templateTitle,
             description,
+            card: "player",
             ...(image && {
                 card: "summary_large_image",
                 images: [image],
