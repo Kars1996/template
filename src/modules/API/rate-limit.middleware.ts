@@ -18,7 +18,6 @@ export interface RateLimitConfig {
     keyGenerator?: (req: NextRequest) => string;
 }
 
-
 let rateLimiter: RateLimiter;
 
 export function initializeRateLimiter(config: RateLimitConfig) {

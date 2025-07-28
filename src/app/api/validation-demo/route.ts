@@ -1,13 +1,12 @@
 import { NextRequest } from "next/server";
 import { 
-    rateLimitMiddleware, 
     successResponse, 
     validateRequestBody, 
     validateQueryParams,
     validateFormData,
-    handleAndReturnErrorResponse,
     withValidation,
-    APIError
+    APIError,
+    withRateLimit
 } from "@/modules";
 import { 
     contactFormSchema, 
@@ -15,91 +14,42 @@ import {
     paginationSchema,
     userSchema 
 } from "@/lib/validation/validations";
-import { getDefaultRateLimitConfig } from "@/lib/cache";
 
-// query parameter validation
-export async function GET(req: NextRequest) {
-    try {
-        const defaultConfig = await getDefaultRateLimitConfig();
-        const rateLimitResponse = await rateLimitMiddleware(req, defaultConfig);
-        
-        if (rateLimitResponse?.status !== 200) {
-            return rateLimitResponse;
-        }
+export const GET = withRateLimit(async (req: NextRequest) => {
+    const validatedParams = validateQueryParams(paginationSchema, req.nextUrl);
 
-        // query parameters validation
-        const validatedParams = validateQueryParams(paginationSchema, req.nextUrl);
+    return successResponse({
+        message: "Query parameters validated successfully!",
+        status: 200,
+        data: {
+            page: validatedParams.page,
+            limit: validatedParams.limit,
+        },
+    });
+});
 
-        return successResponse({
-            message: "Query parameters validated successfully!",
-            status: 200,
-            data: {
-                page: validatedParams.page,
-                limit: validatedParams.limit,
-            },
-            rateLimitResponse,
-        });
-    } catch (error) {
-        return handleAndReturnErrorResponse(error);
-    }
-}
+export const POST = withRateLimit(async (req: NextRequest) => {
+    const validatedData = await validateRequestBody(contactFormSchema, req);
 
-export async function POST(req: NextRequest) {
-    try {
-        const defaultConfig = await getDefaultRateLimitConfig();
-        const rateLimitResponse = await rateLimitMiddleware(req, defaultConfig);
-        
-        if (rateLimitResponse?.status !== 200) {
-            return rateLimitResponse;
-        }
+    return successResponse({
+        message: "Contact form submitted successfully!",
+        status: 200,
+        data: validatedData,
+    });
+});
 
-        // body validation
-        const validatedData = await validateRequestBody(contactFormSchema, req);
+export const PUT = withRateLimit(async (req: NextRequest) => {
+    const formData = await req.formData();
+    const validatedData = validateFormData(userSchema, formData);
 
-        return successResponse({
-            message: "Contact form submitted successfully!",
-            status: 200,
-            data: validatedData,
-            rateLimitResponse,
-        });
-    } catch (error) {
-        return handleAndReturnErrorResponse(error);
-    }
-}
+    return successResponse({
+        message: "User data updated successfully!",
+        status: 200,
+        data: validatedData,
+    });
+});
 
-export async function PUT(req: NextRequest) {
-    try {
-        const defaultConfig = await getDefaultRateLimitConfig();
-        const rateLimitResponse = await rateLimitMiddleware(req, defaultConfig);
-        
-        if (rateLimitResponse?.status !== 200) {
-            return rateLimitResponse;
-        }
-
-        // form data validation
-        const formData = await req.formData();
-        const validatedData = validateFormData(userSchema, formData);
-
-        return successResponse({
-            message: "User data updated successfully!",
-            status: 200,
-            data: validatedData,
-            rateLimitResponse,
-        });
-    } catch (error) {
-        return handleAndReturnErrorResponse(error);
-    }
-}
-
-export const PATCH = withValidation(loginSchema, async (loginData, req) => {
-    const defaultConfig = await getDefaultRateLimitConfig();
-    const rateLimitResponse = await rateLimitMiddleware(req, defaultConfig);
-    
-    if (rateLimitResponse?.status !== 200) {
-        return rateLimitResponse!;
-    }
-
-    // auth sim
+export const PATCH = withRateLimit(withValidation(loginSchema, async (loginData) => {
     if (loginData.email === "admin@example.com" && loginData.password === "admin123") {
         return successResponse({
             message: "Login successful!",
@@ -110,7 +60,6 @@ export const PATCH = withValidation(loginSchema, async (loginData, req) => {
                     role: "admin" 
                 } 
             },
-            rateLimitResponse,
         });
     } else {
         throw new APIError({
@@ -118,4 +67,4 @@ export const PATCH = withValidation(loginSchema, async (loginData, req) => {
             message: "Invalid credentials"
         });
     }
-});
+}));

@@ -50,19 +50,7 @@ export default function Body({ children, className = "" }: BaseProp) {
 
     useEffect(() => {
         function initSP() {
-            const ls = new Lenis({
-                easing: (x) => {
-                    return x === 0
-                        ? 0
-                        : x === 1
-                          ? 1
-                          : x < 0.5
-                            ? Math.pow(2, 20 * x - 10) / 2
-                            : (2 - Math.pow(2, -20 * x + 10)) / 2;
-                },
-                lerp: 0.15,
-            });
-
+            const ls = new Lenis({ lerp: 0.15 });
             function raf(time: number) {
                 ls.raf(time);
                 requestAnimationFrame(raf);
