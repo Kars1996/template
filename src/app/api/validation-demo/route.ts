@@ -14,6 +14,7 @@ import {
     paginationSchema,
     userSchema 
 } from "@/lib/validation/validations";
+import { getStrictRateLimitConfig } from "@/lib/cache";
 
 export const GET = withRateLimit(async (req: NextRequest) => {
     const validatedParams = validateQueryParams(paginationSchema, req.nextUrl);
