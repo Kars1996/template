@@ -121,38 +121,39 @@ export function withRateLimit<T extends Record<string, string>>(
     };
 }
 
-export function withMiddleware<
-    TContext = any,
-    T extends Record<string, string> = Record<string, string>,
->(
-    handler: ContextRouteHandler<TContext, T>,
-    ...middlewares: Middleware<TContext>[]
-): (
-    req: NextRequest,
-    context?: { params: Promise<T> },
-) => Promise<NextResponse> {
-    return async function (
-        req: NextRequest,
-        context?: { params: Promise<T> },
-    ): Promise<NextResponse> {
-        try {
-            let middlewareContext: TContext = {} as TContext;
+// ! May depreciate later, just chain sections
+// export function withMiddleware<
+//     TContext = any,
+//     T extends Record<string, string> = Record<string, string>,
+// >(
+//     handler: ContextRouteHandler<TContext, T>,
+//     ...middlewares: Middleware<TContext>[]
+// ): (
+//     req: NextRequest,
+//     context?: { params: Promise<T> },
+// ) => Promise<NextResponse> {
+//     return async function (
+//         req: NextRequest,
+//         context?: { params: Promise<T> },
+//     ): Promise<NextResponse> {
+//         try {
+//             let middlewareContext: TContext = {} as TContext;
 
-            for (const middleware of middlewares) {
-                const result = await middleware(req);
-                if (result.response) return result.response;
-                if (result.context) {
-                    middlewareContext = {
-                        ...middlewareContext,
-                        ...result.context,
-                    };
-                }
-            }
+//             for (const middleware of middlewares) {
+//                 const result = await middleware(req);
+//                 if (result.response) return result.response;
+//                 if (result.context) {
+//                     middlewareContext = {
+//                         ...middlewareContext,
+//                         ...result.context,
+//                     };
+//                 }
+//             }
 
-            const params = context?.params || Promise.resolve({} as T);
-            return await handler(req, middlewareContext, params);
-        } catch (e) {
-            return handleAndReturnErrorResponse(e);
-        }
-    };
-}
+//             const params = context?.params || Promise.resolve({} as T);
+//             return await handler(req, middlewareContext, params);
+//         } catch (e) {
+//             return handleAndReturnErrorResponse(e);
+//         }
+//     };
+// }

@@ -84,7 +84,7 @@ export function handleApiError(error: any): {
     error: { code: string; message: string; details?: ZodValidationError[] };
     status: number;
 } {
-    console.error("API error occurred", error.message);
+    console.error("API error occurred: ", error.message);
     console.log(error);
 
     // zod errors
