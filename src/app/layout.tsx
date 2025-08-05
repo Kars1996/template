@@ -15,7 +15,6 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
 
-// const inter = Inter({ subsets: ["latin"] });
 export const metadata = Meta()
 
 export const viewport: Viewport = {
