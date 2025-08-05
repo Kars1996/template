@@ -17,20 +17,9 @@ export enum ErrorCode {
     VALIDATION_ERROR = "validation_error",
 }
 
-export type ErrorCodeType = // TODO: Find a better way to do this
-        | ErrorCode
-        | "bad_request"
-        | "not_found"
-        | "internal_server_error"
-        | "unauthorized"
-        | "forbidden"
-        | "rate_limit_exceeded"
-        | "exceeded_limit"
-        | "conflict"
-        | "unprocessable_entity"
-        | "validation_error";
+export type ErrorCodeType = ErrorCode | `${ErrorCode}`;
 
-const errorCodeToHttpStatus: Record<string, number> = {
+const errorCodeToHttpStatus: Record<ErrorCodeType, number> = {
     bad_request: 400,
     unauthorized: 401,
     forbidden: 403,
