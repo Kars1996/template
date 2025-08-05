@@ -11,37 +11,29 @@ Not to be shared, replicated, or used without prior consent.
 Contact me for any enquiries
 */
 
-export type RouteHandler<
-    T extends Record<string, string> = Record<string, string>,
-> = (
-    req: NextRequest,
-    token: string, // Feel free to change this to user ID, user data or whatever's relevant.
-    params: Promise<T>,
-) => Promise<NextResponse> | NextResponse;
+export type RouteParams = Record<string, string>;
 
-export type SimpleRouteHandler<
-    T extends Record<string, string> = Record<string, string>,
-> = (
-    req: NextRequest,
-    params: Promise<T>,
-) => Promise<NextResponse> | NextResponse;
-
-export type ContextRouteHandler<
+export type BaseRouteHandler<
     TContext = any,
-    TParams extends Record<string, string> = Record<string, string>,
+    TParams extends RouteParams = RouteParams,
 > = (
     req: NextRequest,
     context: TContext,
     params: Promise<TParams>,
 ) => Promise<NextResponse> | NextResponse;
 
+export type SimpleRouteHandler<T extends RouteParams = RouteParams> =
+    BaseRouteHandler<never, T>;
+export type AuthRouteHandler<T extends RouteParams = RouteParams> =
+    BaseRouteHandler<string, T>;
+
 export type Middleware<TContext = any> = (req: NextRequest) => Promise<{
     response?: NextResponse;
     context?: TContext;
 }>;
 
-export function withAuth<T extends Record<string, string>>(
-    handler: RouteHandler<T>,
+export function withAuth<T extends RouteParams>(
+    handler: AuthRouteHandler<T>,
 ): (
     req: NextRequest,
     context: { params: Promise<T> },
@@ -67,10 +59,10 @@ export function withAuth<T extends Record<string, string>>(
     };
 }
 
-export function withRateLimit<T extends Record<string, string>>(
+export function withRateLimit<T extends RouteParams>(
     handler:
         | SimpleRouteHandler<T>
-        | ContextRouteHandler<{ rateLimitHeaders: Record<string, string> }, T>,
+        | BaseRouteHandler<{ rateLimitHeaders: Record<string, string> }, T>,
     config?: RateLimitConfig,
 ): (
     req: NextRequest,
@@ -107,53 +99,20 @@ export function withRateLimit<T extends Record<string, string>>(
                         "0",
                 };
                 return await (
-                    handler as ContextRouteHandler<
+                    handler as BaseRouteHandler<
                         { rateLimitHeaders: Record<string, string> },
                         T
                     >
                 )(req, { rateLimitHeaders }, params);
             } else {
-                return await (handler as SimpleRouteHandler<T>)(req, params);
+                return await (handler as SimpleRouteHandler<T>)(
+                    req,
+                    {} as never,
+                    params,
+                );
             }
         } catch (e) {
             return handleAndReturnErrorResponse(e);
         }
     };
 }
-
-// ! May depreciate later, just chain sections
-// export function withMiddleware<
-//     TContext = any,
-//     T extends Record<string, string> = Record<string, string>,
-// >(
-//     handler: ContextRouteHandler<TContext, T>,
-//     ...middlewares: Middleware<TContext>[]
-// ): (
-//     req: NextRequest,
-//     context?: { params: Promise<T> },
-// ) => Promise<NextResponse> {
-//     return async function (
-//         req: NextRequest,
-//         context?: { params: Promise<T> },
-//     ): Promise<NextResponse> {
-//         try {
-//             let middlewareContext: TContext = {} as TContext;
-
-//             for (const middleware of middlewares) {
-//                 const result = await middleware(req);
-//                 if (result.response) return result.response;
-//                 if (result.context) {
-//                     middlewareContext = {
-//                         ...middlewareContext,
-//                         ...result.context,
-//                     };
-//                 }
-//             }
-
-//             const params = context?.params || Promise.resolve({} as T);
-//             return await handler(req, middlewareContext, params);
-//         } catch (e) {
-//             return handleAndReturnErrorResponse(e);
-//         }
-//     };
-// }
