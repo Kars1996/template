@@ -66,7 +66,7 @@
     }
 
     button {
-        @apply cursor-pointer border-0 outline-none;
+        @apply cursor-pointer border-0 outline-none transition-transform duration-150 active:scale-[0.98];
         font-family: inherit;
     }
 
@@ -136,6 +136,6 @@
 
     /* Image Close Disable */
     button.rmiz-close {
-      display: none !important;
+        display: none !important;
     }
 }
