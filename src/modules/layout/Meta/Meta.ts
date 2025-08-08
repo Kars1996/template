@@ -41,7 +41,7 @@ export default function constructMetadata({
     } else {
         titleValue = {
             default: title || templateTitle || "kars.bio",
-            template: `%s • kars.bio`,
+            template: `%s • ${templateTitle || "kars.bio"}`,
         };
     }
 
