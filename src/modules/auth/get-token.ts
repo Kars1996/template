@@ -2,7 +2,7 @@
 import { TOKEN_NAME } from "@/constants";
 import { cookies } from "next/headers";
 
-export async function getToken(request?: Request) {
+export default async function getToken(request?: Request) {
     if (!request) {
         const cookieStore = await cookies();
         const token = cookieStore.get(TOKEN_NAME)?.value;
