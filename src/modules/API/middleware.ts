@@ -66,11 +66,11 @@ export function withRateLimit<T extends RouteParams>(
     config?: RateLimitConfig,
 ): (
     req: NextRequest,
-    context?: { params: Promise<T> },
+    context: { params: Promise<T> },
 ) => Promise<NextResponse> {
     return async function (
         req: NextRequest,
-        context?: { params: Promise<T> },
+        context: { params: Promise<T> },
     ): Promise<NextResponse> {
         try {
             const rateLimitConfig =
@@ -84,7 +84,7 @@ export function withRateLimit<T extends RouteParams>(
                 return rateLimitResponse;
             }
 
-            const params = context?.params || Promise.resolve({} as T);
+            const params = context.params;
 
             if (handler.length >= 3) {
                 const rateLimitHeaders = {
