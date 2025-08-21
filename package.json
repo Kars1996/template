@@ -6,9 +6,8 @@
         "dev": "next dev --turbopack",
         "build": "next build --turbopack",
         "start": "next start",
-        "lint": "next lint",
         "postinstall": "npx prisma generate",
-        "test": "tsc --noEmit"
+        "test": "next typegen && tsc --noEmit"
     },
     "prisma": {
         "schema": "src/prisma/schema.prisma"

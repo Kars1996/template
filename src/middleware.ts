@@ -1,4 +1,4 @@
-import type { NextRequest } from "next/server";
+import type { MiddlewareConfig, NextRequest } from "next/server";
 import { TOKEN_NAME } from "@/constants";
 
 /*
@@ -29,6 +29,7 @@ export function middleware(request: NextRequest) {
     }
 }
 
-export const config = {
+export const config: MiddlewareConfig = {
     matcher: ["/((?!api|_next/static|_next/image|.*\\.png$|favicon.ico).*)"],
+    // runtime: 'nodejs' // Optional for more advanced node API access
 };
