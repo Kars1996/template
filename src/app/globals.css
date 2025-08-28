@@ -70,11 +70,7 @@
         font-family: inherit;
     }
 
-    a:disabled {
-        @apply cursor-not-allowed opacity-50;
-    }
-
-    button:disabled {
+    :disabled {
         @apply cursor-not-allowed opacity-50;
         pointer-events: none;
     }
@@ -82,6 +78,13 @@
     input {
         @apply outline-none;
         font-family: inherit;
+    }
+
+    input:required::after,
+    select:required::after,
+    textarea:required::after {
+        content: " *";
+        @apply text-red-500;
     }
 }
 
