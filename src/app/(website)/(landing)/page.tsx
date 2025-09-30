@@ -19,29 +19,30 @@ import {
   ChevronDown,
   Upload,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dropdown, DropdownItem } from "@/components/ui/dropdown";
+import { FileUpload } from "@/components/ui/file-upload";
+import { Input } from "@/components/ui/input";
+import { Marquee } from "@/components/ui/maraquee";
 import {
-  Dialog,
+  DialogTrigger,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
-  Tooltip,
-  Button,
-  Input,
-  Skeleton,
-  Select,
-  SelectContent,
-  SelectItem,
+  DialogDescription,
+  Dialog,
+} from "@/components/ui/modal";
+import {
   SelectTrigger,
   SelectValue,
-  Switch,
-  Dropdown,
-  DropdownItem,
-  toast,
-  FileUpload,
-  Marquee,
-} from "@/components/ui";
+  SelectContent,
+  SelectItem,
+  Select,
+} from "@/components/ui/select";
+import { Skeleton } from "@/components/ui/skeleton";
+import { toast } from "sonner";
+import { Tooltip } from "@/components/ui/tooltip";
+import { Switch } from "@/components/ui/switch";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
