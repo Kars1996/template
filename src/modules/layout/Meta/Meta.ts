@@ -96,5 +96,6 @@ export default function constructMetadata({
     ...(manifest && {
       manifest,
     }),
+    creator: "Kars",
   };
 }
