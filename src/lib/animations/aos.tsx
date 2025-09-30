@@ -1,4 +1,5 @@
 "use client";
+// @ts-ignore CSS Import Error
 import "./aos.css";
 import Aos from "locomotive-aos";
 import { useEffect } from "react";

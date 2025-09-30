@@ -1,5 +1,6 @@
-import type { Viewport } from "next";
+// @ts-ignore CSS Import Error
 import "./globals.css";
+import type { Viewport } from "next";
 import Body from "@/modules/layout/Body/Body";
 import Console from "@/modules/layout/Console/Console";
 import AOS from "@/lib/animations";
