@@ -8,6 +8,5 @@ Contact Kars for any enquiries
 */
 
 export default function _404Redirect() {
-    redirect("/404");
-    return <p>Your normal HTML Code here</p>;
+  redirect("/404");
 }

@@ -29,7 +29,6 @@ export {
 export { Marquee } from "./maraquee";
 export { FileUpload } from "./file-upload";
 export { Switch } from "./switch";
-export { ColorPicker } from "./color-picker";
 export { Popover, PopoverContent, PopoverTrigger } from "./popover";
 export { Dropdown, DropdownItem } from "./dropdown";
 export { Drawer, VaulDrawer } from "./drawer";

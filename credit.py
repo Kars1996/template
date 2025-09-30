@@ -7,7 +7,13 @@ from datetime import datetime
 from colorama import init
 from rich.console import Console
 from rich.panel import Panel
-from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn
+from rich.progress import (
+    Progress,
+    SpinnerColumn,
+    TextColumn,
+    BarColumn,
+    TaskProgressColumn,
+)
 from rich.table import Table
 
 # ! Do `pip install rich` if you don't have it already :3
@@ -17,7 +23,7 @@ init()
 console = Console()
 
 CURRENT_YEAR = datetime.now().year
-AQUA = "#00FFFF"  
+AQUA = "#00FFFF"
 USERNAME = "Kars"
 GITHUB = "github.com/kars1996"
 
@@ -93,21 +99,21 @@ IGNORE_PATTERN = r"(?://|#|/\*)\s*credit-ignore"
 def get_copyright_template(language):
     """Get the appropriate copyright template for the language."""
     style = COMMENT_STYLES.get(language, COMMENT_STYLES["javascript"])
-    
+
     if language == "python":
-        return f"""{style['block_start']}
+        return f"""{style["block_start"]}
 Copyright © {{year}} {{name}} ({{github}})
 
 Not to be shared, replicated, or used without prior consent.
 Contact me for any enquiries
-{style['block_end']}"""
+{style["block_end"]}"""
     else:
-        return f"""{style['block_start']}
+        return f"""{style["block_start"]}
 Copyright © {{year}} {{name}} ({{github}})
 
 Not to be shared, replicated, or used without prior consent.
 Contact me for any enquiries
-{style['block_end']}"""
+{style["block_end"]}"""
 
 
 def get_language_from_extension(extension):
@@ -121,7 +127,7 @@ def get_language_from_extension(extension):
 def find_files(directory, extensions, recursive=True):
     """Find all files with the specified extensions in the given directory."""
     matched_files = []
-    
+
     if recursive:
         for root, dirs, files in os.walk(directory):
             for file in files:
@@ -130,9 +136,11 @@ def find_files(directory, extensions, recursive=True):
     else:
         for file in os.listdir(directory):
             file_path = os.path.join(directory, file)
-            if os.path.isfile(file_path) and any(file.endswith(ext) for ext in extensions):
+            if os.path.isfile(file_path) and any(
+                file.endswith(ext) for ext in extensions
+            ):
                 matched_files.append(file_path)
-                
+
     return matched_files
 
 
@@ -144,11 +152,11 @@ def should_ignore_file(content):
 def check_existing_copyright(content, language):
     """Check if a file already has a copyright notice and extract its year."""
     style = COMMENT_STYLES.get(language, COMMENT_STYLES["javascript"])
-    
+
     block_start_escaped = re.escape(style["block_start"])
     block_end_escaped = re.escape(style["block_end"])
     line_escaped = re.escape(style["line"])
-    
+
     patterns = [
         f"{block_start_escaped}\\s*Copyright © (\\d{{4}}).*?{USERNAME}.*?{block_end_escaped}",
         f"{block_start_escaped}\\s*Copyright \\(c\\) (\\d{{4}}).*?{USERNAME}.*?{block_end_escaped}",
@@ -183,7 +191,7 @@ def add_or_update_copyright(file_path, force_update=False):
 
     _, extension = os.path.splitext(file_path)
     language = get_language_from_extension(extension)
-    
+
     has_copyright, year, old_notice = check_existing_copyright(content, language)
 
     if has_copyright and year == str(CURRENT_YEAR) and not force_update:
@@ -195,19 +203,25 @@ def add_or_update_copyright(file_path, force_update=False):
 
     if has_copyright:
         modified_content = content.replace(old_notice, copyright_notice)
-        
+
         with open(file_path, "w", encoding="utf-8") as file:
             file.write(modified_content)
-            
+
         return "updated", year
 
     if language == "python" and content.startswith("#!"):
         shebang_end = content.find("\n") + 1
-        modified_content = content[:shebang_end] + "\n" + copyright_notice + "\n\n" + content[shebang_end:]
+        modified_content = (
+            content[:shebang_end]
+            + "\n"
+            + copyright_notice
+            + "\n\n"
+            + content[shebang_end:]
+        )
     else:
         imports_pattern = r"^import.*?$|^.*?from.*?import.*?$"
         matches = list(re.finditer(imports_pattern, content, re.MULTILINE))
-        
+
         if matches:
             last_import_end = matches[-1].end()
             modified_content = (
@@ -223,20 +237,22 @@ def add_or_update_copyright(file_path, force_update=False):
 
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(modified_content)
-        
+
     return "added", None
 
 
 def print_header():
     """Print a styled header for the CLI tool."""
     console.print("")
-    console.print(Panel(
-        "[bold white]COPYRIGHT NOTICE MANAGER[/bold white]",
-        subtitle="[italic]v2.0.0[/italic]",
-        border_style=AQUA,
-        expand=False,
-        title="[bold white]𝕂ars[/bold white]",
-    ))
+    console.print(
+        Panel(
+            "[bold white]COPYRIGHT NOTICE MANAGER[/bold white]",
+            subtitle="[italic]v2.0.0[/italic]",
+            border_style=AQUA,
+            expand=False,
+            title="[bold white]𝕂ars[/bold white]",
+        )
+    )
 
 
 def get_all_extensions():
@@ -250,17 +266,17 @@ def get_all_extensions():
 def print_stats(stats):
     """Print statistics of the operation."""
     table = Table(title="Operation Summary", border_style=AQUA)
-    
+
     table.add_column("Category", style="dim")
     table.add_column("Count", justify="right", style="bold")
-    
-    table.add_row("Files processed", str(stats['total']))
-    table.add_row("Copyright notices added", str(stats['added']), style="green")
-    table.add_row("Copyright notices updated", str(stats['updated']), style="blue")
-    table.add_row("Files skipped (up-to-date)", str(stats['skipped']), style=AQUA)
-    table.add_row("Files ignored", str(stats['ignored']), style="yellow")
-    table.add_row("Errors", str(stats['errors']), style="red")
-    
+
+    table.add_row("Files processed", str(stats["total"]))
+    table.add_row("Copyright notices added", str(stats["added"]), style="green")
+    table.add_row("Copyright notices updated", str(stats["updated"]), style="blue")
+    table.add_row("Files skipped (up-to-date)", str(stats["skipped"]), style=AQUA)
+    table.add_row("Files ignored", str(stats["ignored"]), style="yellow")
+    table.add_row("Errors", str(stats["errors"]), style="red")
+
     console.print("\n")
     console.print(table)
 
@@ -285,58 +301,63 @@ Examples:
     
   Print information about supported languages:
     python copyright_manager.py --info
-        """
+        """,
     )
-    
+
     parser.add_argument(
-        "-d", "--directory", 
-        help="Path to the source directory (default: ./src)", 
-        default="./src"
+        "-d",
+        "--directory",
+        help="Path to the source directory (default: ./src)",
+        default="./src",
     )
     parser.add_argument(
-        "-f", "--force",
+        "-f",
+        "--force",
         help="Force update of copyright notices even if year is current",
-        action="store_true"
+        action="store_true",
     )
     parser.add_argument(
-        "-y", "--yes", 
-        help="Skip confirmation prompt", 
-        action="store_true"
+        "-y", "--yes", help="Skip confirmation prompt", action="store_true"
     )
     parser.add_argument(
-        "-l", "--language",
+        "-l",
+        "--language",
         help="Specify language to process (e.g., typescript, golang)",
         choices=list(SUPPORTED_EXTENSIONS.keys()),
-        default="all"
+        default="all",
     )
     parser.add_argument(
-        "--no-recursive",
-        help="Don't search subdirectories",
-        action="store_true"
+        "--no-recursive", help="Don't search subdirectories", action="store_true"
     )
     parser.add_argument(
         "--info",
         help="Show supported languages and file extensions",
-        action="store_true"
+        action="store_true",
     )
-    
+
     args = parser.parse_args()
 
     if args.info:
-        console.print(Panel(
-            "\n".join([
-                f"[bold]{lang.capitalize()}[/bold]: {', '.join(exts)}"
-                for lang, exts in SUPPORTED_EXTENSIONS.items()
-            ]),
-            title="Supported Languages",
-            border_style=AQUA
-        ))
+        console.print(
+            Panel(
+                "\n".join(
+                    [
+                        f"[bold]{lang.capitalize()}[/bold]: {', '.join(exts)}"
+                        for lang, exts in SUPPORTED_EXTENSIONS.items()
+                    ]
+                ),
+                title="Supported Languages",
+                border_style=AQUA,
+            )
+        )
         return
 
     print_header()
 
     if not os.path.isdir(args.directory):
-        console.print(f"[bold red]Error:[/bold red] {args.directory} is not a valid directory.")
+        console.print(
+            f"[bold red]Error:[/bold red] {args.directory} is not a valid directory."
+        )
         return
 
     if args.language == "all":
@@ -345,11 +366,11 @@ Examples:
         extensions = SUPPORTED_EXTENSIONS[args.language]
 
     files = find_files(args.directory, extensions, not args.no_recursive)
-    
+
     if not files:
         console.print(f"[yellow]No matching files found in {args.directory}.[/yellow]")
         return
-        
+
     console.print(f"Found [bold]{len(files)}[/bold] files to process.")
 
     if not args.yes:
@@ -375,27 +396,40 @@ Examples:
         console=console,
     ) as progress:
         task = progress.add_task("[cyan]Processing files...", total=len(files))
-        
+
         for file_path in files:
             relative_path = os.path.relpath(file_path)
             status, extra_info = add_or_update_copyright(file_path, args.force)
-            
+
             if status in stats:
                 stats[status] += 1
-            
+
             if status == "added":
-                progress.update(task, description=f"[green]Added copyright to {relative_path}")
+                progress.update(
+                    task, description=f"[green]Added copyright to {relative_path}"
+                )
             elif status == "updated":
-                progress.update(task, description=f"[blue]Updated copyright ({extra_info} → {CURRENT_YEAR}) in {relative_path}")
+                progress.update(
+                    task,
+                    description=f"[blue]Updated copyright ({extra_info} → {CURRENT_YEAR}) in {relative_path}",
+                )
             elif status == "skipped":
-                progress.update(task, description=f"[cyan]Skipped {relative_path} (up to date)")
+                progress.update(
+                    task, description=f"[cyan]Skipped {relative_path} (up to date)"
+                )
             elif status == "ignored":
-                progress.update(task, description=f"[yellow]Ignored {relative_path} (credit-ignore found)")
+                progress.update(
+                    task,
+                    description=f"[yellow]Ignored {relative_path} (credit-ignore found)",
+                )
             elif status == "error":
-                progress.update(task, description=f"[red]Error processing {relative_path}: {extra_info}")
-            
+                progress.update(
+                    task,
+                    description=f"[red]Error processing {relative_path}: {extra_info}",
+                )
+
             progress.update(task, advance=1)
-    
+
     print_stats(stats)
 
 

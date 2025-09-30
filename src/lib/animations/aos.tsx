@@ -12,26 +12,26 @@ Contact Kars for any enquiries
 */
 
 export default function AOSComponent() {
-    const pathname = usePathname();
+  const pathname = usePathname();
 
-    useEffect(() => {
-        const initAOS = () => {
-            Aos.init({
-                duration: 500,
-                easing: "ease-in-out",
-            });
-        };
+  useEffect(() => {
+    const initAOS = () => {
+      Aos.init({
+        duration: 500,
+        easing: "ease-in-out",
+      });
+    };
 
-        initAOS();
+    initAOS();
 
-        const reinitTimeout = setTimeout(() => {
-            Aos.init();
-        }, 100);
+    const reinitTimeout = setTimeout(() => {
+      Aos.init();
+    }, 100);
 
-        return () => {
-            clearTimeout(reinitTimeout);
-        };
-    }, [pathname]);
+    return () => {
+      clearTimeout(reinitTimeout);
+    };
+  }, [pathname]);
 
-    return null;
+  return null;
 }

@@ -10,21 +10,21 @@ Contact Kars for any enquiries
 */
 
 export default async function AuthWrapper({
-    children,
-    redirectTo = "/login",
-    redirectIfAuthed = false,
-    fallback,
+  children,
+  redirectTo = "/login",
+  redirectIfAuthed = false,
+  fallback,
 }: {
-    children: React.ReactNode;
-    redirectTo?: string;
-    redirectIfAuthed?: boolean;
-    fallback?: React.ReactNode;
+  children: React.ReactNode;
+  redirectTo?: string;
+  redirectIfAuthed?: boolean;
+  fallback?: React.ReactNode;
 }) {
-    const hasToken = !!(await getToken());
-    if (redirectIfAuthed && hasToken) return redirect(redirectTo);
-    if (!hasToken) {
-        if (fallback) return fallback;
-        return redirect(redirectTo);
-    }
-    return <>{children}</>;
+  const hasToken = !!(await getToken());
+  if (redirectIfAuthed && hasToken) return redirect(redirectTo);
+  if (!hasToken) {
+    if (fallback) return fallback;
+    return redirect(redirectTo);
+  }
+  return <>{children}</>;
 }

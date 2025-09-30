@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Upload } from "lucide-react";
 
-export interface FileUploadProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface FileUploadProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   description?: string;
   onFiles?: (files: File[]) => void;
@@ -12,7 +13,17 @@ export interface FileUploadProps extends React.InputHTMLAttributes<HTMLInputElem
 }
 
 export const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
-  ({ className, label = "Upload file", description = "Drag & drop or click to select", onFiles, multiple = false, ...props }, ref) => {
+  (
+    {
+      className,
+      label = "Upload file",
+      description = "Drag & drop or click to select",
+      onFiles,
+      multiple = false,
+      ...props
+    },
+    ref,
+  ) => {
     const [dragActive, setDragActive] = React.useState(false);
     const [files, setFiles] = React.useState<File[]>([]);
     const inputRef = React.useRef<HTMLInputElement>(null);
@@ -37,22 +48,28 @@ export const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
     return (
       <label
         className={cn(
-          "group relative flex flex-col items-center justify-center w-full min-h-[9rem] rounded-xl border-2 border-dashed border-neutral-700 bg-neutral-900/70 px-6 py-8 cursor-pointer transition-all duration-200 outline-none",
+          "group relative flex min-h-[9rem] w-full cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-neutral-700 bg-neutral-900/70 px-6 py-8 outline-none transition-all duration-200",
           "before:pointer-events-none before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-b before:from-white/10 before:to-transparent",
           dragActive && "border-blue-500 bg-blue-950/30",
-          "hover:border-blue-400 hover:bg-neutral-800/80 hover:shadow-xl focus-within:border-blue-500 focus-within:shadow-lg",
-          className
+          "focus-within:border-blue-500 focus-within:shadow-lg hover:border-blue-400 hover:bg-neutral-800/80 hover:shadow-xl",
+          className,
         )}
         tabIndex={0}
-        onDragOver={e => { e.preventDefault(); setDragActive(true); }}
-        onDragLeave={e => { e.preventDefault(); setDragActive(false); }}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setDragActive(true);
+        }}
+        onDragLeave={(e) => {
+          e.preventDefault();
+          setDragActive(false);
+        }}
         onDrop={handleDrop}
         htmlFor="file-upload-input"
       >
         <input
-          ref={el => {
+          ref={(el) => {
             // @ts-ignore
-            ref && (typeof ref === 'function' ? ref(el) : (ref.current = el));
+            ref && (typeof ref === "function" ? ref(el) : (ref.current = el));
             inputRef.current = el;
           }}
           id="file-upload-input"
@@ -62,29 +79,40 @@ export const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
           onChange={handleChange}
           {...props}
         />
-        <div className="flex flex-col items-center z-10">
-          <span className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-900/30 mb-2 border border-blue-500/30">
-            <Upload className="w-6 h-6 text-blue-400" />
+        <div className="z-10 flex flex-col items-center">
+          <span className="mb-2 flex h-12 w-12 items-center justify-center rounded-full border border-blue-500/30 bg-blue-900/30">
+            <Upload className="h-6 w-6 text-blue-400" />
           </span>
-          <span className="font-semibold text-white text-base mb-1">{label}</span>
-          <span className="text-sm text-neutral-400 mb-2">{description}</span>
+          <span className="mb-1 text-base font-semibold text-white">
+            {label}
+          </span>
+          <span className="mb-2 text-sm text-neutral-400">{description}</span>
         </div>
         {files.length > 0 && (
-          <div className="mt-4 w-full max-w-xs mx-auto z-10">
+          <div className="z-10 mx-auto mt-4 w-full max-w-xs">
             {files.map((file, idx) => (
-              <div key={file.name + idx} className="flex items-center justify-between bg-neutral-800/80 rounded-md px-3 py-2 mb-2 border border-neutral-700">
-                <span className="truncate text-white text-sm max-w-[10rem]">{file.name}</span>
-                <span className="text-xs text-neutral-400 ml-2">{(file.size / 1024).toFixed(1)} KB</span>
+              <div
+                key={file.name + idx}
+                className="mb-2 flex items-center justify-between rounded-md border border-neutral-700 bg-neutral-800/80 px-3 py-2"
+              >
+                <span className="max-w-[10rem] truncate text-sm text-white">
+                  {file.name}
+                </span>
+                <span className="ml-2 text-xs text-neutral-400">
+                  {(file.size / 1024).toFixed(1)} KB
+                </span>
               </div>
             ))}
           </div>
         )}
-        <span className={cn(
-          "pointer-events-none absolute inset-0 rounded-xl border-2 border-dashed border-blue-400 opacity-0 transition-opacity duration-200",
-          dragActive && "opacity-100"
-        )} />
+        <span
+          className={cn(
+            "pointer-events-none absolute inset-0 rounded-xl border-2 border-dashed border-blue-400 opacity-0 transition-opacity duration-200",
+            dragActive && "opacity-100",
+          )}
+        />
       </label>
     );
-  }
+  },
 );
-FileUpload.displayName = "FileUpload"; 
+FileUpload.displayName = "FileUpload";

@@ -9,27 +9,27 @@ Contact Kars for any enquiries
 */
 
 export function middleware(request: NextRequest) {
-    const currentUser = request.cookies.get(TOKEN_NAME)?.value;
+  const currentUser = request.cookies.get(TOKEN_NAME)?.value;
 
-    if (
-        currentUser &&
-        (request.nextUrl.pathname.startsWith("/login") ||
-            request.nextUrl.pathname.startsWith("/register"))
-    ) {
-        return Response.redirect(new URL("/dash", request.url));
-    }
+  if (
+    currentUser &&
+    (request.nextUrl.pathname.startsWith("/login") ||
+      request.nextUrl.pathname.startsWith("/register"))
+  ) {
+    return Response.redirect(new URL("/dash", request.url));
+  }
 
-    if (!currentUser && request.nextUrl.pathname.startsWith("/dash")) {
-        return Response.redirect(
-            new URL(
-                `/login?redirect=${encodeURI(request.nextUrl.pathname)}`,
-                request.url,
-            ),
-        );
-    }
+  if (!currentUser && request.nextUrl.pathname.startsWith("/dash")) {
+    return Response.redirect(
+      new URL(
+        `/login?redirect=${encodeURI(request.nextUrl.pathname)}`,
+        request.url,
+      ),
+    );
+  }
 }
 
 export const config: MiddlewareConfig = {
-    matcher: ["/((?!api|_next/static|_next/image|.*\\.png$|favicon.ico).*)"],
-    // runtime: 'nodejs' // Optional for more advanced node API access
+  matcher: ["/((?!api|_next/static|_next/image|.*\\.png$|favicon.ico).*)"],
+  // runtime: 'nodejs' // Optional for more advanced node API access
 };

@@ -14,29 +14,31 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
 
-export const metadata = Meta()
+export const metadata = Meta();
 
 export const viewport: Viewport = {
-    themeColor: website.accentColor || "#ffffff"
-}
+  themeColor: website.accentColor || "#ffffff",
+};
 
 let isProd: boolean = process.env.NODE_ENV === "production";
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en" made-by="kars">
-            <Body className={`${Fonts.Satoshi.className} __kars`}>
-                <main className="relative flex min-h-screen w-full flex-col">
-                    <AOS />
-                    {children}
-                    <p className="text-center text-sm text-transparent selection:text-white">Made By Kars ツ</p>
-                </main>
-                <Console isProd={isProd} />
-            </Body>
-        </html>
-    );
+  return (
+    <html lang="en" made-by="kars">
+      <Body className={`${Fonts.Satoshi.className} __kars`}>
+        <main className="relative flex min-h-screen w-full flex-col">
+          <AOS />
+          {children}
+          <p className="text-center text-sm text-transparent selection:text-white">
+            Made By Kars ツ
+          </p>
+        </main>
+        <Console isProd={isProd} />
+      </Body>
+    </html>
+  );
 }
