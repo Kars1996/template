@@ -9,9 +9,6 @@
         "postinstall": "npx prisma generate",
         "test": "next typegen && tsc --noEmit"
     },
-    "prisma": {
-        "schema": "src/prisma/schema.prisma"
-    },
     "dependencies": {
         "@prisma/client": "latest",
         "axios": "latest",
