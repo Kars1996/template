@@ -1,6 +1,7 @@
 "use server";
 import { redirect } from "next/navigation";
 import getToken from "./get-token";
+import type { Route } from "next";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -11,12 +12,12 @@ Contact Kars for any enquiries
 
 export default async function AuthWrapper({
   children,
-  redirectTo = "/login",
+  redirectTo = "/",
   redirectIfAuthed = false,
   fallback,
 }: {
   children: React.ReactNode;
-  redirectTo?: string;
+  redirectTo?: Route; 
   redirectIfAuthed?: boolean;
   fallback?: React.ReactNode;
 }) {

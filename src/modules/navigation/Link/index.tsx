@@ -1,13 +1,13 @@
 "use client";
 import { SPContext } from "@/modules/layout/Body/Body";
+import type { Route } from "next";
 import Link from "next/link";
 import { useContext } from "react";
-import type { UrlObject } from "url";
 
 // Thanks to nitlix for this code
 
 type LinkProp = {
-  href: string;
+  href: Route;
 } & Omit<React.ComponentProps<"a">, "href">;
 
 export default function RouterLink({
@@ -38,7 +38,7 @@ export default function RouterLink({
     );
   }
   return (
-    <Link href={href as unknown as UrlObject} className={className} {...props}>
+    <Link href={href} className={className} {...props}>
       {children}
     </Link>
   );
