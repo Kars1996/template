@@ -174,7 +174,7 @@ export default function IndexPage({
             Ship{" "}
             <span className="bg-gradient-to-r from-[#FFA84B] via-[#FF5E69] to-[#B16CEA] bg-clip-text text-transparent">
               Smarter
-            </span>
+          </span>
           </h1>
 
           <p className="mb-8 text-xl text-gray-400 md:text-2xl">
