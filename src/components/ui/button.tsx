@@ -4,55 +4,42 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "group relative inline-flex items-center justify-center whitespace-nowrap text-sm font-medium outline-none transition-all duration-200 ease-out disabled:pointer-events-none disabled:opacity-50 focus:outline-none",
+  "group relative inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-1 ring-inset transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 focus:outline-none",
   {
     variants: {
       variant: {
         default: [
-          "bg-neutral-900 text-white shadow-lg",
-          "before:pointer-events-none before:absolute before:inset-0 before:z-10 before:rounded-[inherit] before:bg-gradient-to-b before:p-px before:from-white/20 before:to-transparent",
-          "before:[mask-clip:content-box,border-box] before:[mask-composite:exclude] before:[mask-image:linear-gradient(#fff_0_0),linear-gradient(#fff_0_0)]",
-          "after:absolute after:inset-0 after:rounded-[inherit] after:bg-gradient-to-b after:from-white/10 after:to-transparent after:pointer-events-none after:opacity-100 after:transition-all after:duration-200 after:ease-out",
-          "hover:bg-neutral-800 hover:after:opacity-150 hover:shadow-xl hover:scale-[1.02]",
-          "active:scale-[0.98] active:after:opacity-50",
+          "bg-gradient-to-t from-neutral-900 to-neutral-900/85 text-white",
+          "border border-b-2 border-zinc-950/40 ring-white/5",
+          "shadow-md shadow-zinc-950/20",
+          "hover:brightness-110 active:brightness-90",
         ],
         primary: [
-          "bg-blue-600 text-white shadow-lg",
-          "before:pointer-events-none before:absolute before:inset-0 before:z-10 before:rounded-[inherit] before:bg-gradient-to-b before:p-px before:from-white/25 before:to-transparent",
-          "before:[mask-clip:content-box,border-box] before:[mask-composite:exclude] before:[mask-image:linear-gradient(#fff_0_0),linear-gradient(#fff_0_0)]",
-          "after:absolute after:inset-0 after:rounded-[inherit] after:bg-gradient-to-b after:from-white/15 after:to-transparent after:pointer-events-none after:opacity-100 after:transition-all after:duration-200 after:ease-out",
-          "hover:bg-blue-700 hover:after:opacity-200 hover:shadow-xl hover:scale-[1.02]",
-          "active:scale-[0.98] active:after:opacity-50",
+          "bg-gradient-to-t from-blue-600 to-blue-600/85 text-white",
+          "border border-b-2 border-zinc-950/40 ring-white/10",
+          "shadow-md shadow-zinc-950/20",
+          "hover:brightness-110 active:brightness-90",
         ],
         secondary: [
-          "border border-neutral-700 bg-neutral-800/50 text-white backdrop-blur-sm",
-          "before:pointer-events-none before:absolute before:inset-0 before:z-10 before:rounded-[inherit] before:bg-gradient-to-b before:p-px before:from-white/10 before:to-transparent",
-          "before:[mask-clip:content-box,border-box] before:[mask-composite:exclude] before:[mask-image:linear-gradient(#fff_0_0),linear-gradient(#fff_0_0)]",
-          "after:absolute after:inset-0 after:rounded-[inherit] after:bg-gradient-to-b after:from-white/5 after:to-transparent after:pointer-events-none after:opacity-100 after:transition-all after:duration-200 after:ease-out",
-          "hover:bg-neutral-700/70 hover:border-neutral-600 hover:after:opacity-150 hover:shadow-lg hover:scale-[1.02]",
-          "active:scale-[0.98] active:after:opacity-50",
+          "bg-gradient-to-t from-neutral-800 to-neutral-800/85 text-white",
+          "border border-b-2 border-zinc-950/40 ring-white/5",
+          "shadow-md shadow-zinc-950/20",
+          "hover:brightness-110 active:brightness-90",
         ],
         outline: [
-          "border border-neutral-600 bg-transparent text-white",
-          "before:pointer-events-none before:absolute before:inset-0 before:z-10 before:rounded-[inherit] before:bg-gradient-to-b before:p-px before:from-white/15 before:to-transparent",
-          "before:[mask-clip:content-box,border-box] before:[mask-composite:exclude] before:[mask-image:linear-gradient(#fff_0_0),linear-gradient(#fff_0_0)]",
-          "after:absolute after:inset-0 after:rounded-[inherit] after:bg-gradient-to-b after:from-white/5 after:to-transparent after:pointer-events-none after:opacity-0 after:transition-all after:duration-200 after:ease-out",
-          "hover:bg-neutral-800/30 hover:border-neutral-500 hover:after:opacity-100 hover:shadow-md hover:scale-[1.02]",
-          "active:scale-[0.98] active:after:opacity-50",
+          "bg-gradient-to-t from-transparent to-white/5 text-white",
+          "border border-b-2 border-zinc-800 ring-white/10",
+          "hover:brightness-110 active:brightness-90",
         ],
         ghost: [
-          "bg-transparent text-white",
-          "after:absolute after:inset-0 after:rounded-[inherit] after:bg-gradient-to-b after:from-white/5 after:to-transparent after:pointer-events-none after:opacity-0 after:transition-all after:duration-200 after:ease-out",
-          "hover:bg-neutral-800/50 hover:after:opacity-100 hover:shadow-sm hover:scale-[1.02]",
-          "active:scale-[0.98] active:after:opacity-50",
+          "bg-transparent text-white ring-0",
+          "hover:bg-white/5 active:bg-white/10",
         ],
         destructive: [
-          "bg-red-600 text-white shadow-lg",
-          "before:pointer-events-none before:absolute before:inset-0 before:z-10 before:rounded-[inherit] before:bg-gradient-to-b before:p-px before:from-white/20 before:to-transparent",
-          "before:[mask-clip:content-box,border-box] before:[mask-composite:exclude] before:[mask-image:linear-gradient(#fff_0_0),linear-gradient(#fff_0_0)]",
-          "after:absolute after:inset-0 after:rounded-[inherit] after:bg-gradient-to-b after:from-white/10 after:to-transparent after:pointer-events-none after:opacity-100 after:transition-all after:duration-200 after:ease-out",
-          "hover:bg-red-700 hover:after:opacity-200 hover:shadow-xl hover:scale-[1.02]",
-          "active:scale-[0.98] active:after:opacity-50",
+          "bg-gradient-to-t from-red-600 to-red-600/85 text-white",
+          "border border-b-2 border-zinc-950/40 ring-white/10",
+          "shadow-md shadow-zinc-950/20",
+          "hover:brightness-110 active:brightness-90",
         ],
       },
       size: {
@@ -66,8 +53,8 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  },
-);
+  }
+)
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
