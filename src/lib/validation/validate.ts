@@ -1,3 +1,4 @@
+import type { NextRequest } from "next/server";
 import { z } from "zod";
 
 export type ValidationResult<T> =

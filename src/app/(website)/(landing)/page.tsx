@@ -1,7 +1,5 @@
 "use client";
 import Link from "next/link";
-import { Meta } from "@/modules/layout";
-import { use } from "react";
 import {
   ArrowRight,
   Github,
@@ -20,7 +18,14 @@ import {
   Upload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dropdown, DropdownItem } from "@/components/ui/dropdown";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown";
 import { FileUpload } from "@/components/ui/file-upload";
 import { Input } from "@/components/ui/input";
 import { Marquee } from "@/components/ui/maraquee";
@@ -31,7 +36,7 @@ import {
   DialogTitle,
   DialogDescription,
   Dialog,
-} from "@/components/ui/modal";
+} from "@/components/ui/dialog";
 import {
   SelectTrigger,
   SelectValue,
@@ -43,6 +48,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 import { Tooltip } from "@/components/ui/tooltip";
 import { Switch } from "@/components/ui/switch";
+import { use } from "react";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -56,9 +62,6 @@ export default function IndexPage({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const params = use(searchParams);
-  const { name } = params;
-
   const features = [
     {
       icon: Palette,
@@ -307,7 +310,6 @@ export default function IndexPage({
               </p>
               <div className="mt-auto flex flex-wrap gap-2">
                 <Button>Default</Button>
-                <Button variant="primary">Primary</Button>
                 <Button variant="secondary">Secondary</Button>
                 <Button variant="outline">Outline</Button>
                 <Button variant="destructive">Destructive</Button>
@@ -450,28 +452,35 @@ export default function IndexPage({
                 Custom dropdowns and select components.
               </p>
               <div className="mt-auto space-y-3">
-                <Dropdown trigger="Select Option">
-                  <DropdownItem
-                    onClick={() => toast.success("Option 1 selected!")}
-                  >
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem
-                    onClick={() => toast.info("Option 2 selected!")}
-                  >
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem
-                    onClick={() => toast.warning("Option 3 selected!")}
-                  >
-                    Option 3
-                  </DropdownItem>
-                  <DropdownItem
-                    onClick={() => toast.error("Option 4 selected!")}
-                  >
-                    Option 4
-                  </DropdownItem>
-                </Dropdown>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button>Select Option</Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>Toast Options</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem
+                      onClick={() => toast.success("Option 1 selected!")}
+                    >
+                      Option 1
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onClick={() => toast.info("Option 2 selected!")}
+                    >
+                      Option 2
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onClick={() => toast.warning("Option 3 selected!")}
+                    >
+                      Option 3
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onClick={() => toast.error("Option 4 selected!")}
+                    >
+                      Option 4
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 <Select>
                   <SelectTrigger>
                     <SelectValue placeholder="Choose an option" />
@@ -524,7 +533,7 @@ export default function IndexPage({
                 </Tooltip>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="primary" size="sm">
+                    <Button size="sm">
                       Open Modal
                     </Button>
                   </DialogTrigger>
@@ -537,7 +546,7 @@ export default function IndexPage({
                     </DialogHeader>
                     <div className="mt-4 flex gap-2">
                       <Button variant="secondary">Cancel</Button>
-                      <Button variant="primary">Confirm</Button>
+                      <Button>Confirm</Button>
                     </div>
                   </DialogContent>
                 </Dialog>

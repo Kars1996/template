@@ -27,6 +27,7 @@
         "radix-ui": "latest",
         "react": "latest",
         "react-dom": "latest",
+        "react-hook-form": "latest",
         "react-icons": "latest",
         "server-only": "latest",
         "sonner": "latest",

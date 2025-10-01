@@ -12,7 +12,7 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
 
-export default function AOSComponent() {
+export default function AOS() {
   const pathname = usePathname();
 
   useEffect(() => {

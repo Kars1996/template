@@ -8,7 +8,7 @@ Not to be shared, enquiries or used without prior consent.
 Contact Kars for any enquiries
 */
 
-export default function Console({ isProd }: { isProd: boolean }) {
+export function ConsoleCredits({ isProd }: { isProd: boolean }) {
   if (isProd) {
     useEffect(() => {
       setInterval(() => {

@@ -32,7 +32,7 @@ type BaseProp = {
   className?: string;
 };
 
-export default function Body({ children, className = "" }: BaseProp) {
+export function RootProvider({ children, className = "" }: BaseProp) {
   const [scroll, setScroll] = useState<Lenis | null>(null);
   const [SPController, setSPController] = useState<SPController>(
     website.enableLenis ? "ALLOWINIT" : "DISABLE",

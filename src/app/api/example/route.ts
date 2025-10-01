@@ -1,11 +1,10 @@
 import {
   successResponse,
-  validateRequestBody,
   handleAndReturnErrorResponse,
-  withRateLimit,
   APIError,
-  withAuth,
-} from "@/modules";
+} from "@/lib/API/handler";
+import { withRateLimit, withAuth } from "@/lib/API/middleware";
+import { validateRequestBody } from "@/lib/validation/validate";
 import { contactFormSchema, loginSchema } from "@/lib/validation/validations";
 import type { NextRequest } from "next/server";
 
@@ -31,7 +30,17 @@ export const POST = withRateLimit(async (req: NextRequest) => {
 
 export const PUT = withRateLimit(async (req: NextRequest) => {
   try {
-    const loginData = await validateRequestBody(loginSchema, req);
+    const validationResult = await validateRequestBody(loginSchema, req);
+
+    if (!validationResult.success) {
+      throw new APIError({
+        code: "validation_error",
+        message: validationResult.errors.join(", "),
+      });
+    }
+
+    const loginData = validationResult.data;
+    
     if (
       loginData.email === "test@kars.bio" &&
       loginData.password === "password123"
@@ -51,7 +60,6 @@ export const PUT = withRateLimit(async (req: NextRequest) => {
     return handleAndReturnErrorResponse(error);
   }
 });
-
 export const PATCH = withAuth(async (req, token, params) => {
   try {
     const random = Math.random();

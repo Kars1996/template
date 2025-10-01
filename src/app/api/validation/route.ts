@@ -1,33 +1,18 @@
 import { NextRequest } from "next/server";
-import {
-  successResponse,
-  validateRequestBody,
-  validateQueryParams,
-  validateFormData,
-  withValidation,
-  APIError,
-  withRateLimit,
-} from "@/modules";
+
 import {
   contactFormSchema,
   loginSchema,
   paginationSchema,
   userSchema,
 } from "@/lib/validation/validations";
-import { getStrictRateLimitConfig } from "@/lib/cache";
+import { successResponse, withValidation, APIError } from "@/lib/API/handler";
+import { withRateLimit } from "@/lib/API/middleware";
+import {
+  validateRequestBody,
+  validateFormData,
+} from "@/lib/validation/validate";
 
-export const GET = withRateLimit(async (req: NextRequest) => {
-  const validatedParams = validateQueryParams(paginationSchema, req.nextUrl);
-
-  return successResponse({
-    message: "Query parameters validated successfully!",
-    status: 200,
-    data: {
-      page: validatedParams.page,
-      limit: validatedParams.limit,
-    },
-  });
-});
 
 export const POST = withRateLimit(async (req: NextRequest) => {
   const validatedData = await validateRequestBody(contactFormSchema, req);

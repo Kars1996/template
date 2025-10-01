@@ -1,5 +1,5 @@
-import { getToken } from "../auth";
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from "axios";
+import getToken from "../auth/get-token";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)

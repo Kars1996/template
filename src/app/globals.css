@@ -2,10 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --spacing: 5rem;
-  --letter-spacing-multiplier: -0.025;
-}
+  :root {
+    --background: oklch(0.17 0.01 250);
+    --foreground: oklch(0.95 0.01 250);
+
+    --card: oklch(0.17 0.01 250);
+    --card-foreground: oklch(0.95 0.01 250);
+
+    --popover: oklch(0.17 0.01 250);
+    --popover-foreground: oklch(0.95 0.01 250);
+
+    --primary: oklch(0.95 0.01 250);
+    --primary-foreground: oklch(0.17 0.01 250);
+
+    --secondary: oklch(0.25 0.02 250);
+    --secondary-foreground: oklch(0.95 0.01 250);
+
+    --muted: oklch(0.25 0.02 250);
+    --muted-foreground: oklch(0.6 0.02 250);
+
+    --accent: oklch(0.25 0.02 250);
+    --accent-foreground: oklch(0.95 0.01 250);
+
+    --destructive: oklch(0.45 0.2 15);
+    --destructive-foreground: oklch(0.95 0.01 250);
+
+    --border: oklch(0.25 0.02 250);
+    --input: oklch(0.25 0.02 250);
+    --ring: oklch(0.8 0.02 250);
+
+    --radius: 0.5rem;
+
+    --spacing: 5rem;
+    --letter-spacing-multiplier: -0.025;
+  }
 
 @layer base {
   * {
@@ -15,7 +45,7 @@
   }
 
   body {
-    @apply grid place-items-center !overscroll-none bg-black text-white;
+    @apply grid place-items-center !overscroll-none bg-background text-foreground;
   }
 
   /* Typography */

@@ -1,5 +1,5 @@
 "use client";
-import { SPContext } from "@/modules/layout/Body/Body";
+import { SPContext } from "@/lib/custom/providers";
 import type { Route } from "next";
 import Link from "next/link";
 import { useContext } from "react";
