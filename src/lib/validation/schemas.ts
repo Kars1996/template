@@ -11,6 +11,10 @@ export const loginSchema = z.object({
   password: z.string().min(1, "Password is required"),
 });
 
+export const deleteSchema = z.object({
+  email: z.email("Invalid email address"),
+})
+
 export const registerSchema = userSchema
   .extend({
     confirmPassword: z.string(),
@@ -33,6 +37,7 @@ export const contactFormSchema = z.object({
 
 export type User = z.infer<typeof userSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;
+export type DeleteInput = z.infer<typeof deleteSchema>;
 export type RegisterInput = z.infer<typeof registerSchema>;
 export type PaginationInput = z.infer<typeof paginationSchema>;
 export type ContactFormInput = z.infer<typeof contactFormSchema>;
