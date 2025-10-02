@@ -8,12 +8,6 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: [
-          "bg-gradient-to-t from-neutral-900 to-neutral-900/85 text-white",
-          "border border-b-2 border-zinc-950/40 ring-white/5",
-          "shadow-md shadow-zinc-950/20",
-          "hover:brightness-110 active:brightness-90",
-        ],
         primary: [
           "bg-gradient-to-t from-blue-600 to-blue-600/85 text-white",
           "border border-b-2 border-zinc-950/40 ring-white/10",
@@ -50,7 +44,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "primary",
       size: "default",
     },
   }
