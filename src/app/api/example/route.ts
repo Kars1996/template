@@ -1,12 +1,16 @@
 import {
   successResponse,
-  validateRequestBody,
   handleAndReturnErrorResponse,
-  withRateLimit,
   APIError,
-  withAuth,
-} from "@/modules";
-import { contactFormSchema, loginSchema } from "@/lib/validation/validations";
+  validateQueryParams,
+  validateRequestBody,
+} from "@/lib/API/handler";
+import { withRateLimit, withAuth } from "@/lib/API/middleware";
+import {
+  contactFormSchema,
+  deleteSchema,
+  loginSchema,
+} from "@/lib/validation/schemas";
 import type { NextRequest } from "next/server";
 
 export const GET = withRateLimit(async (req: NextRequest) => {
@@ -32,6 +36,7 @@ export const POST = withRateLimit(async (req: NextRequest) => {
 export const PUT = withRateLimit(async (req: NextRequest) => {
   try {
     const loginData = await validateRequestBody(loginSchema, req);
+
     if (
       loginData.email === "test@kars.bio" &&
       loginData.password === "password123"
@@ -51,7 +56,6 @@ export const PUT = withRateLimit(async (req: NextRequest) => {
     return handleAndReturnErrorResponse(error);
   }
 });
-
 export const PATCH = withAuth(async (req, token, params) => {
   try {
     const random = Math.random();
@@ -65,6 +69,27 @@ export const PATCH = withAuth(async (req, token, params) => {
       message: "Success Authenticated State",
       status: 200,
     });
+  } catch (error) {
+    return handleAndReturnErrorResponse(error);
+  }
+});
+
+export const DELETE = withRateLimit(async (req: NextRequest) => {
+  try {
+    const loginData = await validateQueryParams(deleteSchema, req.nextUrl);
+
+    if (loginData.email === "del@kars.bio") {
+      return successResponse({
+        message: "Account Deleted",
+        status: 200,
+        data: { user: { email: loginData.email } },
+      });
+    } else {
+      throw new APIError({
+        code: "unauthorized",
+        message: "Invalid email",
+      });
+    }
   } catch (error) {
     return handleAndReturnErrorResponse(error);
   }

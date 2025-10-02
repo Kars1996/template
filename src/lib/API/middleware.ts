@@ -25,7 +25,7 @@ export type BaseRouteHandler<
 export type SimpleRouteHandler<T extends RouteParams = RouteParams> =
   BaseRouteHandler<never, T>;
 export type AuthRouteHandler<T extends RouteParams = RouteParams> =
-  BaseRouteHandler<string, T>;
+  BaseRouteHandler<string, T>; // Change "string" to whatever type you're returning
 
 export type Middleware<TContext = any> = (req: NextRequest) => Promise<{
   response?: NextResponse;

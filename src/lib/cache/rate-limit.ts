@@ -1,4 +1,4 @@
-import type { RateLimitConfig } from "@/modules/API/rate-limit.middleware";
+import type { RateLimitConfig } from "@/lib/API/rate-limit.middleware";
 
 export const getDefaultRateLimitConfig = async (): Promise<RateLimitConfig> => {
   const redis =

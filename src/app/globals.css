@@ -3,6 +3,37 @@
 @tailwind utilities;
 
 :root {
+  --background: oklch(0.14 0 0);
+  --foreground: oklch(0.88 0 0);
+
+  --card: oklch(0.16 0 0);
+  --card-foreground: oklch(0.88 0 0);
+
+  --popover: oklch(0.16 0 0);
+  --popover-foreground: oklch(0.88 0 0);
+
+  --primary: oklch(0.69 0.24 316);
+  --primary-foreground: oklch(0.14 0 0);
+
+  --secondary: oklch(0.78 0.17 69);
+  --secondary-foreground: oklch(0.14 0 0);
+
+  --muted: oklch(0.35 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+
+  --accent: oklch(0.65 0.21 27);
+  --accent-foreground: oklch(0.88 0 0);
+
+  --destructive: oklch(0.63 0.25 27);
+  --destructive-foreground: oklch(0.88 0 0);
+
+  --border: oklch(0.25 0 0);
+  --input: oklch(0.25 0 0);
+
+  --ring: rgba(255, 255, 255, 0.1);
+
+  --radius: 0.5rem;
+
   --spacing: 5rem;
   --letter-spacing-multiplier: -0.025;
 }
@@ -15,7 +46,7 @@
   }
 
   body {
-    @apply grid place-items-center !overscroll-none bg-black text-white;
+    @apply grid place-items-center !overscroll-none bg-background text-foreground;
   }
 
   /* Typography */

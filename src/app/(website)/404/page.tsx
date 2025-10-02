@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Meta } from "@/modules/layout";
 import { ArrowLeft } from "lucide-react";
+import Meta from "@/lib/custom/meta";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)

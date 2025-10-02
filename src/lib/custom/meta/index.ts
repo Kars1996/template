@@ -3,7 +3,7 @@
 import { website } from "@/constants";
 import { Metadata } from "next";
 
-export default function constructMetadata({
+export function constructMetadata({
   title,
   fullTitle,
   templateTitle,
@@ -99,3 +99,5 @@ export default function constructMetadata({
     creator: "Kars",
   };
 }
+
+export default constructMetadata; // Backwards Compatibility

@@ -35,26 +35,3 @@ export function validateSchema<T>(
     };
   }
 }
-
-export function validateFormData<T>(
-  schema: z.ZodSchema<T>,
-  formData: FormData,
-): ValidationResult<T> {
-  const data = Object.fromEntries(formData.entries());
-  return validateSchema(schema, data);
-}
-
-export function validateQueryParams<T>(
-  schema: z.ZodSchema<T>,
-  searchParams: URLSearchParams,
-): ValidationResult<T> {
-  const data = Object.fromEntries(searchParams.entries());
-  return validateSchema(schema, data);
-}
-
-export function validateRequestBody<T>(
-  schema: z.ZodSchema<T>,
-  body: unknown,
-): ValidationResult<T> {
-  return validateSchema(schema, body);
-}
