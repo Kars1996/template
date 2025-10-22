@@ -1,3 +1,4 @@
+// TODO: Migrate to `proxy` and rewrite with `NodeJS` runtime in mind
 import type { MiddlewareConfig, NextRequest } from "next/server";
 import { TOKEN_NAME } from "@/constants";
 

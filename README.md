@@ -2,7 +2,7 @@
     <img src="https://files.catbox.moe/2xyn5h.png" align="center" />
 </a>
 
-<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v5.2)</i></h1>
+<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v5.5)</i></h1>
 
 <p align="center">Consider giving this a ⭐ to show your support! <3</p>
 
@@ -15,7 +15,7 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 - **🎉 Animations** – Animated with **AOS** and **GSAP**
 - **✨ Next.js Conventions** – Following best practices and conventions
 - **🌈 Tailwind CSS** – Tailwind support right out of the box
-- **🔐 Middleware** – Pre-configured for speedy authentication
+- **🔐 Proxy** – Pre-configured for speedy authentication
 - **📂 Routes** – Custom 404 and API routes ready to go
 - **🛡️ Rate Limiting** - Built-in Redis/Memory rate limiting for API protection
 - **⚙️ Config** - Site-wide configuration system for easy customization
@@ -23,12 +23,9 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 - **🧩 UI Library** – Integrates [ShadCN](https://ui.shadcn.com)
 - **🚀 Transitions** – Clean page loading transitions
 - **🌐 API** - Custom [Axios](https://axios-http.com/docs/intro) wrapper for easy API requests
-- **🔌 Turbopack** - Supporting [Turbopack](https://turbo.build/repo) for blazing fast builds
-- **📝 Credit Manager** - Automatically update copyright notices in your codebase
 - **🎯 Form Validation** - Built-in validation system with comprehensive error handling
 - **🗂️ Modular Architecture** - Reorganized codebase with better separation of concerns
-- **🎨 Enhanced UI Components** - New button, input, modal, select, and skeleton components
-- **📊 API Validation Demo** - Example endpoint showcasing validation patterns
+- **📊 API Demos** - Example endpoint showcasing validation patterns
 
 **Created with ❤️ by [Create-Kapp](https://github.com/kars1996/create-kapp)!**
 
@@ -36,12 +33,7 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 
 ## 🆕 Latest Update
 
-**API Improvements** - General Improvements to the API and modules:
-
-- **🗂️ Kebab Case** - Standardized file naming convention
-- **🌐 API** - Added utilities to the API module 
-- **⚙️ Token** - Improved authentication and added auth wrapper
-- **🔧 Fixed API** - Fixed issue with API
+**Next 16**: This project now supports nextjs 15!
 
 ---
 
