@@ -33,7 +33,7 @@ Welcome to the **Next.js Quickstart** template for **Kars Apps**! This template 
 
 ## 🆕 Latest Update
 
-**Next 16**: This project now supports nextjs 15!
+**Next 16**: This project now supports nextjs 16!
 
 ---
 
