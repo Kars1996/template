@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { Home, Search } from "lucide-react";
 import Meta from "@/lib/custom/meta";
 
 /*
@@ -17,52 +17,105 @@ export const metadata = Meta({
 
 export default function _404Page() {
   return (
-    <div className="flex min-h-screen w-full items-center justify-center bg-black text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#B16CEA]/10 via-transparent to-[#FFA84B]/10" />
-      <main className="relative z-10 flex flex-col items-center px-4 text-center selection:bg-[#0099ff3d]">
-        <div className="group relative mb-8 inline-flex items-center overflow-hidden rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm">
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] opacity-0 transition-opacity duration-500 group-hover:opacity-20" />
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] p-[1px] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-            <div className="absolute inset-[1px] rounded-full bg-black/90 backdrop-blur-sm" />
-          </div>
-          <div className="relative z-10 flex items-center">
-            Page Not Found :c
+    <div className="h-full min-h-screen bg-background">
+      <div className="mx-auto max-w-4xl border-x border-dashed border-border">
+        <div className="border-b border-dashed border-border px-6 py-3 md:px-12">
+          <p className="text-center text-xs text-muted-foreground">
+            Serving world-class design{" "}
+            <Link
+              href="https://resynced.design"
+              target="_blank"
+              className="font-medium text-foreground transition-colors hover:text-primary"
+            >
+              @ Resynced Design
+            </Link>
+          </p>
+        </div>
+
+        <div className="border-b border-dashed border-border px-6 py-6 md:px-12 md:py-8">
+          <div className="mb-2 text-sm text-muted-foreground">エラー</div>
+          <h1 className="mb-1 text-xl font-semibold">404</h1>
+          <p className="text-sm text-muted-foreground">Page not found</p>
+        </div>
+
+        <div className="h-4 border-b border-dashed border-border" />
+
+        <div className="border-b border-dashed border-border px-6 py-24 md:px-12 md:py-32">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="bg-muted/50 mb-8 inline-flex h-20 w-20 items-center justify-center rounded-lg border border-dashed border-border">
+              <Search className="h-10 w-10 text-muted-foreground" />
+            </div>
+
+            <h2 className="mb-4 text-balance text-4xl font-bold tracking-tight md:text-5xl">
+              Page Not Found
+            </h2>
+
+            <p className="mb-8 text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+              The page you're looking for doesn't exist or has been moved. Let's
+              get you back on track.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                <Home className="h-4 w-4" />
+                Go Home
+              </Link>
+            </div>
           </div>
         </div>
 
-        <h1 className="mb-6 text-5xl font-bold leading-tight md:text-7xl">
-          Oops!{" "}
-          <span className="bg-gradient-to-r from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] bg-clip-text text-transparent">
-            Lost in Space
-          </span>
-        </h1>
+        <div className="h-4 border-b border-dashed border-border" />
 
-        <p className="mb-8 text-xl text-gray-400">
-          The page you are looking for seems to have vanished into the digital
-          void.
-          <br />
-          Let's get you back on track!
-        </p>
+        <div className="border-b border-dashed border-border px-6 py-12 md:px-12">
+          <div className="mb-6 text-center">
+            <h3 className="text-sm font-medium text-muted-foreground">
+              Popular Pages
+            </h3>
+          </div>
 
-        <div className="flex flex-col items-center gap-4 sm:flex-row">
-          <Link
-            href="/"
-            className="group inline-flex items-center rounded-full bg-gradient-to-r from-[#B16CEA] to-[#FF5E69] px-8 py-4 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#B16CEA]/25"
-          >
-            <ArrowLeft className="mr-2 h-5 w-5 transition-transform group-hover:-translate-x-1" />
-            Back to Home
-          </Link>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            <Link
+              href="/"
+              className="hover:bg-muted/50 group border border-dashed border-border p-4 transition-colors"
+            >
+              <div className="mb-2 text-sm font-semibold group-hover:text-primary">
+                Home
+              </div>
+              <div className="text-xs text-muted-foreground">
+                Return to homepage
+              </div>
+            </Link>
 
-          <Link
-            href="https://kars.bio"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center rounded-full border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
-          >
-            Visit Portfolio
-          </Link>
+            <Link
+              href="https://github.com/kars1996/Template"
+              className="hover:bg-muted/50 group border border-dashed border-border p-4 transition-colors"
+            >
+              <div className="mb-2 text-sm font-semibold group-hover:text-primary">
+                GitHub
+              </div>
+              <div className="text-xs text-muted-foreground">
+                View the repository
+              </div>
+            </Link>
+
+            <Link
+              href="https://kars.bio"
+              className="hover:bg-muted/50 group border border-dashed border-border p-4 transition-colors"
+            >
+              <div className="mb-2 text-sm font-semibold group-hover:text-primary">
+                Portfolio
+              </div>
+              <div className="text-xs text-muted-foreground">
+                Check out more work
+              </div>
+            </Link>
+          </div>
         </div>
-      </main>
+        <div className="h-8 border-t border-dashed border-border" />
+      </div>
     </div>
   );
 }
