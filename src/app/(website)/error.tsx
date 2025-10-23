@@ -9,8 +9,6 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
 
-("use client");
-
 export default function Error({
   error,
   reset,
@@ -19,7 +17,7 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="min-h-screen bg-background px-4 py-8">
+    <div className="min-h-screen bg-background h-full">
       <div className="mx-auto max-w-4xl border-x border-dashed border-border">
         <div className="border-b border-dashed border-border px-6 py-3 md:px-12">
           <p className="text-center text-xs text-muted-foreground">
