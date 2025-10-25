@@ -58,7 +58,7 @@ export default function _404Page() {
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                className="text-primary-foreground inline-flex items-center gap-2 rounded-full bg-linear-to-r from-[#B16CEA] to-[#FF5E69] px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90"
               >
                 <Home className="h-4 w-4" />
                 Go Home

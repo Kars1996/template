@@ -1,53 +1,24 @@
-"use client";
-
-import * as React from "react";
-import { Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
+import * as React from "react";
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  showPasswordToggle?: boolean;
+function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+  return (
+    <input
+      type={type}
+      data-slot="input"
+      className={cn(
+        "border-input file:text-foreground placeholder:text-muted-foreground/70 flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-sm shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
+        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+        type === "search" &&
+          "[&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none",
+        type === "file" &&
+          "text-muted-foreground/70 file:border-input file:text-foreground p-0 pr-3 italic file:me-3 file:h-full file:border-0 file:border-r file:border-solid file:bg-transparent file:px-3 file:text-sm file:font-medium file:not-italic",
+        className,
+      )}
+      {...props}
+    />
+  );
 }
-
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, showPasswordToggle = false, ...props }, ref) => {
-    const [showPassword, setShowPassword] = React.useState(false);
-    const isPassword = type === "password";
-
-    const inputType = isPassword && showPassword ? "text" : type;
-
-    return (
-      <div className="relative">
-        <input
-          type={inputType}
-          className={cn(
-            "flex h-10 w-full rounded-lg border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm text-white outline-none transition-all duration-200 placeholder:text-neutral-400",
-            "focus:border-blue-500 focus:shadow-[0_0_0_2px_rgba(59,130,246,0.2)] focus:ring-2 focus:ring-blue-400/40",
-            "hover:border-blue-400 hover:shadow-[0_0_0_2px_rgba(59,130,246,0.12)]",
-            "before:pointer-events-none before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-b before:from-white/10 before:to-transparent",
-            isPassword && showPasswordToggle && "pr-10",
-            className,
-          )}
-          ref={ref}
-          {...props}
-        />
-        {isPassword && showPasswordToggle && (
-          <button
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-200 focus:outline-none focus:ring-2 focus:ring-blue-400/60 focus:ring-offset-2"
-          >
-            {showPassword ? (
-              <EyeOff className="h-4 w-4" />
-            ) : (
-              <Eye className="h-4 w-4" />
-            )}
-          </button>
-        )}
-      </div>
-    );
-  },
-);
-Input.displayName = "Input";
 
 export { Input };

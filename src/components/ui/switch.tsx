@@ -1,45 +1,29 @@
+"use client";
+
 import * as React from "react";
-import { Switch as SwitchPrimitive } from "radix-ui";
+import {Switch as SwitchPrimitives} from "radix-ui";
+
 import { cn } from "@/lib/utils";
 
-export interface SwitchProps
-  extends React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> {
-  label?: string;
-}
+const Switch = React.forwardRef<
+  React.ElementRef<typeof SwitchPrimitives.Root>,
+  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
+>(({ className, ...props }, ref) => (
+  <SwitchPrimitives.Root
+    className={cn(
+      "peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
+      className
+    )}
+    {...props}
+    ref={ref}
+  >
+    <SwitchPrimitives.Thumb
+      className={cn(
+        "pointer-events-none block h-5 w-5 rounded-full border-secondary border bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
+      )}
+    />
+  </SwitchPrimitives.Root>
+));
+Switch.displayName = SwitchPrimitives.Root.displayName;
 
-export const Switch = React.forwardRef<
-  React.ElementRef<typeof SwitchPrimitive.Root>,
-  SwitchProps
->(({ className, label, ...props }, ref) => {
-  return (
-    <div className="flex items-center gap-3">
-      {label && <span className="text-sm text-white">{label}</span>}
-      <SwitchPrimitive.Root
-        className={cn(
-          "group relative inline-flex h-6 w-11 items-center rounded-full",
-          "bg-gradient-to-t from-neutral-800 to-neutral-800/85",
-          "border border-b-2 border-zinc-950/40 ring-1 ring-inset ring-white/5",
-          "shadow-md shadow-zinc-950/20",
-          "transition-colors duration-200",
-          "data-[state=checked]:to-primary/85 data-[state=checked]:bg-gradient-to-t data-[state=checked]:from-primary",
-          "focus-visible:ring-primary/20 focus-visible:ring-2",
-          className,
-        )}
-        ref={ref}
-        {...props}
-      >
-        <SwitchPrimitive.Thumb
-          className={cn(
-            "block h-4 w-4 rounded-full",
-            "bg-gradient-to-t from-white to-white/90",
-            "shadow-md shadow-zinc-950/20",
-            "transition-transform duration-200",
-            "translate-x-1",
-            "data-[state=checked]:translate-x-6",
-          )}
-        />
-      </SwitchPrimitive.Root>
-    </div>
-  );
-});
-Switch.displayName = "Switch";
+export { Switch };

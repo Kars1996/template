@@ -17,40 +17,40 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="min-h-screen bg-background h-full">
-      <div className="mx-auto max-w-4xl border-x border-dashed border-border">
-        <div className="border-b border-dashed border-border px-6 py-3 md:px-12">
-          <p className="text-center text-xs text-muted-foreground">
+    <div className="bg-background h-full min-h-screen">
+      <div className="border-border mx-auto max-w-4xl border-x border-dashed">
+        <div className="border-border border-b border-dashed px-6 py-3 md:px-12">
+          <p className="text-muted-foreground text-center text-xs">
             Serving world-class design{" "}
             <Link
               href="https://resynced.design"
               target="_blank"
-              className="font-medium text-foreground transition-colors hover:text-primary"
+              className="text-foreground hover:text-primary font-medium transition-colors"
             >
               @ Resynced Design
             </Link>
           </p>
         </div>
 
-        <div className="border-b border-dashed border-border px-6 py-6 md:px-12 md:py-8">
-          <div className="mb-2 text-sm text-muted-foreground">エラー</div>
+        <div className="border-border border-b border-dashed px-6 py-6 md:px-12 md:py-8">
+          <div className="text-muted-foreground mb-2 text-sm">エラー</div>
           <h1 className="mb-1 text-xl font-semibold">Error</h1>
-          <p className="text-sm text-muted-foreground">Something went wrong</p>
+          <p className="text-muted-foreground text-sm">Something went wrong</p>
         </div>
 
-        <div className="h-4 border-b border-dashed border-border" />
+        <div className="border-border h-4 border-b border-dashed" />
 
-        <div className="border-b border-dashed border-border px-6 py-24 md:px-12 md:py-32">
+        <div className="border-border border-b border-dashed px-6 py-24 md:px-12 md:py-32">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="bg-destructive/5 mb-8 inline-flex h-20 w-20 items-center justify-center rounded-lg border border-dashed border-destructive">
-              <AlertTriangle className="h-10 w-10 text-destructive" />
+            <div className="bg-destructive/5 border-destructive mb-8 inline-flex h-20 w-20 items-center justify-center rounded-lg border border-dashed">
+              <AlertTriangle className="text-destructive h-10 w-10" />
             </div>
 
-            <h2 className="mb-4 text-balance text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 className="mb-4 text-4xl font-bold tracking-tight text-balance md:text-5xl">
               Something Went Wrong
             </h2>
 
-            <p className="mb-8 text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="text-muted-foreground mb-8 text-base leading-relaxed text-pretty md:text-lg">
               An unexpected error occurred. Don't worry, we've logged the issue
               and will look into it.
             </p>
@@ -58,7 +58,7 @@ export default function Error({
             <div className="flex flex-wrap items-center justify-center gap-3">
               <button
                 onClick={reset}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                className="text-primary-foreground inline-flex items-center gap-2 rounded-full bg-linear-to-r from-[#B16CEA] to-[#FF5E69] px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90"
               >
                 <RefreshCcw className="h-4 w-4" />
                 Try Again
@@ -66,7 +66,7 @@ export default function Error({
 
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-muted"
+                className="border-border hover:bg-muted inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-colors"
               >
                 <Home className="h-4 w-4" />
                 Go Home
@@ -75,26 +75,26 @@ export default function Error({
           </div>
         </div>
 
-        <div className="h-4 border-b border-dashed border-border" />
+        <div className="border-border h-4 border-b border-dashed" />
 
-        <div className="border-b border-dashed border-border px-6 py-12 md:px-12">
+        <div className="border-border border-b border-dashed px-6 py-12 md:px-12">
           <div className="mx-auto max-w-2xl">
-            <h3 className="mb-4 text-sm font-medium text-muted-foreground">
+            <h3 className="text-muted-foreground mb-4 text-sm font-medium">
               Error Details
             </h3>
-            <div className="bg-muted/50 border border-dashed border-border p-4">
-              <div className="font-mono mb-2 text-xs text-muted-foreground">
+            <div className="bg-muted/50 border-border border border-dashed p-4">
+              <div className="text-muted-foreground mb-2 font-mono text-xs">
                 Error Message
               </div>
-              <div className="font-mono text-sm text-foreground">
+              <div className="text-foreground font-mono text-sm">
                 {error.message || "Unknown error"}
               </div>
               {error.digest && (
                 <>
-                  <div className="font-mono mb-2 mt-4 text-xs text-muted-foreground">
+                  <div className="text-muted-foreground mt-4 mb-2 font-mono text-xs">
                     Error ID
                   </div>
-                  <div className="font-mono text-sm text-foreground">
+                  <div className="text-foreground font-mono text-sm">
                     {error.digest}
                   </div>
                 </>
@@ -103,7 +103,7 @@ export default function Error({
           </div>
         </div>
 
-        <div className="h-8 border-t border-dashed border-border" />
+        <div className="border-border h-8 border-t border-dashed" />
       </div>
     </div>
   );

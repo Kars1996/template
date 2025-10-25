@@ -4,29 +4,6 @@
         "**/app/**/page.tsx": "${dirname}/page.tsx"
     },
 
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "vue",
-        "html",
-        "markdown",
-        "json",
-        "jsonc",
-        "yaml",
-        "toml",
-        "xml",
-        "gql",
-        "graphql",
-        "astro",
-        "css",
-        "less",
-        "scss",
-        "pcss",
-        "postcss",
-        "github-actions-workflow"
-    ],
     "editor.codeActionsOnSave": [
         "source.addMissingImports",
         "source.fixAll.eslint"

@@ -2,7 +2,7 @@
     <img src="https://files.catbox.moe/2xyn5h.png" align="center" />
 </a>
 
-<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v5.5)</i></h1>
+<h1 align="center">🚀 NextJS Quickstart 👑 <i>(v6)</i></h1>
 
 <p align="center">Consider giving this a ⭐ to show your support! <3</p>
 

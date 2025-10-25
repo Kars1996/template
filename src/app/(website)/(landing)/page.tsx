@@ -65,49 +65,49 @@ export default function IndexPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background px-4">
-      <div className="mx-auto max-w-4xl border-x border-dashed border-border">
-        <div className="border-b border-dashed border-border px-6 py-3 md:px-12">
-          <p className="text-center text-xs text-muted-foreground">
+    <div className="bg-background min-h-screen px-4">
+      <div className="border-border mx-auto max-w-4xl border-x border-dashed">
+        <div className="border-border border-b border-dashed px-6 py-3 md:px-12">
+          <p className="text-muted-foreground text-center text-xs">
             Serving world-class design{" "}
             <Link
               href="https://resynced.design"
               target="_blank"
-              className="font-medium text-foreground transition-colors hover:text-primary"
+              className="text-foreground hover:text-primary font-medium transition-colors"
             >
               @ Resynced Design
             </Link>
           </p>
         </div>
 
-        <div className="border-b border-dashed border-border px-6 py-6 md:px-12 md:py-8">
-          <div className="mb-2 text-sm text-muted-foreground">テンプレート</div>
+        <div className="border-border border-b border-dashed px-6 py-6 md:px-12 md:py-8">
+          <div className="text-muted-foreground mb-2 text-sm">テンプレート</div>
           <h1 className="mb-1 text-xl font-semibold">NextJS Template</h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-sm">
             Production-ready quickstart
           </p>
         </div>
 
-        <div className="h-4 border-b border-dashed border-border" />
+        <div className="border-border h-4 border-b border-dashed" />
 
-        <div className="border-b border-dashed border-border px-6 py-16 md:px-12 md:py-24">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
-            <span className="text-muted-foreground">v5.5</span>
+        <div className="border-border border-b border-dashed px-6 py-16 md:px-12 md:py-24">
+          <div className="border-border mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs">
+            <Sparkles className="h-3.5 w-3.5 text-[#FF5E69]" />
+            <span className="text-muted-foreground">v6</span>
           </div>
 
-          <h2 className="mb-6 text-balance text-4xl font-bold leading-tight tracking-tight md:text-6xl md:leading-tight">
+          <h2 className="mb-6 text-4xl leading-tight font-bold tracking-tight text-balance md:text-6xl md:leading-tight">
             Build{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#FF5E69] to-[#B16CEA] bg-clip-text text-transparent">
               Faster
             </span>
             , Ship{" "}
-            <span className="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#B16CEA] to-[#FF5E69] bg-clip-text text-transparent">
               Smarter
             </span>
           </h2>
 
-          <p className="mb-8 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="text-muted-foreground mb-8 max-w-2xl text-base leading-relaxed text-pretty md:text-lg">
             A production-ready NextJS template with everything you need.
             Pre-configured with the best tools and practices for modern web
             development.
@@ -116,7 +116,7 @@ export default function IndexPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="https://github.com/kars1996/Template"
-              className="group inline-flex items-center rounded-full bg-gradient-to-r from-[#B16CEA] to-[#FF5E69] px-6 py-3 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#B16CEA]/25"
+              className="group inline-flex items-center rounded-full bg-linear-to-r from-[#B16CEA] to-[#FF5E69] px-6 py-3 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#B16CEA]/25"
             >
               Get Started
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -124,7 +124,7 @@ export default function IndexPage() {
 
             <Link
               href="https://github.com/kars1996/Template"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-muted"
+              className="border-border hover:bg-muted inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-colors"
             >
               <Github className="h-4 w-4" />
               GitHub
@@ -136,44 +136,44 @@ export default function IndexPage() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`border-b border-dashed border-border px-6 py-8 md:px-12 ${
+              className={`border-border border-b border-dashed px-6 py-8 md:px-12 ${
                 index % 2 === 0 ? "md:border-r" : ""
               }`}
             >
-              <div className="bg-primary/5 mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-border">
-                <feature.icon className="h-5 w-5 text-primary" />
+              <div className="bg-primary/5 border-border mb-4 flex h-10 w-10 items-center justify-center rounded-lg border">
+                <feature.icon className="text-primary h-5 w-5" />
               </div>
               <h3 className="mb-2 text-base font-semibold">{feature.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {feature.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="h-4 border-b border-dashed border-border" />
+        <div className="border-border h-4 border-b border-dashed" />
 
-        <div className="border-b border-dashed border-border px-6 py-16 md:px-12 md:py-20">
+        <div className="border-border border-b border-dashed px-6 py-16 md:px-12 md:py-20">
           <div className="mb-12">
-            <h2 className="mb-3 text-balance text-3xl font-bold tracking-tight md:text-4xl">
+            <h2 className="mb-3 text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Get Started in{" "}
-              <span className="bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent">
+              <span className="via-primary bg-linear-to-r from-[#B16CEA] to-[#FF5E69] bg-clip-text text-transparent">
                 Seconds
               </span>
             </h2>
-            <p className="text-pretty text-base text-muted-foreground">
+            <p className="text-muted-foreground text-base text-pretty">
               Choose your preferred installation method and start building
             </p>
           </div>
 
-          <div className="mb-8 border-b border-dashed border-border pb-8">
+          <div className="border-border mb-8 border-b border-dashed pb-8">
             <div className="mb-6 flex items-center gap-3">
-              <div className="bg-primary/5 flex h-8 w-8 items-center justify-center rounded-lg border border-border">
-                <Zap className="h-4 w-4 text-primary" />
+              <div className="bg-primary/5 border-border flex h-8 w-8 items-center justify-center rounded-lg border">
+                <Zap className="text-primary h-4 w-4" />
               </div>
               <div>
                 <h3 className="text-base font-semibold">Quick Setup</h3>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-muted-foreground text-xs">
                   Recommended for fastest start
                 </p>
               </div>
@@ -181,10 +181,10 @@ export default function IndexPage() {
 
             <div className="space-y-4">
               <div>
-                <div className="mb-2 text-xs font-medium text-muted-foreground">
+                <div className="text-muted-foreground mb-2 text-xs font-medium">
                   Install CLI globally
                 </div>
-                <div className="bg-muted/50 font-mono border border-dashed border-border p-4 text-sm">
+                <div className="bg-muted/50 border-border border border-dashed p-4 font-mono text-sm">
                   <span className="text-primary">npm</span>{" "}
                   <span className="text-muted-foreground">i</span>{" "}
                   <span>create-kapp@latest</span>{" "}
@@ -193,24 +193,24 @@ export default function IndexPage() {
               </div>
 
               <div>
-                <div className="mb-2 text-xs font-medium text-muted-foreground">
+                <div className="text-muted-foreground mb-2 text-xs font-medium">
                   Create your project
                 </div>
-                <div className="bg-muted/50 font-mono border border-dashed border-border p-4 text-sm">
-                  <span className="text-accent">create-kapp</span>
+                <div className="bg-muted/50 border-border border border-dashed p-4 font-mono text-sm">
+                  <span className="text-[#B16CEA]">create-kapp</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mb-8 border-b border-dashed border-border pb-8">
+          <div className="border-border mb-8 border-b border-dashed pb-8">
             <div className="mb-6 flex items-center gap-3">
-              <div className="bg-accent/5 flex h-8 w-8 items-center justify-center rounded-lg border border-border">
-                <Github className="h-4 w-4 text-accent" />
+              <div className="border-border flex h-8 w-8 items-center justify-center rounded-lg border bg-[#B16CEA]/5">
+                <Github className="h-4 w-4 text-[#B16CEA]" />
               </div>
               <div>
                 <h3 className="text-base font-semibold">Manual Clone</h3>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-muted-foreground text-xs">
                   Clone directly from GitHub
                 </p>
               </div>
@@ -218,21 +218,21 @@ export default function IndexPage() {
 
             <div className="space-y-4">
               <div>
-                <div className="mb-2 text-xs font-medium text-muted-foreground">
+                <div className="text-muted-foreground mb-2 text-xs font-medium">
                   Clone the repository
                 </div>
-                <div className="bg-muted/50 font-mono border border-dashed border-border p-4 text-sm">
-                  <span className="text-accent">gh repo clone</span>{" "}
+                <div className="bg-muted/50 border-border border border-dashed p-4 font-mono text-sm">
+                  <span className="text-[#B16CEA]">gh repo clone</span>{" "}
                   <span>kars1996/Template</span>
                 </div>
               </div>
 
               <div>
-                <div className="mb-2 text-xs font-medium text-muted-foreground">
+                <div className="text-muted-foreground mb-2 text-xs font-medium">
                   Install dependencies
                 </div>
-                <div className="bg-muted/50 font-mono border border-dashed border-border p-4 text-sm">
-                  <span className="text-secondary">npm</span>{" "}
+                <div className="bg-muted/50 border-border border border-dashed p-4 font-mono text-sm">
+                  <span className="text-[#FF5E69]">npm</span>{" "}
                   <span>install</span>
                 </div>
               </div>
@@ -241,32 +241,32 @@ export default function IndexPage() {
 
           <div>
             <div className="mb-6 flex items-center gap-3">
-              <div className="bg-secondary/5 flex h-8 w-8 items-center justify-center rounded-lg border border-border">
-                <Rocket className="h-4 w-4 text-secondary" />
+              <div className="border-border flex h-8 w-8 items-center justify-center rounded-lg border bg-[#FF5E69]/5">
+                <Rocket className="h-4 w-4 text-[#FF5E69]" />
               </div>
               <div>
                 <h3 className="text-base font-semibold">Start Development</h3>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-muted-foreground text-xs">
                   Launch your local server
                 </p>
               </div>
             </div>
 
             <div>
-              <div className="mb-2 text-xs font-medium text-muted-foreground">
+              <div className="text-muted-foreground mb-2 text-xs font-medium">
                 Run the development server
               </div>
-              <div className="bg-muted/50 font-mono border border-dashed border-border p-4 text-sm">
-                <span className="text-secondary">npm</span> <span>run</span>{" "}
+              <div className="bg-muted/50 border-border border border-dashed p-4 font-mono text-sm">
+                <span className="text-[#FF5E69]">npm</span> <span>run</span>{" "}
                 <span className="text-primary">dev</span>
               </div>
             </div>
 
-            <div className="bg-primary/5 mt-6 flex items-start gap-2 rounded-lg border border-dashed border-border p-4">
-              <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              <p className="text-xs leading-relaxed text-muted-foreground">
+            <div className="bg-primary/5 border-border mt-6 flex items-start gap-2 rounded-lg border border-dashed p-4">
+              <Sparkles className="text-primary mt-0.5 h-4 w-4 shrink-0" />
+              <p className="text-muted-foreground text-xs leading-relaxed">
                 Your app will be running at{" "}
-                <code className="font-mono rounded bg-background px-1.5 py-0.5 text-foreground">
+                <code className="bg-background text-foreground rounded px-1.5 py-0.5 font-mono">
                   localhost:3000
                 </code>
               </p>
@@ -301,16 +301,16 @@ export default function IndexPage() {
               </Link>
             </div>
 
-            <div className="flex items-center gap-6 text-muted-foreground">
+            <div className="text-muted-foreground flex items-center gap-6">
               <Link
                 href="https://github.com/kars1996/Template"
-                className="transition-colors hover:text-foreground"
+                className="hover:text-foreground transition-colors"
               >
                 GitHub
               </Link>
               <Link
                 href="https://kars.bio"
-                className="transition-colors hover:text-foreground"
+                className="hover:text-foreground transition-colors"
               >
                 Portfolio
               </Link>
