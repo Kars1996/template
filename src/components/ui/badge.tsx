@@ -11,7 +11,7 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default:
-          "border-transparent bg-gradient-to-b from-sidebar-primary to-sidebar-primary/70 text-sidebar-primary-foreground shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] [a&]:hover:from-sidebar-primary/90 [a&]:hover:to-sidebar-primary/60 [a&]:active:from-sidebar-primary [a&]:active:to-sidebar-primary/50 focus-visible:ring-sidebar-primary/20 dark:focus-visible:ring-sidebar-primary/40",
+          "border-transparent bg-gradient-to-b from-primary to-primary/70 text-primary-foreground shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] [a&]:hover:from-primary/90 [a&]:hover:to-primary/60 [a&]:active:from-primary [a&]:active:to-primary/50 focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40",
         secondary:
           "border-transparent bg-gradient-to-b from-secondary to-secondary/90 text-secondary-foreground shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] [a&]:hover:from-secondary/90 [a&]:hover:to-secondary/80 [a&]:active:from-secondary [a&]:active:to-secondary/70",
         destructive:

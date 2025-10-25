@@ -11,7 +11,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-b from-sidebar-primary to-sidebar-primary/70 text-sidebar-primary-foreground shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] hover:from-sidebar-primary/90 hover:to-sidebar-primary/60 active:from-sidebar-primary active:to-sidebar-primary/50 active:shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] focus-visible:ring-sidebar-primary/20 dark:focus-visible:ring-sidebar-primary/40",
+          "bg-gradient-to-b from-primary to-primary/70 text-primary-foreground shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] hover:from-primary/90 hover:to-primary/60 active:from-primary active:to-primary/50 active:shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40",
         // "bg-gradient-to-b from-primary to-primary/90 text-primary-foreground shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] hover:from-primary/90 hover:to-primary/80 active:from-primary active:to-primary/70 active:shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)]",
         destructive:
           "bg-gradient-to-b from-destructive to-destructive/90 text-white shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] hover:from-destructive/90 hover:to-destructive/80 active:from-destructive active:to-destructive/70 active:shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
