@@ -86,4 +86,16 @@
   body {
     @apply bg-background text-foreground;
   }
+  ::selection {
+    @apply bg-[#e2bec13d];
+  }
+  ::-moz-selection {
+    @apply bg-[#e2bec13d];
+  }
+  ::-webkit-scrollbar {
+    @apply w-2 bg-[#0c0d0d];
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded bg-[#0d1117];
+  }
 }
