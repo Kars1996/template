@@ -1,5 +1,3 @@
-import React from "react";
-
 interface ProgressiveBlurProps {
   className?: string;
   direction: "left" | "right";

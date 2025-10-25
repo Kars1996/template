@@ -2,7 +2,6 @@
 import "./globals.css";
 import * as Fonts from "../../public/fonts/fontExports";
 
-import AOS from "@/lib/animations/aos";
 
 import { website } from "@/constants";
 import { constructMetadata } from "@/lib/custom/meta";
@@ -33,13 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" made-by="kars">
-      <RootProvider className={`${Fonts.Satoshi.className} __kars`}>
+      <RootProvider className={`${Fonts.Satoshi.className} dark __kars`}>
         <main className="relative flex min-h-screen w-full flex-col">
-          <AOS />
           {children}
-          <p className="text-center text-sm text-transparent selection:text-white">
-            Made By Kars ツ
-          </p>
         </main>
         <ConsoleCredits isProd={isProd} />
       </RootProvider>

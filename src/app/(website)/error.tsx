@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowLeft, RefreshCcw } from "lucide-react";
+import { Home, RefreshCcw, AlertTriangle } from "lucide-react";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -17,59 +17,94 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="flex min-h-screen w-full items-center justify-center bg-black text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#B16CEA]/10 via-transparent to-[#FFA84B]/10" />
-      <main className="relative z-10 flex flex-col items-center px-4 text-center selection:bg-[#0099ff3d]">
-        <div className="group relative mb-8 inline-flex items-center overflow-hidden rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm">
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] opacity-0 transition-opacity duration-500 group-hover:opacity-20" />
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] p-[1px] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-            <div className="absolute inset-[1px] rounded-full bg-black/90 backdrop-blur-sm" />
-          </div>
-          <div className="relative z-10 flex items-center">
-            Internal Server Error
+    <div className="bg-background h-full min-h-screen">
+      <div className="border-border mx-auto max-w-4xl border-x border-dashed">
+        <div className="border-border border-b border-dashed px-6 py-3 md:px-12">
+          <p className="text-muted-foreground text-center text-xs">
+            Serving world-class design{" "}
+            <Link
+              href="https://resynced.design"
+              target="_blank"
+              className="text-foreground hover:text-primary font-medium transition-colors"
+            >
+              @ Resynced Design
+            </Link>
+          </p>
+        </div>
+
+        <div className="border-border border-b border-dashed px-6 py-6 md:px-12 md:py-8">
+          <div className="text-muted-foreground mb-2 text-sm">エラー</div>
+          <h1 className="mb-1 text-xl font-semibold">Error</h1>
+          <p className="text-muted-foreground text-sm">Something went wrong</p>
+        </div>
+
+        <div className="border-border h-4 border-b border-dashed" />
+
+        <div className="border-border border-b border-dashed px-6 py-24 md:px-12 md:py-32">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="bg-destructive/5 border-destructive mb-8 inline-flex h-20 w-20 items-center justify-center rounded-lg border border-dashed">
+              <AlertTriangle className="text-destructive h-10 w-10" />
+            </div>
+
+            <h2 className="mb-4 text-4xl font-bold tracking-tight text-balance md:text-5xl">
+              Something Went Wrong
+            </h2>
+
+            <p className="text-muted-foreground mb-8 text-base leading-relaxed text-pretty md:text-lg">
+              An unexpected error occurred. Don't worry, we've logged the issue
+              and will look into it.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <button
+                onClick={reset}
+                className="text-primary-foreground inline-flex items-center gap-2 rounded-full bg-linear-to-r from-[#B16CEA] to-[#FF5E69] px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90"
+              >
+                <RefreshCcw className="h-4 w-4" />
+                Try Again
+              </button>
+
+              <Link
+                href="/"
+                className="border-border hover:bg-muted inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-colors"
+              >
+                <Home className="h-4 w-4" />
+                Go Home
+              </Link>
+            </div>
           </div>
         </div>
 
-        <h1 className="mb-6 text-5xl font-bold leading-tight md:text-7xl">
-          Oops!{" "}
-          <span className="bg-gradient-to-r from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] bg-clip-text text-transparent">
-            Something Went Wrong
-          </span>
-        </h1>
+        <div className="border-border h-4 border-b border-dashed" />
 
-        <p className="mb-8 text-xl text-gray-400">
-          We encountered an unexpected error.
-          <br />
-          Please try again later, or contact{" "}
-          <span className="font-bold">
-            <a href="mailto:root@kars.bio">Kars</a>
-          </span>{" "}
-          if the issue persists.
-          {error.digest && (
-            <span className="mt-2 block text-sm text-gray-500">
-              Error ID: {error.digest}
-            </span>
-          )}
-        </p>
-
-        <div className="flex flex-col items-center gap-4 sm:flex-row">
-          <button
-            onClick={() => reset()}
-            className="group inline-flex items-center rounded-full bg-gradient-to-r from-[#B16CEA] to-[#FF5E69] px-8 py-4 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#B16CEA]/25"
-          >
-            <RefreshCcw className="mr-2 h-5 w-5 transition-transform group-hover:rotate-180" />
-            Try Again
-          </button>
-
-          <Link
-            href="/"
-            className="group inline-flex items-center rounded-full border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
-          >
-            <ArrowLeft className="mr-2 h-5 w-5 transition-transform group-hover:-translate-x-1" />
-            Back to Home
-          </Link>
+        <div className="border-border border-b border-dashed px-6 py-12 md:px-12">
+          <div className="mx-auto max-w-2xl">
+            <h3 className="text-muted-foreground mb-4 text-sm font-medium">
+              Error Details
+            </h3>
+            <div className="bg-muted/50 border-border border border-dashed p-4">
+              <div className="text-muted-foreground mb-2 font-mono text-xs">
+                Error Message
+              </div>
+              <div className="text-foreground font-mono text-sm">
+                {error.message || "Unknown error"}
+              </div>
+              {error.digest && (
+                <>
+                  <div className="text-muted-foreground mt-4 mb-2 font-mono text-xs">
+                    Error ID
+                  </div>
+                  <div className="text-foreground font-mono text-sm">
+                    {error.digest}
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
         </div>
-      </main>
+
+        <div className="border-border h-8 border-t border-dashed" />
+      </div>
     </div>
   );
 }

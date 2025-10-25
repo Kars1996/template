@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -7,48 +6,11 @@ import {
   Palette,
   Database,
   Shield,
-  Sparkles,
   Code,
   Rocket,
   Globe,
-  Heart,
-  Target,
-  Award,
-  ChevronDown,
-  Upload,
+  Sparkles,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown";
-import { FileUpload } from "@/components/ui/file-upload";
-import { Input } from "@/components/ui/input";
-import { Marquee } from "@/components/ui/maraquee";
-import {
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  Dialog,
-} from "@/components/ui/dialog";
-import {
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-  Select,
-} from "@/components/ui/select";
-import { Skeleton } from "@/components/ui/skeleton";
-import { toast } from "sonner";
-import { Tooltip } from "@/components/ui/tooltip";
-import { Switch } from "@/components/ui/switch";
-import { use } from "react";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -57,11 +19,7 @@ Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries
 */
 
-export default function IndexPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}) {
+export default function IndexPage() {
   const features = [
     {
       icon: Palette,
@@ -106,639 +64,223 @@ export default function IndexPage({
     },
   ];
 
-  const marqueeItems = [
-    {
-      icon: Zap,
-      label: "Fast",
-      color: "text-[#FFA84B]",
-    },
-    {
-      icon: Palette,
-      label: "Beautiful",
-      color: "text-[#B16CEA]",
-    },
-    {
-      icon: Shield,
-      label: "Secure",
-      color: "text-[#FF5E69]",
-    },
-    {
-      icon: Code,
-      label: "DX First",
-      color: "text-[#FFA84B]",
-    },
-    {
-      icon: Rocket,
-      label: "Scalable",
-      color: "text-[#B16CEA]",
-    },
-    {
-      icon: Heart,
-      label: "Open Source",
-      color: "text-[#FF5E69]",
-    },
-    {
-      icon: Target,
-      label: "TypeScript",
-      color: "text-[#FFA84B]",
-    },
-    {
-      icon: Award,
-      label: "Quality",
-      color: "text-[#B16CEA]",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-black text-white">
-      <section className="relative flex min-h-screen items-center justify-center px-4">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#B16CEA]/10 via-transparent to-[#FFA84B]/10" />
-        <div className="relative z-10 mx-auto max-w-4xl text-center">
-          <div className="group relative mb-6 inline-flex items-center overflow-hidden rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] opacity-0 transition-opacity duration-500 group-hover:opacity-20" />
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] p-[1px] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              <div className="absolute inset-[1px] rounded-full bg-black/90 backdrop-blur-sm" />
-            </div>
-            <div className="relative z-10 flex items-center">
-              <Sparkles className="mr-2 h-4 w-4 text-[#B16CEA] group-hover:animate-pulse" />
-              NextJS Quickstart Template v5.5
-            </div>
+    <div className="bg-background min-h-screen px-4">
+      <div className="border-border mx-auto max-w-4xl border-x border-dashed">
+        <div className="border-border border-b border-dashed px-6 py-3 md:px-12">
+          <p className="text-muted-foreground text-center text-xs">
+            Serving world-class design{" "}
+            <Link
+              href="https://resynced.design"
+              target="_blank"
+              className="text-foreground hover:text-primary font-medium transition-colors"
+            >
+              @ Resynced Design
+            </Link>
+          </p>
+        </div>
+
+        <div className="border-border border-b border-dashed px-6 py-6 md:px-12 md:py-8">
+          <div className="text-muted-foreground mb-2 text-sm">テンプレート</div>
+          <h1 className="mb-1 text-xl font-semibold">NextJS Template</h1>
+          <p className="text-muted-foreground text-sm">
+            Production-ready quickstart
+          </p>
+        </div>
+
+        <div className="border-border h-4 border-b border-dashed" />
+
+        <div className="border-border border-b border-dashed px-6 py-16 md:px-12 md:py-24">
+          <div className="border-border mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs">
+            <Sparkles className="h-3.5 w-3.5 text-[#FF5E69]" />
+            <span className="text-muted-foreground">v6</span>
           </div>
 
-          <h1 className="mb-6 text-5xl font-bold leading-tight md:text-7xl">
+          <h2 className="mb-6 text-4xl leading-tight font-bold tracking-tight text-balance md:text-6xl md:leading-tight">
             Build{" "}
-            <span className="bg-gradient-to-r from-[#B16CEA] via-[#FF5E69] to-[#FFA84B] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#FF5E69] to-[#B16CEA] bg-clip-text text-transparent">
               Faster
             </span>
-            <br />
-            Ship{" "}
-            <span className="bg-gradient-to-r from-[#FFA84B] via-[#FF5E69] to-[#B16CEA] bg-clip-text text-transparent">
+            , Ship{" "}
+            <span className="bg-linear-to-r from-[#B16CEA] to-[#FF5E69] bg-clip-text text-transparent">
               Smarter
-          </span>
-          </h1>
+            </span>
+          </h2>
 
-          <p className="mb-8 text-xl text-gray-400 md:text-2xl">
-            A production-ready NextJS template with everything you need to build
-            modern web applications.
+          <p className="text-muted-foreground mb-8 max-w-2xl text-base leading-relaxed text-pretty md:text-lg">
+            A production-ready NextJS template with everything you need.
+            Pre-configured with the best tools and practices for modern web
+            development.
           </p>
 
-          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Tooltip
-              content="Start building your next project"
-              position="top"
-              className="group-hover:-translate-y-8"
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="https://github.com/kars1996/Template"
+              className="group inline-flex items-center rounded-full bg-linear-to-r from-[#B16CEA] to-[#FF5E69] px-6 py-3 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#B16CEA]/25"
             >
-              <Link
-                href="https://github.com/kars1996/Template"
-                className="group inline-flex items-center rounded-full bg-gradient-to-r from-[#B16CEA] to-[#FF5E69] px-8 py-4 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#B16CEA]/25"
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Tooltip>
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </Link>
 
-            <Tooltip
-              content="Explore the source code"
-              position="top"
-              className="group-hover:-translate-y-8"
+            <Link
+              href="https://github.com/kars1996/Template"
+              className="border-border hover:bg-muted inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-colors"
             >
-              <Link
-                href="https://github.com/kars1996/Template"
-                className="group inline-flex items-center rounded-full border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
-              >
-                <Github className="mr-2 h-5 w-5" />
-                View on GitHub
-              </Link>
-            </Tooltip>
+              <Github className="h-4 w-4" />
+              GitHub
+            </Link>
           </div>
         </div>
-      </section>
 
-      <section className="relative px-4 py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Everything You Need,{" "}
-              <span className="bg-gradient-to-r from-[#B16CEA] to-[#FFA84B] bg-clip-text text-transparent">
-                Out of the Box
-              </span>
-            </h2>
-            <p className="text-lg text-gray-400">
-              Pre-configured with the best tools and practices for modern web
-              development
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-black/70 p-6 shadow-md shadow-black/20 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10"
-              >
-                <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-[#B16CEA]/20 via-[#FF5E69]/10 to-[#FFA84B]/20 opacity-20 transition-opacity duration-500 group-hover:opacity-100"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-                <div className="relative z-10 flex h-full flex-col">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-[#B16CEA]/20 to-[#FFA84B]/20 text-[#B16CEA] shadow-sm shadow-[#B16CEA]/20 transition-all duration-300 group-hover:scale-110 group-hover:from-[#B16CEA]/30 group-hover:to-[#FFA84B]/30">
-                      <feature.icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-white drop-shadow-sm">
-                      {feature.title}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-zinc-300">{feature.description}</p>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className={`border-border border-b border-dashed px-6 py-8 md:px-12 ${
+                index % 2 === 0 ? "md:border-r" : ""
+              }`}
+            >
+              <div className="bg-primary/5 border-border mb-4 flex h-10 w-10 items-center justify-center rounded-lg border">
+                <feature.icon className="text-primary h-5 w-5" />
               </div>
-            ))}
-          </div>
-          <div className="relative hidden overflow-hidden md:block">
-            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-black to-transparent" />
-            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-black to-transparent" />
-
-            <Marquee className="py-8" pauseOnHover>
-              {marqueeItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="mx-2 flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm transition-colors hover:bg-white/10"
-                >
-                  <item.icon className={`h-4 w-4 ${item.color}`} />
-                  <span className="text-sm font-medium">{item.label}</span>
-                </div>
-              ))}
-            </Marquee>
-          </div>
+              <h3 className="mb-2 text-base font-semibold">{feature.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
-      </section>
 
-      <section className="relative z-10 mx-auto max-w-7xl px-4 py-16">
-        <h2 className="mb-8 text-center text-3xl font-bold">
-          UI Components Showcase
-        </h2>
-        <div className="grid auto-rows-[minmax(200px,auto)] grid-cols-1 gap-4 md:grid-cols-6 md:gap-6 lg:grid-cols-6">
-          {/* Large Button Showcase */}
-          <div className="group relative overflow-hidden rounded-3xl border border-blue-500/20 bg-black/70 p-6 shadow-md shadow-black/20 backdrop-blur-sm transition-all duration-300 hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/5 md:col-span-4 md:row-span-2">
-            <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-blue-500/10 to-transparent opacity-20 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-            <div className="relative z-10 flex h-full flex-col">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/20 text-blue-400 shadow-sm shadow-blue-500/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-500/30">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-white drop-shadow-sm">
-                  Button Components
-                </h3>
-              </div>
-              <p className="mb-6 text-zinc-300">
-                Modern, accessible buttons with accent borders and smooth hover
-                effects.
-              </p>
-              <div className="mt-auto flex flex-wrap gap-2">
-                <Button>Default</Button>
-                <Button variant="secondary">Secondary</Button>
-                <Button variant="outline">Outline</Button>
-                <Button variant="destructive">Destructive</Button>
-              </div>
-            </div>
-          </div>
+        <div className="border-border h-4 border-b border-dashed" />
 
-          {/* New Color Picker Soon™️ */}
-
-          {/* Toast Demonstrations */}
-          <div className="group relative overflow-hidden rounded-3xl border border-green-500/20 bg-black/70 p-6 shadow-md shadow-black/20 backdrop-blur-sm transition-all duration-300 hover:border-green-500/40 hover:shadow-lg hover:shadow-green-500/5 md:col-span-3 md:row-span-2">
-            <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-green-500/10 to-transparent opacity-20 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-            <div className="relative z-10 flex h-full flex-col">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/20 text-green-400 shadow-sm shadow-green-500/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-green-500/30">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6"
-                  >
-                    <path d="M9 12l2 2 4-4"></path>
-                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"></path>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-white drop-shadow-sm">
-                  Toast Notifications
-                </h3>
-              </div>
-              <p className="mb-6 text-zinc-300">
-                Different toast styles for various notification types.
-              </p>
-              <div className="mt-auto space-y-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => toast.success("Success! Operation completed.")}
-                  className="w-full"
-                >
-                  Success Toast
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => toast.error("Error! Something went wrong.")}
-                  className="w-full"
-                >
-                  Error Toast
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() =>
-                    toast.warning("Warning! Please check your input.")
-                  }
-                  className="w-full"
-                >
-                  Warning Toast
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() =>
-                    toast.info("Info: Here's some helpful information.")
-                  }
-                  className="w-full"
-                >
-                  Info Toast
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Form Elements */}
-          <div className="group relative overflow-hidden rounded-3xl border border-orange-500/20 bg-black/70 p-6 shadow-md shadow-black/20 backdrop-blur-sm transition-all duration-300 hover:border-orange-500/40 hover:shadow-lg hover:shadow-orange-500/5 md:col-span-3">
-            <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-orange-500/10 to-transparent opacity-20 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-            <div className="relative z-10 flex h-full flex-col">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/20 text-orange-400 shadow-sm shadow-orange-500/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-500/30">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6"
-                  >
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                    <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-white drop-shadow-sm">
-                  Form Elements
-                </h3>
-              </div>
-              <p className="mb-6 text-zinc-300">
-                Premium inputs and form controls with gradient borders.
-              </p>
-              <div className="mt-auto space-y-3">
-                <Input placeholder="Type something..." />
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  showPasswordToggle
-                />
-                <Switch label="Enable notifications" />
-              </div>
-            </div>
-          </div>
-
-          {/* Dropdowns */}
-          <div className="group relative overflow-hidden rounded-3xl border border-pink-500/20 bg-black/70 p-6 shadow-md shadow-black/20 backdrop-blur-sm transition-all duration-300 hover:border-pink-500/40 hover:shadow-lg hover:shadow-pink-500/5 md:col-span-3">
-            <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-pink-500/10 to-transparent opacity-20 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-            <div className="relative z-10 flex h-full flex-col">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-500/20 text-pink-400 shadow-sm shadow-pink-500/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-pink-500/30">
-                  <ChevronDown className="h-6 w-6" />
-                </div>
-                <h3 className="text-xl font-semibold text-white drop-shadow-sm">
-                  Dropdowns
-                </h3>
-              </div>
-              <p className="mb-6 text-zinc-300">
-                Custom dropdowns and select components.
-              </p>
-              <div className="mt-auto space-y-3">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button>Select Option</Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuLabel>Toast Options</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem
-                      onClick={() => toast.success("Option 1 selected!")}
-                    >
-                      Option 1
-                    </DropdownMenuItem>
-                    <DropdownMenuItem
-                      onClick={() => toast.info("Option 2 selected!")}
-                    >
-                      Option 2
-                    </DropdownMenuItem>
-                    <DropdownMenuItem
-                      onClick={() => toast.warning("Option 3 selected!")}
-                    >
-                      Option 3
-                    </DropdownMenuItem>
-                    <DropdownMenuItem
-                      onClick={() => toast.error("Option 4 selected!")}
-                    >
-                      Option 4
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Choose an option" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="apple">Apple</SelectItem>
-                    <SelectItem value="banana">Banana</SelectItem>
-                    <SelectItem value="orange">Orange</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-          </div>
-
-          {/* Interactive Elements */}
-          <div className="group relative overflow-hidden rounded-3xl border border-cyan-500/20 bg-black/70 p-6 shadow-md shadow-black/20 backdrop-blur-sm transition-all duration-300 hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/5 md:col-span-2">
-            <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-cyan-500/10 to-transparent opacity-20 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-            <div className="relative z-10 flex h-full flex-col">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400 shadow-sm shadow-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-cyan-500/30">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6"
-                  >
-                    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-white drop-shadow-sm">
-                  Interactive
-                </h3>
-              </div>
-              <p className="mb-6 text-zinc-300">
-                Tooltips, modals, and interactive elements.
-              </p>
-              <div className="mt-auto space-y-3">
-                <Tooltip content="This is a tooltip!">
-                  <Button variant="outline" size="sm">
-                    Hover me
-                  </Button>
-                </Tooltip>
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button size="sm">
-                      Open Modal
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogTitle>Modal Title</DialogTitle>
-                      <DialogDescription>
-                        This is a modal dialog. You can put any content here.
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div className="mt-4 flex gap-2">
-                      <Button variant="secondary">Cancel</Button>
-                      <Button>Confirm</Button>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              </div>
-            </div>
-          </div>
-
-          {/* File Upload */}
-          <div className="group relative overflow-hidden rounded-3xl border border-yellow-500/20 bg-black/70 p-6 shadow-md shadow-black/20 backdrop-blur-sm transition-all duration-300 hover:border-yellow-500/40 hover:shadow-lg hover:shadow-yellow-500/5 md:col-span-2">
-            <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 via-yellow-500/10 to-transparent opacity-20 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-            <div className="relative z-10 flex h-full flex-col">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500/20 text-yellow-400 shadow-sm shadow-yellow-500/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-yellow-500/30">
-                  <Upload className="h-6 w-6" />
-                </div>
-                <h3 className="text-xl font-semibold text-white drop-shadow-sm">
-                  File Upload
-                </h3>
-              </div>
-              <p className="mb-6 text-zinc-300">
-                Drag-and-drop file upload with preview.
-              </p>
-              <div className="mt-auto">
-                <FileUpload />
-              </div>
-            </div>
-          </div>
-
-          {/* Loading States */}
-          <div className="group relative overflow-hidden rounded-3xl border border-red-500/20 bg-black/70 p-6 shadow-md shadow-black/20 backdrop-blur-sm transition-all duration-300 hover:border-red-500/40 hover:shadow-lg hover:shadow-red-500/5 md:col-span-2">
-            <div className="absolute inset-0 h-full w-full shrink-0 bg-[radial-gradient(white_1px,transparent_1px)] opacity-5 [background-size:3px_3px] [mask-image:radial-gradient(ellipse_at_80%_14%,#000,transparent_40%)]"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-red-500/10 to-transparent opacity-20 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-            <div className="relative z-10 flex h-full flex-col">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-500/20 text-red-400 shadow-sm shadow-red-500/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-red-500/30">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6"
-                  >
-                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-white drop-shadow-sm">
-                  Loading States
-                </h3>
-              </div>
-              <p className="mb-6 text-zinc-300">
-                Skeleton loaders and loading indicators.
-              </p>
-              <div className="mt-auto space-y-2">
-                <Skeleton className="h-6 w-2/3" />
-                <Skeleton className="h-6 w-1/2" />
-                <Skeleton className="h-6 w-1/3" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative px-4 py-32">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-16 text-center">
-            <h2 className="mb-6 font-walsheim text-4xl font-bold tracking-tight md:text-6xl">
+        <div className="border-border border-b border-dashed px-6 py-16 md:px-12 md:py-20">
+          <div className="mb-12">
+            <h2 className="mb-3 text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Get Started in{" "}
-              <span className="bg-gradient-to-r from-[#FF5E69] via-[#B16CEA] to-[#FFA84B] bg-clip-text text-transparent">
+              <span className="via-primary bg-linear-to-r from-[#B16CEA] to-[#FF5E69] bg-clip-text text-transparent">
                 Seconds
               </span>
             </h2>
-            <p className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-400">
-              Choose your preferred method to start building with our NextJS
-              template
+            <p className="text-muted-foreground text-base text-pretty">
+              Choose your preferred installation method and start building
             </p>
           </div>
 
-          <div className="mb-12 grid gap-8 md:grid-cols-2">
-            <div className="group relative">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#B16CEA]/20 to-[#FF5E69]/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="relative rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 group-hover:border-white/20 group-hover:bg-white/10">
-                <div className="mb-6 flex items-center justify-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-[#B16CEA] to-[#FF5E69]">
-                    <Zap className="h-8 w-8 text-white" />
-                  </div>
-                </div>
-
-                <h3 className="mb-4 text-center font-walsheim text-2xl font-bold">
-                  Quick Setup
-                </h3>
-                <p className="mb-8 text-center leading-relaxed text-gray-400">
-                  Use our CLI tool for instant project setup
+          <div className="border-border mb-8 border-b border-dashed pb-8">
+            <div className="mb-6 flex items-center gap-3">
+              <div className="bg-primary/5 border-border flex h-8 w-8 items-center justify-center rounded-lg border">
+                <Zap className="text-primary h-4 w-4" />
+              </div>
+              <div>
+                <h3 className="text-base font-semibold">Quick Setup</h3>
+                <p className="text-muted-foreground text-xs">
+                  Recommended for fastest start
                 </p>
-
-                <div className="space-y-4">
-                  <div>
-                    <div className="mb-3 text-center text-sm font-medium text-gray-400">
-                      1. Install globally
-                    </div>
-                    <div className="rounded-xl border border-white/10 bg-black/60 p-4 text-center font-geistmono">
-                      <span className="text-[#B16CEA]">npm</span>{" "}
-                      <span className="text-white">
-                        i create-kapp@latest -g
-                      </span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="mb-3 text-center text-sm font-medium text-gray-400">
-                      2. Create project
-                    </div>
-                    <div className="rounded-xl border border-white/10 bg-black/60 p-4 text-center font-geistmono">
-                      <span className="text-[#FF5E69]">create-kapp</span>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
-            <div className="group relative">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#FF5E69]/20 to-[#FFA84B]/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="relative rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 group-hover:border-white/20 group-hover:bg-white/10">
-                <div className="mb-6 flex items-center justify-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-[#FF5E69] to-[#FFA84B]">
-                    <Github className="h-8 w-8 text-white" />
-                  </div>
+            <div className="space-y-4">
+              <div>
+                <div className="text-muted-foreground mb-2 text-xs font-medium">
+                  Install CLI globally
                 </div>
+                <div className="bg-muted/50 border-border border border-dashed p-4 font-mono text-sm">
+                  <span className="text-primary">npm</span>{" "}
+                  <span className="text-muted-foreground">i</span>{" "}
+                  <span>create-kapp@latest</span>{" "}
+                  <span className="text-muted-foreground">-g</span>
+                </div>
+              </div>
 
-                <h3 className="mb-4 text-center font-walsheim text-2xl font-bold">
-                  Manual Clone
-                </h3>
-                <p className="mb-8 text-center leading-relaxed text-gray-400">
-                  Clone directly from GitHub repository
-                </p>
-
-                <div className="space-y-4">
-                  <div>
-                    <div className="mb-3 text-center text-sm font-medium text-gray-400">
-                      1. Clone repository
-                    </div>
-                    <div className="rounded-xl border border-white/10 bg-black/60 p-4 text-center font-geistmono text-sm">
-                      <span className="text-[#FF5E69]">gh repo clone</span>{" "}
-                      <span className="text-white">kars1996/Template</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="mb-3 text-center text-sm font-medium text-gray-400">
-                      2. Install dependencies
-                    </div>
-                    <div className="rounded-xl border border-white/10 bg-black/60 p-4 text-center font-geistmono">
-                      <span className="text-[#FFA84B]">npm</span>{" "}
-                      <span className="text-white">install</span>
-                    </div>
-                  </div>
+              <div>
+                <div className="text-muted-foreground mb-2 text-xs font-medium">
+                  Create your project
+                </div>
+                <div className="bg-muted/50 border-border border border-dashed p-4 font-mono text-sm">
+                  <span className="text-[#B16CEA]">create-kapp</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Additional Info */}
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 backdrop-blur-sm">
-              <Sparkles className="h-4 w-4 text-[#B16CEA]" />
-              <span className="text-sm text-gray-300">
-                Then run{" "}
-                <code className="rounded bg-white/10 px-2 py-1 font-geistmono text-xs text-[#FFA84B]">
-                  npm run dev
-                </code>{" "}
-                to start developing
-              </span>
+          <div className="border-border mb-8 border-b border-dashed pb-8">
+            <div className="mb-6 flex items-center gap-3">
+              <div className="border-border flex h-8 w-8 items-center justify-center rounded-lg border bg-[#B16CEA]/5">
+                <Github className="h-4 w-4 text-[#B16CEA]" />
+              </div>
+              <div>
+                <h3 className="text-base font-semibold">Manual Clone</h3>
+                <p className="text-muted-foreground text-xs">
+                  Clone directly from GitHub
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <div className="text-muted-foreground mb-2 text-xs font-medium">
+                  Clone the repository
+                </div>
+                <div className="bg-muted/50 border-border border border-dashed p-4 font-mono text-sm">
+                  <span className="text-[#B16CEA]">gh repo clone</span>{" "}
+                  <span>kars1996/Template</span>
+                </div>
+              </div>
+
+              <div>
+                <div className="text-muted-foreground mb-2 text-xs font-medium">
+                  Install dependencies
+                </div>
+                <div className="bg-muted/50 border-border border border-dashed p-4 font-mono text-sm">
+                  <span className="text-[#FF5E69]">npm</span>{" "}
+                  <span>install</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="mb-6 flex items-center gap-3">
+              <div className="border-border flex h-8 w-8 items-center justify-center rounded-lg border bg-[#FF5E69]/5">
+                <Rocket className="h-4 w-4 text-[#FF5E69]" />
+              </div>
+              <div>
+                <h3 className="text-base font-semibold">Start Development</h3>
+                <p className="text-muted-foreground text-xs">
+                  Launch your local server
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <div className="text-muted-foreground mb-2 text-xs font-medium">
+                Run the development server
+              </div>
+              <div className="bg-muted/50 border-border border border-dashed p-4 font-mono text-sm">
+                <span className="text-[#FF5E69]">npm</span> <span>run</span>{" "}
+                <span className="text-primary">dev</span>
+              </div>
+            </div>
+
+            <div className="bg-primary/5 border-border mt-6 flex items-start gap-2 rounded-lg border border-dashed p-4">
+              <Sparkles className="text-primary mt-0.5 h-4 w-4 shrink-0" />
+              <p className="text-muted-foreground text-xs leading-relaxed">
+                Your app will be running at{" "}
+                <code className="bg-background text-foreground rounded px-1.5 py-0.5 font-mono">
+                  localhost:3000
+                </code>
+              </p>
             </div>
           </div>
         </div>
-      </section>
 
-      <footer className="border-t border-white/10 px-4 py-12">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+        <div className="px-6 py-6 md:px-12">
+          <div className="flex flex-col items-center justify-between gap-4 text-sm md:flex-row">
             <div className="flex items-center gap-4">
               <Link
                 href="https://kars.bio"
                 target="_blank"
-                className="hover:opacity-80"
+                className="opacity-60 transition-opacity hover:opacity-100"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -759,21 +301,24 @@ export default function IndexPage({
               </Link>
             </div>
 
-            <div className="flex items-center gap-6 text-sm text-gray-400">
+            <div className="text-muted-foreground flex items-center gap-6">
               <Link
                 href="https://github.com/kars1996/Template"
-                className="hover:text-white"
+                className="hover:text-foreground transition-colors"
               >
                 GitHub
               </Link>
-              <Link href="https://kars.bio" className="hover:text-white">
+              <Link
+                href="https://kars.bio"
+                className="hover:text-foreground transition-colors"
+              >
                 Portfolio
               </Link>
-              <span>© 2025 Kars</span>
+              <span>© {new Date().getFullYear()}</span>
             </div>
           </div>
         </div>
-      </footer>
+      </div>
     </div>
   );
 }

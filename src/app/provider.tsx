@@ -3,11 +3,8 @@
 import Lenis from "lenis";
 import { useEffect, useState, createContext } from "react";
 import NextTopLoader from "nextjs-toploader";
-import { Toaster } from "@/components/ui/toast";
 import { website } from "@/constants";
-import { AnimatePresence } from "motion/react";
-
-// TODO: Use `ViewTransition` API from react somewhere
+import { Toaster } from "@/components/ui/toast";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)

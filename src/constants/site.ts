@@ -25,7 +25,7 @@ interface Website {
 
 export const website: Website = {
   name: "kars",
-  url: APP_URL,
+  url: APP_URL!,
   accentColor: "#ff6666",
   baseUrl: "https://kars.bio",
   enableLenis: false,
