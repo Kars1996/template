@@ -10,6 +10,7 @@
     "test": "next typegen && tsc --noEmit"
   },
   "dependencies": {
+    "@hookform/resolvers": "latest",
     "@prisma/client": "latest",
     "@tailwindcss/postcss": "latest",
     "axios": "latest",
