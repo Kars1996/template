@@ -2,7 +2,7 @@ import type { NextRequest, NextResponse } from "next/server";
 import { APIError, handleAndReturnErrorResponse } from "./handler";
 import { rateLimitMiddleware, RateLimitConfig } from "./rate-limit.middleware";
 import { getDefaultRateLimitConfig } from "@/lib/cache/rate-limit";
-import { TOKEN_NAME } from "@constants";
+import { TOKEN_NAME } from "@/constants";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
