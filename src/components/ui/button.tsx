@@ -15,6 +15,8 @@ const buttonVariants = cva(
         // "bg-gradient-to-b from-primary to-primary/90 text-primary-foreground shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] hover:from-primary/90 hover:to-primary/80 active:from-primary active:to-primary/70 active:shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)]",
         destructive:
           "bg-gradient-to-b from-destructive to-destructive/90 text-white shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] hover:from-destructive/90 hover:to-destructive/80 active:from-destructive active:to-destructive/70 active:shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
+        "destructive-outline":
+          "border border-destructive bg-background text-destructive hover:bg-destructive/10 active:bg-destructive/20 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
         outline:
           "border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground active:bg-accent/80",
         secondary:
@@ -23,9 +25,9 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground active:bg-accent/80",
         link: "text-primary underline-offset-4 hover:underline active:text-primary/80",
         success:
-          "bg-gradient-to-b from-green-600 to-green-600/90 text-white shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] hover:from-green-600/90 hover:to-green-600/80 active:from-green-600 active:to-green-600/70 active:shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] focus-visible:ring-green-600/20 dark:focus-visible:ring-green-600/40",
-        "destructive-outline":
-          "border border-destructive bg-background text-destructive hover:bg-destructive/10 active:bg-destructive/20 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
+          "bg-gradient-to-b from-success to-success/90 text-white shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] hover:from-success/90 hover:to-success/80 active:from-success active:to-success/70 active:shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] focus-visible:ring-success/20 dark:focus-visible:ring-success/40",
+        "success-outline":
+          "border border-success bg-background text-success hover:bg-success/10 active:bg-success/20 focus-visible:ring-success/20 dark:focus-visible:ring-success/40",
       },
       size: {
         default: "h-9 px-4 py-2",
