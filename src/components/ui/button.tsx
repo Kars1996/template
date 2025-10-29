@@ -24,7 +24,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline active:text-primary/80",
         success:
           "bg-gradient-to-b from-green-600 to-green-600/90 text-white shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] hover:from-green-600/90 hover:to-green-600/80 active:from-green-600 active:to-green-600/70 active:shadow-[0_1px_2px_0_rgb(0_0_0/.05),inset_0_1px_0_0_rgb(255_255_255/.12)] focus-visible:ring-green-600/20 dark:focus-visible:ring-green-600/40",
-        destructiveOutline:
+        "destructive-outline":
           "border border-destructive bg-background text-destructive hover:bg-destructive/10 active:bg-destructive/20 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
       },
       size: {
