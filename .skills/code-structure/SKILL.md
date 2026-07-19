@@ -148,6 +148,7 @@ import { website } from '@/constants';
 ### 5.C Icon Strategy
 
 - Use `react-icons/fa` (Font Awesome) for all icons.
+- Use `react-icons/si` (Simple Icons) for all brand icons (eg GitHub, Discord, Google, etc)
 - Both `lucide-react` and `react-icons` are installed, but `react-icons/fa` is the standard for this project — don't mix in `lucide-react` for new icons.
 
 ### 5.D Refs & Cleanup
