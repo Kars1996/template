@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Github,
   Zap,
   Palette,
   Database,
@@ -11,6 +10,7 @@ import {
   Globe,
   Sparkles,
 } from "lucide-react";
+import { SiGithub as Github } from "react-icons/si"
 
 /*
 Copyright © 2026 Kars (github.com/kars1996)
