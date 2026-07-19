@@ -11,7 +11,7 @@ import { RootProvider } from "@/lib/custom/providers";
 import type { Viewport } from "next";
 
 /*
-Copyright © 2025 Kars (github.com/kars1996)
+Copyright © 2026 Kars (github.com/kars1996)
 
 Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries

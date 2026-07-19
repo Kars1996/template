@@ -5,12 +5,11 @@ import { useEffect, useState, createContext } from "react";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "@/components/ui/toast";
 import { website } from "@/constants";
-import { AnimatePresence } from "motion/react";
 
 // TODO: Use `ViewTransition` API from react somewhere
 
 /*
-Copyright © 2025 Kars (github.com/kars1996)
+Copyright © 2026 Kars (github.com/kars1996)
 
 Not to be shared, replicated or used without prior consent.
 Contact Kars for any enquiries

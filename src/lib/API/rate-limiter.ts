@@ -1,7 +1,7 @@
 import { Redis } from "ioredis";
 
 /*
-Copyright © 2025 Kars (github.com/kars1996)
+Copyright © 2026 Kars (github.com/kars1996)
 
 Not to be shared, replicated, or used without prior consent.
 Contact me for any enquiries

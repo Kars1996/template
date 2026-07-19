@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from "axios";
 import getToken from "../auth/get-token";
 
 /*
-Copyright © 2025 Kars (github.com/kars1996)
+Copyright © 2026 Kars (github.com/kars1996)
 
 Not to be shared, replicated, or used without prior consent.
 Contact me for any enquiries
