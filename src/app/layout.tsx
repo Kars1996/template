@@ -9,6 +9,7 @@ import { ConsoleCredits } from "@/lib/custom/console";
 import { RootProvider } from "@/lib/custom/providers";
 
 import type { Viewport } from "next";
+import { isDevelopment } from "@/hooks/is-development";
 
 /*
 Copyright © 2026 Kars (github.com/kars1996)
@@ -23,7 +24,6 @@ export const viewport: Viewport = {
   themeColor: website.accentColor || "#ffffff",
 };
 
-let isProd: boolean = process.env.NODE_ENV === "production";
 
 export default function RootLayout({
   children,
@@ -36,7 +36,7 @@ export default function RootLayout({
         <main className="relative flex min-h-screen w-full flex-col">
           {children}
         </main>
-        <ConsoleCredits isProd={isProd} />
+        <ConsoleCredits isProd={!isDevelopment} />
       </RootProvider>
     </html>
   );

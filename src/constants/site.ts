@@ -1,10 +1,10 @@
+import { isDevelopment } from "@/hooks/is-development";
 import type { LucideIcon } from "lucide-react";
 import type { IconType } from "react-icons/lib";
 
-export const APP_URL =
-  process.env.NODE_ENV === "production"
-    ? process.env.NEXT_PUBLIC_APP_URL
-    : "http://localhost:3000";
+export const APP_URL = isDevelopment()
+  ? "http://localhost:3000"
+  : process.env.NEXT_PUBLIC_APP_URL;
 
 export const TOKEN_NAME = "token" as const;
 

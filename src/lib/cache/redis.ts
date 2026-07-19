@@ -1,3 +1,4 @@
+import { isDevelopment } from '@/hooks/is-development';
 import Redis from 'ioredis';
 
 const redisClientSingleton = () => {
@@ -13,7 +14,7 @@ declare const globalThis: {
 
 const redis = globalThis.redisGlobal ?? redisClientSingleton();
 
-if (process.env.NODE_ENV !== "production") globalThis.redisGlobal = redis;
+if (isDevelopment()) globalThis.redisGlobal = redis;
 
 export default redis; 
 

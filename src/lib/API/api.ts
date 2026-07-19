@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from "axios";
 import getToken from "../auth/get-token";
+import { isDevelopment } from "@/hooks/is-development";
 
 /*
 Copyright © 2026 Kars (github.com/kars1996)
@@ -15,10 +16,9 @@ interface ApiResponse<T = unknown> {
 }
 
 export default class api {
-  private static baseURL =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : process.env.NEXT_PUBLIC_APP_URL;
+  private static baseURL = isDevelopment()
+    ? "http://localhost:3000"
+    : process.env.NEXT_PUBLIC_APP_URL;
   private static instance = axios.create({
     baseURL: this.baseURL,
     withCredentials: true,
