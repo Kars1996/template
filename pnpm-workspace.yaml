@@ -1,0 +1,4 @@
+allowBuilds:
+  bcrypt: true
+  esbuild: set this to true or false
+  sharp: true
