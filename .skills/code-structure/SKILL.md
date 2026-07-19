@@ -34,7 +34,7 @@ description: Skill to make clean optimized next.js websites using this template.
 ```
 src/
   app/
-    (website)/(marketing)/(landing)/_components/
+    (website)/(marketing)/(landing)/_components/ # example in fully fledged site
     api/...
   components/
     ui/          # shadcn/ui primitives (button, card, dialog, etc.)
@@ -63,12 +63,13 @@ src/
 - **Single quotes** for all strings and JSX attributes.
 - **Semicolons** required at the end of statements.
 - **2-space indentation.**
-- No trailing commas in function parameter lists (match existing style).
+- **No trailing commas anywhere** — not in arrays, not in objects, not in function parameter lists.
 - **All imports at the top of the file.** Never use mid-file `import` or `await require()` / dynamic imports inside component bodies. If dynamic import is required, do it in a dedicated helper module with a static import at the top.
 
 ### 3.B TypeScript Patterns
 
 - Use the `function` keyword for all component definitions. Do NOT use arrow functions (`const Component = () => ...`).
+  - **Exception:** `src/components/ui/` (shadcn/ui primitives). These follow the stock shadcn CLI convention of `React.forwardRef` with an arrow function body, matching upstream shadcn output. Do not rewrite generated `ui/` files to the `function` keyword — this keeps them diffable against future `shadcn add` updates.
 - Prefer **named exports** over default exports.
 - Destructure props directly in the function parameter list.
 - Define prop types as `type Props = { ... }` or inline in the function signature.
@@ -139,15 +140,15 @@ import { website } from '@/constants';
 
 - Located in `src/components/ui/`.
 - Built with `cva` for variants.
-- Forward refs using `React.forwardRef`.
+- Forward refs using `React.forwardRef` with an arrow function body (stock shadcn CLI convention — see 3.B exception).
 - Use `cn()` from `@/lib/utils` for all class merging.
 - `asChild` prop supported via `@radix-ui/react-slot`.
 - Icon sizing convention: `[&_svg]:size-4` for buttons; `[&>svg]:size-3` for badges.
 
 ### 5.C Icon Strategy
 
-- **Primary:** For icons, primarily use `react-icons/fa` (Font Awesome).
-- Both `lucide-react` and `react-icons` are installed; use `react-icons/fa` for standard icons.
+- Use `react-icons/fa` (Font Awesome) for all icons.
+- Both `lucide-react` and `react-icons` are installed, but `react-icons/fa` is the standard for this project — don't mix in `lucide-react` for new icons.
 
 ### 5.D Refs & Cleanup
 
@@ -206,14 +207,15 @@ import { website } from '@/constants';
 ## 9. Hard Rules (Pre-Flight)
 
 - [ ] Single quotes and semicolons everywhere.
-- [ ] Use `function` keyword for components; no arrow functions.
+- [ ] No trailing commas anywhere.
+- [ ] Use `function` keyword for components; no arrow functions — except `src/components/ui/` (shadcn primitives), which keep the stock CLI arrow-function + `forwardRef` style.
 - [ ] Named exports preferred over default exports.
 - [ ] Destructure props in the function signature.
 - [ ] Use `type` for prop definitions; use `as const` for static data.
 - [ ] `React.forwardRef` + `.displayName` for ref-forwarding components.
 - [ ] Import order: React/Next -> third-party -> `@/` internal -> relative.
 - [ ] Server Components by default; isolate `'use client'` to leaf files.
-- [ ] Use custom icons from `src/components/icons/` first; fallback to `react-icons/fa` if unavailable.
+- [ ] Use `react-icons/fa` for all icons; don't mix in `lucide-react`.
 - [ ] Use `cn()` from `@/lib/utils` for class merging.
 - [ ] `useEffect` must have cleanup for listeners, observers, and `requestAnimationFrame`.
 - [ ] Use `useCallback` for stable callbacks passed to effects or children.
