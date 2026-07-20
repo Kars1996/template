@@ -87,7 +87,7 @@ import { Button } from '@/components/ui/button';
 
 import { NAVBAR_LINKS } from '@/constants';
 
-function NavBar({ authed }: { authed: boolean }) {
+export function NavBar({ authed }: { authed: boolean }) {
   return (
     <header>
       {NAVBAR_LINKS.map((l) => (
@@ -98,8 +98,6 @@ function NavBar({ authed }: { authed: boolean }) {
     </header>
   );
 }
-
-export { NavBar };
 ```
 
 ---
