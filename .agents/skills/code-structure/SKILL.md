@@ -340,7 +340,51 @@ function useScreenWidth() {
 
 ---
 
-## 11. Hard Rules (Pre-Flight)
+## 11. Engineering Principles
+
+These apply above and beyond file structure and syntax — they govern the judgment calls behind any change.
+
+### 11.A No Backward-Compatibility Layers
+
+- Do not preserve backward compatibility when you change existing code.
+- Remove obsolete paths, flags, and functions instead of adding compatibility shims, fallbacks, or migration layers on top of them.
+- If a call site still uses the old path, update the call site. Do not keep the old path alive "just in case."
+
+### 11.B Simplicity First
+
+- Choose the simplest implementation that fully meets the current requirements — nothing more.
+- Avoid speculative abstractions, configuration options, and indirection added for a future need that has not been asked for yet.
+- If you find yourself adding a parameter, layer, or flag "in case it's needed later," stop and remove it unless the current requirements need it.
+
+### 11.C Grow The System In Layers
+
+- Start from the smallest version of a feature that works end to end.
+- Add each new capability on top of a product that already works, not in parallel with a half-finished rewrite.
+- Never trade a working product for unfinished complexity. Do not rip out a working path until its replacement is complete and works end to end.
+
+### 11.D Modularity & Separation of Concerns
+
+- Keep components modular. Give each component, hook, and module one clear concern.
+- This is the same principle behind isolating client logic into leaf components (see 5.A) — apply it as a general rule for splitting files and responsibilities, not only for the client/server boundary.
+
+### 11.E Prefer Established Libraries
+
+- Prefer established, well-maintained libraries when they reduce overall complexity or improve reliability.
+- Do not reimplement common functionality (date handling, form validation, state management, etc.) without a clear reason the existing options do not fit.
+
+### 11.F Lean On What's Already There
+
+- Before adding a new package or writing a new implementation, check the dependencies already in the project (see `package.json`) and the local `UTILS_REGISTRY.md` (see Section 10).
+- Do not assume a library lacks a capability without checking its documentation and TypeScript types first.
+
+### 11.G Build For The Long Term
+
+- Make architectural decisions for the long term.
+- Do not accept a stopgap that only works for now and is meant to be replaced later. This does not conflict with 11.C: build the smallest complete layer, but design that layer as something meant to stay, not as throwaway scaffolding.
+
+---
+
+## 12. Hard Rules (Pre-Flight)
 
 - [ ] Single quotes and semicolons everywhere.
 - [ ] No trailing commas anywhere.
@@ -360,3 +404,9 @@ function useScreenWidth() {
 - [ ] Comments are added only where the code's names can't explain the "why" (see 9.A); code is self-documenting first.
 - [ ] All code comments follow ASD-STE100 Simplified Technical English (see Section 9).
 - [ ] Checked for an existing utility before writing a new one, and updated `UTILS_REGISTRY.md` for any new shared utility (see Section 10).
+- [ ] No backward-compatibility shims added; obsolete paths were removed, not kept alongside new ones (see 11.A).
+- [ ] Implementation is the simplest one that meets current requirements; no speculative abstractions or config (see 11.B).
+- [ ] New capability was built on top of a working product, not alongside an unfinished rewrite (see 11.C).
+- [ ] Components and modules stay single-concern (see 11.D).
+- [ ] Checked existing dependencies and established libraries before reimplementing something or adding a new package (see 11.E, 11.F).
+- [ ] The change is a long-term architectural fit, not a stopgap meant to be redone later (see 11.G).
