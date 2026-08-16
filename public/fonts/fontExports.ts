@@ -8,43 +8,43 @@ Contact Kars for any enquiries
 */
 
 export const Satoshi = localFont({
-    src: "./Satoshi.ttf",
+    src: "./Satoshi.woff2",
     variable: "--font-satoshi",
     weight: "300 900",
 });
 
 export const GeistVF = localFont({
-    src: "./GeistVF.woff",
+    src: "./GeistVF.woff2",
     variable: "--font-geist",
     weight: "100 900",
 });
 
 export const GeistMonoVF = localFont({
-    src: "./GeistMonoVF.woff",
+    src: "./GeistMonoVF.woff2",
     variable: "--font-geist-mono",
     weight: "300 900",
 });
 
 export const GeneralSans = localFont({
-    src: "./GeneralSans.ttf",
+    src: "./GeneralSans.woff2",
     variable: "--font-general-sans",
     weight: "200 700",
 });
 
 export const Raleway = localFont({
-    src: "./Raleway.ttf",
+    src: "./Raleway.woff2",
     variable: "--font-raleway",
     weight: "100 900",
 });
 
 export const Neon = localFont({
-    src: "./Neon.ttf",
+    src: "./Neon.woff2",
     variable: "--font-neon",
     weight: "200 800",
 });
 
 export const Argon = localFont({
-    src: "./Argon.ttf",
+    src: "./Argon.woff2",
     variable: "--font-argon",
     weight: "200 800",
 });
